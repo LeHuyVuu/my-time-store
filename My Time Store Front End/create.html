@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create User</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="custom.js"></script>
+    <style>
+        /* Styles for the entire body */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #a8edea , #fed6e3);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container for the form */
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        /* Headings */
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Inputs and select elements */
+        input[type="text"],
+        input[type="password"],
+        input[type="email"], /* Added email input style */
+        select {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        /* Buttons */
+        .form-buttons {
+            display: flex;
+            justify-content: center;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Styling the input labels */
+        form label {
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        /* Adding some space between form elements */
+        form input[type="text"] + br,
+        form input[type="password"] + br,
+        form input[type="email"] + br, /* Added email line break */
+        form select + br {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Create new account</h1>
+    <form id="registrationForm" method="POST"> 
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required><br>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required><br>
+    
+        <label for="phone">Phone number</label>
+        <input type="text" id="phone" name="phone" required><br>
+    
+        <label for="address">Address</label>
+        <input type="text" id="address" name="address" required><br>
+    
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required><br>
+    
+        <label for="confirm">Confirm Password</label>
+        <input type="password" id="confirm" name="confirm" required><br>
+    
+        <div class="form-buttons">
+            <input type="reset" value="Reset">
+            <input id="btn-create" type="submit" value="Register">
+        </div>
+    </form>
+</body>
+</html>
