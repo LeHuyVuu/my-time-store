@@ -51,6 +51,7 @@ public class SecurityConfig {
                             .requestMatchers(HttpMethod.POST, "/api/v1/users/register").permitAll()
                             .requestMatchers(HttpMethod.GET, "/api/v1/products/search").permitAll()
                             .requestMatchers(HttpMethod.GET, "/api/v1/products/getProduct").permitAll()
+                            .requestMatchers(HttpMethod.GET,"api/v1/mail/sendEmail").permitAll()
                             .anyRequest().authenticated(); // Các yêu cầu khác cần xác thực
                 });
 
