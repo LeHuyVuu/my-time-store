@@ -22,19 +22,19 @@ import java.util.ArrayList;
 @Component
 public class CustomJwtFilter extends OncePerRequestFilter {
 
-@Autowired
+    @Autowired
     JWTUtilsHelper jwtUtilsHelper;
 
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-    if(getTokenFromHeader(request) != null && !jwtUtilsHelper.isTokenLoggedOut(getTokenFromHeader(request))) {
-        if( jwtUtilsHelper.verifyToken(getTokenFromHeader(request))  ){
-            UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken("","",new ArrayList<>());
-            SecurityContext securityContext = SecurityContextHolder.getContext();
-            securityContext.setAuthentication(authenticationToken);
+        if (getTokenFromHeader(request) != null && !jwtUtilsHelper.isTokenLoggedOut(getTokenFromHeader(request))) {
+            if (jwtUtilsHelper.verifyToken(getTokenFromHeader(request))) {
+                UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken("", "", new ArrayList<>());
+                SecurityContext securityContext = SecurityContextHolder.getContext();
+                securityContext.setAuthentication(authenticationToken);
+            }
         }
-    }
         filterChain.doFilter(request, response);
     }
 
@@ -46,7 +46,6 @@ public class CustomJwtFilter extends OncePerRequestFilter {
         }
         return token;
     }
-
 
 
 }
