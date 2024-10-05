@@ -56,7 +56,7 @@ public class UserService {
 
     public void createUser(UserRequest userRequest) {
         User user = new User();
-        user.setUserID("est");
+        user.setUserId("est");
         user.setUsername(userRequest.getUsername()); // Lấy tên người dùng từ UserRequest
         user.setPassword( encoder.encode(userRequest.getPassword())); // Mã hóa và gán mật khẩu đã mã hóa
         user.setAddress(userRequest.getAddress()); // Lấy địa chỉ từ UserRequest
@@ -123,7 +123,7 @@ public class UserService {
 
         // Kiểm tra xem mật khẩu hiện tại có khớp không
         if (encoder.matches(passwordRequest.getCurrentPassword(), user.getPassword())) {
-            userRepository.updatePassword(encoder.encode(passwordRequest.getNewPassword()), user.getUserID());
+            userRepository.updatePassword(encoder.encode(passwordRequest.getNewPassword()), user.getUserId());
             return true; // Cập nhật thành công
         }
 

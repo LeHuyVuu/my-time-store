@@ -35,13 +35,13 @@ public class JWTUtilsHelper {
         User user = userRepository.findUsersByUsername(data);
 
         String jws = Jwts.builder().subject(data)
-                .claim("userid", user.getUserID())
+                .claim("userid", user.getUserId())
                 .claim("role", user.getRoles())
                 .issuer("MyTimeStore.com")
                 .issuedAt(new Date())
                 .claim("jti", UUID.randomUUID().toString())
                 .expiration(new Date(
-                        Instant.now().plus(7, ChronoUnit.DAYS).toEpochMilli()
+                        Instant.now().plus(2, ChronoUnit.DAYS).toEpochMilli()
                 ))
                 .signWith(key).compact();
         return jws;

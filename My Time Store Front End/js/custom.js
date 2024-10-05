@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             </div>
                         </div>
                     `;
-                
+
                 }
                 productList.appendChild(productItem);
             });
@@ -228,52 +228,50 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 });
-
 // ********** ADD TO CART FUNCTION *************** //
 function addToCart(productId, productName, price, quantity = 1, image) {
-    // Get the current cart from localStorage
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    // Lấy token từ localStorage
+    let token = localStorage.getItem('authToken');
+    
+    // Kiểm tra nếu token không tồn tại
+    if (!token) {
+        alert('You must be logged in to add items to the cart.');
+        return;
+    }
 
-    // Fetch product details including stock quantity from the API
+    // Gọi API để lấy thông tin sản phẩm và số lượng tồn kho
     fetch(`http://localhost:8080/api/v1/products/getProduct?productId=${productId}`)
         .then(response => response.json())
         .then(responseData => {
             const product = responseData.data;
-            const availableStock = product.quantity; // Sử dụng trường 'quantity' từ phản hồi API
+            const availableStock = product.quantity; // Lấy số lượng tồn kho từ phản hồi API
 
-            // Check if the product already exists in the cart
-            const existingProduct = cart.find(item => item.productId === productId);
-
-            if (existingProduct) {
-                // Nếu số lượng trong giỏ và số muốn thêm vượt quá số lượng tồn kho
-                if (existingProduct.quantity + quantity > availableStock) {
-                    alert(`Sorry, only ${availableStock} items are available in stock.`);
-                } else {
-                    // Cập nhật số lượng nếu đủ hàng
-                    existingProduct.quantity += quantity;
-                    alert('Product added to cart!');
-                }
+            // Kiểm tra nếu số lượng yêu cầu lớn hơn số lượng tồn kho
+            if (quantity > availableStock) {
+                alert(`Sorry, only ${availableStock} items are available in stock.`);
             } else {
-                // Kiểm tra số lượng trước khi thêm mới vào giỏ
-                if (quantity > availableStock) {
-                    alert(`Sorry, only ${availableStock} items are available in stock.`);
-                } else {
-                    // Thêm sản phẩm mới vào giỏ
-                    const newProduct = {
+                // Gửi yêu cầu thêm sản phẩm vào giỏ hàng lên server
+                fetch(`http://localhost:8080/api/v1/cart/add`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}` // Gửi token kèm theo yêu cầu
+                    },
+                    body: JSON.stringify({
                         productId: productId,
-                        productName: productName,
-                        price: price,
-                        quantity: quantity,
-                        image: image
-                    };
-                    cart.push(newProduct);
-                    alert('Product added to cart!');
-                }
+                        quantity: quantity, // Gửi số lượng yêu cầu
+                    })
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            console.log('Product successfully added to the server cart!');
+                            alert('Product added to cart!');
+                        } else {
+                            console.error('Failed to add product to the server cart');
+                        }
+                    })
+                    .catch(error => console.error('Error adding product to server cart:', error));
             }
-
-            // Save the updated cart back to localStorage
-            localStorage.setItem('cart', JSON.stringify(cart));
-            console.log(localStorage.getItem('cart'));
         })
         .catch(error => {
             console.error('Error fetching product data:', error);

@@ -48,7 +48,7 @@ public class AuthenticateService {
         boolean authenticated = passwordEncoder.matches(loginRequest.getPassword(), user.getPassword());
 
         if (!authenticated) {
-            throw new AuthenticationFailedException("Wrong password");
+            throw new RuntimeException("Wrong password");
         }
         return true;
     }
@@ -101,15 +101,5 @@ public class AuthenticateService {
     }
 }
 
-class UserNotFoundException extends RuntimeException {
-    public UserNotFoundException(String message) {
-        super(message);
-    }
-}
 
-class AuthenticationFailedException extends RuntimeException {
-    public AuthenticationFailedException(String message) {
-        super(message);
-    }
-}
 

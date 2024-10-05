@@ -19,6 +19,6 @@ public class OrderRequest {
     String username;  // Get from token
     double total;
     Date orderDate;
-    User user;
+
     List<CartItem> cartItems; // Thêm trường này để chứa thông tin sản phẩm
 }

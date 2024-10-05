@@ -81,7 +81,7 @@ public class UserController {
     public ResponseEntity<ResponseObject> updateUser(@RequestBody UpdateUserRequest newUser) {
         User user = userService.getUserByUsername(newUser.getUsername());
         if (user != null && user.isStatus()) {
-           User userUpdated =  userService.updateUser(newUser, user.getUserID());
+           User userUpdated =  userService.updateUser(newUser, user.getUserId());
             return ResponseEntity.status(HttpStatus.OK).body(
                     new ResponseObject("200", "User deleted successfully!", userUpdated)
             );

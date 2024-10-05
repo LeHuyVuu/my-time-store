@@ -40,10 +40,6 @@ public class AuthenticateController {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody @Valid LoginRequest loginRequest) {
-//        var credential = SecurityContextHolder.getContext().getAuthentication();
-//        log.info("username: " + credential.getName());
-//        log.info("role: " + credential.getAuthorities());
-        // Gọi phương thức checkLogin từ một đối tượng của AuthenticateService
         if (authenticateService.checkLogin(loginRequest)) {
             String token = jwtUtilsHelper.generateToken(loginRequest.getUsername());
             return APIRepsonse("200", "Login Successfully", HttpStatus.OK, token);

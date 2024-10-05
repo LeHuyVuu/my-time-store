@@ -13,6 +13,5 @@ import java.util.List;
 @Repository
 public interface OrderRepository extends JpaRepository<Order, String> {
 
-    @Query(value = "SELECT orderid, order_date, total, user_id FROM orders WHERE user_id = :userId", nativeQuery = true)
-    List<Order> getAllOrder(@Param("userId") String userId);
+    List<Order> findByUser_UserId(String user_userId);
 }

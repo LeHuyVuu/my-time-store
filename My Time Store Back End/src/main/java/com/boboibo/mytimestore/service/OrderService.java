@@ -105,7 +105,7 @@ public class OrderService {
                 .parseClaimsJws(token);
         String userId = (String) jws.getBody().get("userid");
 
-        List<Order> list =  orderRepository.getAllOrder(userId);
+        List<Order> list =  orderRepository.findByUser_UserId(userId);
 
         for (Order order : list) {
 //            orderDetailRepository.findBy
