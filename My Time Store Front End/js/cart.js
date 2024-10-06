@@ -8,9 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({
-            userId: '1c924cd0-f788-4297-b4ab-49f90d110508' // Add body if your API requires it
-        })
+
     })
     .then(response => response.json())
     .then(cart => {
@@ -49,9 +47,14 @@ document.addEventListener('DOMContentLoaded', function () {
                                 <tr id="item-row-${item.productId}">
                                     <td>${item.productName}</td>
                                     <td><img style="width: 100px; height: 100px; border-radius: 10px" src="${item.image || 'default_image.png'}"></td>
-                                    <td>
-                                        <input type="number" name="quantity" value="${item.quantity}" min="1" onchange="updateQuantity('${item.productId}', this.value)"/>
-                                    </td>
+                                 <td>
+    <select name="quantity" onchange="updateQuantity('${item.productId}', this.value)">
+        ${[...Array(10).keys()].map(i => `
+            <option value="${i + 1}" ${item.quantity == i + 1 ? 'selected' : ''}>${i + 1}</option>
+        `).join('')}
+    </select>
+</td>
+
                                     <td>$${itemPrice.toFixed(2)}</td>
                                     <td id="item-total-${item.productId}">$${itemTotal.toFixed(2)}</td>
                                     <td>
@@ -123,10 +126,8 @@ function updateQuantity(productId, quantity) {
             // Cập nhật tổng giá cho sản phẩm trong DOM
             const itemTotal = item.price * item.quantity;
             document.querySelector(`#item-total-${productId}`).textContent = `$${itemTotal.toFixed(2)}`;
-
-            // Cập nhật tổng số tiền tổng thể
-            updateTotal(cart);
         }
+        location.reload();
     })
     .catch(error => {
         console.error('Error updating item quantity:', error);
@@ -171,9 +172,9 @@ function checkOutFunction() {
 
     // Fetch cart data from the API
     fetch('http://localhost:8080/api/v1/cart/get', {
-        method: 'POST', // Sử dụng GET để lấy dữ liệu
+        method: 'POST',
         headers: {
-            'Authorization': `Bearer ${token}`, // Thêm token vào header
+            'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
         }
     })
@@ -184,17 +185,13 @@ function checkOutFunction() {
         return response.json();
     })
     .then(data => {
-        // Lấy giỏ hàng từ dữ liệu trả về
-        const cart = data.data || []; // Dữ liệu giỏ hàng ở đây là data.data
-
-        // Kiểm tra xem cart có phải là mảng không
+        const cart = data.data || [];
         if (!Array.isArray(cart) || cart.length === 0) {
             throw new Error('Cart is empty or not an array');
         }
 
-        // Kiểm tra tất cả các sản phẩm trong giỏ hàng
         const stockChecks = cart.map(item => {
-            return fetch(`http://localhost:8080/api/v1/products/getProduct?productId=${item.productId}`) // Gọi API để lấy thông tin sản phẩm
+            return fetch(`http://localhost:8080/api/v1/products/getProduct?productId=${item.productId}`)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error(`Error fetching product data for ${item.productName}: ${response.status}`);
@@ -204,7 +201,6 @@ function checkOutFunction() {
                 .then(productData => {
                     if (productData.status === '200') {
                         const product = productData.data;
-                        // Kiểm tra số lượng yêu cầu không vượt quá số lượng tồn kho
                         if (item.quantity > product.quantity) {
                             throw new Error(`Not enough stock for ${item.productName}. Available: ${product.quantity}, Requested: ${item.quantity}`);
                         }
@@ -214,10 +210,9 @@ function checkOutFunction() {
                 });
         });
 
-        return Promise.all(stockChecks).then(() => cart); // Trả về cart sau khi kiểm tra hàng tồn kho
+        return Promise.all(stockChecks).then(() => cart);
     })
     .then(cart => {
-        // Fetch user information
         return fetch('http://localhost:8080/api/v1/users/myInfo', {
             method: 'GET',
             headers: {
@@ -231,38 +226,31 @@ function checkOutFunction() {
             return response.json();
         })
         .then(userData => {
-            if (userData && userData.data) {
-                const user = userData.data;
+            const user = userData.data;
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
-                // Create the order request
-                const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0); // Tính tổng
-                const orderRequest = {
-                    username: user.username,
-                    total: total,
-                    orderDate: new Date().toISOString(),
-                    cartItems: cart.map(item => ({
-                        product: { // Đóng gói productName trong một đối tượng product
-                            productName: item.productName
-                        },
-                        quantity: item.quantity
-                    }))
-                };
-
-                // In ra orderRequest để kiểm tra
-                console.log("Order Request:", orderRequest);
-
-                // Gửi yêu cầu thanh toán
-                return fetch('http://localhost:8080/api/v1/order/checkout', {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${token}`,
-                        'Content-Type': 'application/json'
+            const orderRequest = {
+                username: user.username,
+                total: total,
+                orderDate: new Date().toISOString(),
+                cartItems: cart.map(item => ({
+                    product: {
+                        productName: item.productName
                     },
-                    body: JSON.stringify(orderRequest)
-                });
-            } else {
-                throw new Error('User data not found.');
-            }
+                    quantity: item.quantity
+                }))
+            };
+
+            console.log("Order Request:", orderRequest);
+
+            return fetch('http://localhost:8080/api/v1/order/checkout', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(orderRequest)
+            });
         });
     })
     .then(response => {
@@ -273,11 +261,116 @@ function checkOutFunction() {
     })
     .then(data => {
         alert('Order placed successfully!');
-        localStorage.removeItem('cart'); // Xóa giỏ hàng
-        window.location.href = 'success.html'; // Chuyển hướng đến trang thành công
+        localStorage.removeItem('cart');
+        deleteAllCartItems(token);  // Call the delete function after successful checkout
+        sendEmailAfterCheckout(token);
     })
     .catch(error => {
         console.error('Error:', error);
         alert(`Checkout failed: ${error.message}`);
+    });
+}
+
+// Send email after check out
+function sendEmailAfterCheckout(token) {
+    // Bước 1: Lấy email người dùng từ API myInfo
+    fetch('http://localhost:8080/api/v1/users/myInfo', {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Error fetching user information: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(userData => {
+        const userEmail = userData.data.email;
+
+        // Bước 2: Lấy danh sách sản phẩm từ API giỏ hàng
+        return fetch('http://localhost:8080/api/v1/cart/get', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Error fetching cart data: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(cartData => {
+            const cartItems = cartData.data || [];
+            console.log(cartItems)
+            const productList = cartItems.map(item => 
+                `Product: ${item.productName}\nQuantity: ${item.quantity}\nPrice: $${item.price}\nImage: ${item.image}`
+            )
+            
+            // Nội dung email với danh sách sản phẩm
+            const emailBody = `Thank you for your purchase at Koi Center. Your order has been successfully placed!
+            Here are the details of your order:
+            ${productList}
+            `;
+            
+            // In thử nội dung email ra console để kiểm tra
+            console.log("Email Body: ", productList);
+            // Bước 3: Gửi email với thông tin người dùng và danh sách sản phẩm
+            return fetch('http://localhost:8080/api/v1/mail/sendEmail', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    recipient: userEmail,
+                    subject: "Thank you for your order! From MyTimeStore with love ❤️",
+                    body: emailBody
+                })
+            });
+        });
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Error sending email: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log("Email sent successfully:", data);
+        alert('A confirmation email has been sent!');
+    })
+    .catch(error => {
+        console.error('Error sending email:', error);
+        alert('Failed to send confirmation email.');
+    });
+}
+
+// Function to delete all cart items
+function deleteAllCartItems(token) {
+    fetch('http://localhost:8080/api/v1/cart/deleteAll', {
+        method: 'DELETE',
+        headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Error deleting cart items: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Cart items deleted successfully');
+        window.location.href = 'success.html'; // Redirect to success page
+    })
+    .catch(error => {
+        console.error('Error deleting cart items:', error);
+        alert(`Failed to delete cart items: ${error.message}`);
     });
 }

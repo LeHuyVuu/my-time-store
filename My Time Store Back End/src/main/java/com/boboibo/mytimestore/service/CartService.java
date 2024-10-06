@@ -7,6 +7,7 @@ import com.boboibo.mytimestore.model.request.CartItemRequest;
 import com.boboibo.mytimestore.model.response.CartResponse;
 import com.boboibo.mytimestore.repository.CartItemRepository;
 import com.boboibo.mytimestore.repository.ProductRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -122,6 +123,7 @@ public class CartService {
         }
     }
 
+    @Transactional
     public boolean deleteAll(User myInfo) {
         try {
             // Call the method to delete cart items for the specified user
