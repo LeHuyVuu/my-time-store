@@ -174,10 +174,17 @@ document.addEventListener('DOMContentLoaded', function () {
                         <div class="product-stock">
                             <span>Quantity in stock: <strong>${product.quantity}</strong></span>
                         </div>
+                
                         <div class="product-quantity">
                             <span>Quantity:</span>
-                            <input type="number" value="1" min="1">
+                            <select name="quantity">
+                                <!-- Tạo danh sách lựa chọn từ 1 tới 10 -->
+                                ${[...Array(10).keys()].map(i => `
+                                    <option value="${i + 1}">${i + 1}</option>
+                                `).join('')}
+                            </select>
                         </div>
+
                         <div class="add-to-cart">
                             <button id="add-to-cart-btn" class="btn btn-primary">Add to Cart</button>
                         </div>
@@ -198,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             const productId = new URLSearchParams(window.location.search).get('productId');
                             const productName = document.querySelector('.product-details-content h2').innerText;
                             const price = parseFloat(document.querySelector('.product-price span').innerText.replace('$', ''));
-                            const quantity = parseInt(document.querySelector('.product-quantity input').value);
+                            const quantity = parseInt(document.querySelector('.product-quantity select').value);
                             const image = document.getElementById('imgProductDetail').src;
 
                             // Gọi hàm addToCart
