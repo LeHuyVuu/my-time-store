@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     // Gán sự kiện click sau khi sản phẩm đã được render vào DOM
                     const addToCartButton = document.getElementById('add-to-cart-btn');
-                    if (addToCartButton && localStorage.getItem('authToken')) {
+               
                         addToCartButton.addEventListener('click', function () {
                             // Lấy dữ liệu sản phẩm
                             const productId = new URLSearchParams(window.location.search).get('productId');
@@ -211,12 +211,8 @@ document.addEventListener('DOMContentLoaded', function () {
                             // Gọi hàm addToCart
                             addToCart(productId, productName, price, quantity, image);
                         });
-                    }
-                    else {
-                        window.location.href = 'login.html'
-                        console.error('Must login before add to cart');
-                    }
-
+               
+                 
 
 
 

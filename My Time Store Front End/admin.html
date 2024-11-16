@@ -1,145 +1,39 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quản lý sản phẩm</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        .container {
-            display: flex;
-        }
-
-        .sidebar {
-            width: 220px; /* Giảm chiều rộng thanh sidebar */
-            background-color: #34495e; /* Màu sắc nhẹ nhàng hơn */
-            color: white;
-       
-            position: fixed;
-            height: 100%;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Đổ bóng cho thanh sidebar */
-        }
-
-        .sidebar h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 1.5em; /* Tăng cỡ chữ tiêu đề */
-        }
-
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .sidebar li {
-            margin: 10px 0; /* Giảm khoảng cách giữa các mục */
-        }
-
-        .sidebar a {
-            color: white;
-            text-decoration: none;
-            display: block; /* Chuyển đổi thành khối để dễ bấm */
-            padding: 8px; /* Giảm padding */
-            border-radius: 5px; /* Bo tròn góc */
-            transition: background-color 0.3s; /* Hiệu ứng chuyển màu */
-        }
-
-        .sidebar a:hover {
-            background-color: #2c3e50; /* Màu nền khi hover */
-        }
-
-        .main-content {
-            flex-grow: 1;
-            padding: 20px;
-            margin-left: 220px; /* Khoảng cách bên trái cho sidebar */
-        }
-
-        h1 {
-            color: #2c3e50;
-        }
-
-        button {
-            padding: 10px 15px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-bottom: 20px; /* Khoảng cách bên dưới */
-        }
-
-        button:hover {
-            background-color: #218838;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border: 1px solid #ccc;
-        }
-
-        th {
-            background-color: #f8f8f8;
-            color: #333;
-        }
-
-        td {
-            background-color: white;
-        }
-
-        .action-buttons {
-            display: flex;
-            gap: 10px;
-        }
-
-        /* Nút tải lên */
-        .upload-btn {
-            background-color: #007bff; /* Màu nút tải lên */
-        }
-
-        .upload-btn:hover {
-            background-color: #0056b3; /* Màu khi hover */
-        }
-
-        /* Nền cho bảng */
-        .table-container {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 5px; /* Bo tròn góc */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng cho bảng */
-        }
-    </style>
+    <link rel="stylesheet" href="mycss/admin.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+
 <body>
     <div class="container">
         <div class="sidebar">
             <h2>Quản lý Admin</h2>
             <ul>
-                <li><a href="#add-product">Thêm sản phẩm</a></li>
-                <li><a href="#product-list">Danh sách sản phẩm</a></li>
                 <li><a href="#statistics">Thống kê</a></li>
                 <li><a href="#change-password">Đổi mật khẩu</a></li>
-                <li><a href="#logout">Đăng xuất</a></li>
+                <li><button id="LogoutButton">Đăng xuất</button></li>
             </ul>
         </div>
 
         <div class="main-content">
             <h1>Danh sách sản phẩm</h1>
+
+            <!-- Thanh tìm kiếm -->
+            <div>
+                <input type="text" id="searchProductName" placeholder="Nhập tên sản phẩm để tìm kiếm">
+                <button id="searchProductButton">Tìm Kiếm</button>
+            </div>
+            <div id="searchResults"></div> <!-- Khu vực hiển thị kết quả tìm kiếm -->
+            
+
             <button id="add-product-btn">Thêm sản phẩm</button>
             <button class="upload-btn" id="upload-btn">Tải lên sản phẩm</button>
-            
+
             <div class="table-container">
                 <table id="product-list">
                     <thead>
@@ -148,109 +42,19 @@
                             <th>Tên sản phẩm</th>
                             <th>Giá</th>
                             <th>Số lượng</th>
+                            <th>Hình ảnh</th>
                             <th>Thao tác</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Dữ liệu sản phẩm sẽ được thêm vào đây -->
+                        <!-- Dữ liệu sản phẩm sẽ được thêm vào đây từ JavaScript -->
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 
-    <script>
-        // Mock data for products
-        const products = [
-            { id: 1, name: 'Sản phẩm 1', price: 100000, stock: 10 },
-            { id: 2, name: 'Sản phẩm 2', price: 200000, stock: 20 },
-            { id: 3, name: 'Sản phẩm 3', price: 300000, stock: 30 }
-        ];
-
-        // Function to render products in the table
-        function renderProducts() {
-            const productList = document.querySelector('#product-list tbody');
-            productList.innerHTML = ''; // Clear existing rows
-            products.forEach(product => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${product.id}</td>
-                    <td>${product.name}</td>
-                    <td>${product.price}</td>
-                    <td>${product.stock}</td>
-                    <td class="action-buttons">
-                        <button onclick="updateProduct(${product.id})">Cập nhật</button>
-                        <button onclick="deleteProduct(${product.id})">Xóa</button>
-                    </td>
-                `;
-                productList.appendChild(row);
-            });
-        }
-
-        // Function to handle adding a new product
-        document.getElementById('add-product-btn').addEventListener('click', function() {
-            const name = prompt('Nhập tên sản phẩm:');
-            const price = prompt('Nhập giá sản phẩm:');
-            const stock = prompt('Nhập số lượng sản phẩm:');
-            
-            const newProduct = {
-                id: products.length + 1,
-                name,
-                price: parseFloat(price),
-                stock: parseInt(stock)
-            };
-            
-            products.push(newProduct);
-            renderProducts();
-        });
-
-        // Function to handle updating a product
-        function updateProduct(id) {
-            const product = products.find(p => p.id === id);
-            if (product) {
-                const newName = prompt('Nhập tên sản phẩm mới:', product.name);
-                const newPrice = prompt('Nhập giá sản phẩm mới:', product.price);
-                const newStock = prompt('Nhập số lượng sản phẩm mới:', product.stock);
-                
-                product.name = newName;
-                product.price = parseFloat(newPrice);
-                product.stock = parseInt(newStock);
-                
-                renderProducts();
-            }
-        }
-
-        // Function to handle deleting a product
-        function deleteProduct(id) {
-            const index = products.findIndex(p => p.id === id);
-            if (index !== -1) {
-                products.splice(index, 1);
-                renderProducts();
-            }
-        }
-
-        // Function to handle file upload
-        document.getElementById('upload-btn').addEventListener('click', function() {
-            const fileInput = document.createElement('input');
-            fileInput.type = 'file';
-            fileInput.accept = '.csv'; // Chỉ chấp nhận file CSV
-            fileInput.onchange = function(event) {
-                const file = event.target.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        const content = e.target.result;
-                        console.log('Nội dung file tải lên:', content);
-                        // Xử lý nội dung file ở đây
-                    };
-                    reader.readAsText(file);
-                }
-            };
-            fileInput.click(); // Mở hộp thoại chọn file
-        });
-
-        // Initial render of products
-        renderProducts();
-    </script>
+    <script src="js/admin.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,173 @@
+/* Typography */
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.7;
+    color: #444;
+    font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #222;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif; /* Use a different font for headings */
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 48px;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+h3 {
+    font-size: 28px;
+}
+
+h4 {
+    font-size: 24px;
+}
+
+h5 {
+    font-size: 20px;
+}
+
+h6 {
+    font-size: 18px;
+}
+
+p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+
+.hero-cap {
+    position: relative;
+    z-index: 2;
+    max-width: 800px; /* Limit the width for better text alignment */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.hero-cap h2 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase; /* Consistent with other headings */
+    letter-spacing: 1px; /* Slight spacing for a modern look */
+}
+
+.hero-cap p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    /* Keep the default color for consistency */
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 60px 0;
+}
+
+.contact-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.contact_form .form-control {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.contact_form .button-contactForm {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+}
+
+.contact_form .button-contactForm:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Footer */
+.footer-area {
+    background-color: #222;
+    color: #fff;
+    padding: 40px 0;
+}
+
+.footer-area .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.single-footer-caption {
+    flex: 1 1 20%; /* Adjusts the width of each column */
+    margin-bottom: 30px;
+    min-width: 200px; /* Ensures a minimum width for smaller screens */
+}
+
+.footer-tittle h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.footer-tittle ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-tittle ul li {
+    margin-bottom: 10px;
+}
+
+.footer-tittle ul li a {
+    color: #007BFF;
+    transition: color 0.3s ease;
+}
+
+.footer-tittle ul li a:hover {
+    color: #0056b3;
+}
+
+.footer-social {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
+.footer-social a {
+    color: #fff;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: #007BFF;
+}
+
+.footer-copy-right {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.footer-copy-right p {
+    margin: 0;
+}

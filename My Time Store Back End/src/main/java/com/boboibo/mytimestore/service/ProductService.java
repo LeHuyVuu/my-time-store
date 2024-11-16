@@ -7,6 +7,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,7 +17,12 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
     public List<Product> getAllProducts() {
-        return productRepository.findAll();
+        List<Product> products = new ArrayList<>();
+        List<Product> list =  productRepository.findAll();
+       for (Product product : list) {
+           if (product.isStatus()) products.add(product);
+       }
+        return products;
     }
 
     public Product getProductByName(String productName) {
@@ -31,17 +37,14 @@ public class ProductService {
                     product1.setProductName(newProduct.getProductName());
                     product1.setPrice(newProduct.getPrice());
                     product1.setQuantity(newProduct.getQuantity());
-                    product1.setExpiryDate(newProduct.getExpiryDate());
-                    product1.setImage(newProduct.getImage());
-                    product1.setStatus(newProduct.isStatus());
                     return productRepository.save(product1);
                 }).orElseThrow(() -> new RuntimeException("User not found"));
     }
 
 
-    public boolean deleteProduct(String productName) {
+    public boolean deleteProduct(String productId) {
         boolean check = false;
-       Product product = productRepository.findProductByProductName(productName);
+       Product product = productRepository.findProductByProductId(productId);
        if(product != null && product.isStatus()) {
            product.setStatus(false);
            productRepository.save(product);

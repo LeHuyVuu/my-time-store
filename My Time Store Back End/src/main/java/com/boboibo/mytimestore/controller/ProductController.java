@@ -75,11 +75,11 @@ public class ProductController {
         }
     }
 
-    @DeleteMapping("/{productName}")
-    ResponseEntity<ResponseObject> deleteProduct(@PathVariable String productName) {
-        Product exists = productService.getProductByName(productName);
+    @DeleteMapping("/{productId}")
+    ResponseEntity<ResponseObject> deleteProduct(@PathVariable String productId) {
+        Product exists = productService.getProductById(productId);
         if (exists != null && exists.isStatus() ) {
-            productService.deleteProduct(productName);
+            productService.deleteProduct(productId);
             return ResponseEntity.status(HttpStatus.OK).body(
                     new ResponseObject("200", "Delete Successfully", "")
             );

@@ -41,7 +41,7 @@ public class JWTUtilsHelper {
                 .issuedAt(new Date())
                 .claim("jti", UUID.randomUUID().toString())
                 .expiration(new Date(
-                        Instant.now().plus(2, ChronoUnit.DAYS).toEpochMilli()
+                        Instant.now().plus(10, ChronoUnit.DAYS).toEpochMilli()
                 ))
                 .signWith(key).compact();
         return jws;

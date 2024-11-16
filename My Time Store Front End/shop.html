@@ -22,114 +22,9 @@
     <link rel="stylesheet" href="assets/css/slick.css">
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="mycss/shop.css">
     <style>
-        .nav-search {
-            display: flex;
-            align-items: center;
-        }
 
-        .nav-search form {
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-search input[type="text"] {
-            padding: 8px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 15px;
-            outline: none;
-            width: 200px;
-            transition: all 0.3s ease;
-        }
-
-        .nav-search input[type="text"]:focus {
-            border-color: #007BFF;
-        }
-
-        .nav-search button {
-            background: none;
-            border: none;
-            padding: 8px;
-            cursor: pointer;
-            outline: none;
-        }
-
-        .nav-search button:hover span {
-            color: #007BFF;
-        }
-
-        .nav-search .flaticon-search {
-            font-size: 18px;
-            color: #333;
-            transition: color 0.3s ease;
-        }
-        .out-of-stock {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 0, 0, 0.5); /* Nền màu đỏ với độ trong suốt */
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    font-weight: bold;
-    z-index: 10; /* Đảm bảo thông báo hiển thị trên ảnh sản phẩm */
-    opacity: 0; /* Bắt đầu ở trạng thái không nhìn thấy */
-    transition: opacity 0.3s ease; /* Thêm hiệu ứng chuyển động */
-}
-
-.single-popular-items:hover .out-of-stock {
-    opacity: 1; /* Hiển thị thông báo khi hover */
-}
-
-.popular-img {
-    position: relative; /* Để vị trí tuyệt đối của thông báo "Out of Stock" hoạt động */
-    overflow: hidden; /* Ẩn các phần tử vượt quá kích thước hình ảnh */
-}
-
-.single-popular-items.out-of-stock-effect {
-    filter: blur(2px); /* Làm mờ hình ảnh */
-    pointer-events: none; /* Ngăn không cho người dùng tương tác với sản phẩm */
-}
-.out-of-stock {
-    position: absolute;
-    top: 50%; /* Đặt nó vào giữa hình ảnh */
-    left: 50%;
-    transform: translate(-50%, -50%); /* Đưa nó về giữa */
-    background-color: rgba(255, 0, 0, 0.8); /* Nền màu đỏ với độ trong suốt */
-    color: white; /* Màu chữ trắng */
-    padding: 10px 20px; /* Thêm khoảng cách xung quanh chữ */
-    border-radius: 5px; /* Bo tròn góc */
-    font-size: 20px; /* Kích thước chữ lớn hơn */
-    font-weight: bold; /* Chữ đậm */
-    text-align: center; /* Căn giữa chữ */
-    z-index: 10; /* Đảm bảo thông báo hiển thị trên ảnh sản phẩm */
-    transition: transform 0.3s ease, opacity 0.3s ease; /* Thêm hiệu ứng chuyển động */
-    opacity: 0; /* Bắt đầu ở trạng thái không nhìn thấy */
-}
-
-.single-popular-items:hover .out-of-stock {
-    opacity: 1; /* Hiển thị thông báo khi hover */
-    transform: translate(-50%, -50%) scale(1.05); /* Tăng kích thước nhẹ khi hover */
-}
-
-.single-popular-items.out-of-stock-effect {
-    filter: blur(2px); /* Làm mờ hình ảnh */
-    pointer-events: none; /* Ngăn không cho người dùng tương tác với sản phẩm */
-}
-
-.popular-img {
-    position: relative; /* Để vị trí tuyệt đối của thông báo "Out of Stock" hoạt động */
-    overflow: hidden; /* Ẩn các phần tử vượt quá kích thước hình ảnh */
-}
-.strikethrough {
-    text-decoration: line-through; /* Gạch ngang */
-    color: gray; /* Bạn có thể thay đổi màu sắc cho phù hợp */
-}
     </style>
 </head>
 
@@ -186,31 +81,13 @@
                             </ul>
                         </div>
                     </div>
-                    <!-- Mobile Menu -->
-                    <div class="col-12">
-                        <div class="mobile_menu d-block d-lg-none"></div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
         <!-- Header End -->
     </header>
     <main>
-        <!-- Hero Area Start-->
-        <div class="slider-area">
-            <div class="single-slider slider-height2 d-flex align-items-center">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="hero-cap text-center">
-                                <h2>Shoes Shop</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Hero Area End-->
         <!-- Latest Products Start -->
         <section class="popular-items latest-padding">
             <!-- Container for the product list -->
@@ -232,6 +109,96 @@
         </div>
     </div>
     <!-- Search model end -->
+    <footer>
+        <!-- Footer Start-->
+        <div class="footer-area footer-padding">
+            <div class="container">
+                <div class="row d-flex justify-content-between">
+                    <div class="col-xl-3 col-lg-3 col-md-5 col-sm-6">
+                        <div class="single-footer-caption mb-50">
+                            <div class="single-footer-caption mb-30">
+                                <!-- logo -->
+                                <div class="footer-logo">
+                                    <a href="home.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
+                                </div>
+                                <div class="footer-tittle">
+                                    <div class="footer-pera">
+                                        <p>Asorem ipsum adipolor sdit amet, consectetur adipisicing elitcf sed do
+                                            eiusmod tem.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-3 col-sm-5">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <h4>Quick Links</h4>
+                                <ul>
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="#"> Offers & Discounts</a></li>
+                                    <li><a href="#"> Get Coupon</a></li>
+                                    <li><a href="#"> Contact Us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-7">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <h4>New Products</h4>
+                                <ul>
+                                    <li><a href="#">Woman Cloth</a></li>
+                                    <li><a href="#">Fashion Accessories</a></li>
+                                    <li><a href="#"> Man Accessories</a></li>
+                                    <li><a href="#"> Rubber made Toys</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-5 col-sm-7">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <h4>Support</h4>
+                                <ul>
+                                    <li><a href="#">Frequently Asked Questions</a></li>
+                                    <li><a href="#">Terms & Conditions</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="#">Report a Payment Issue</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Footer bottom -->
+                <div class="row align-items-center">
+                    <div class="col-xl-7 col-lg-8 col-md-7">
+                        <div class="footer-copy-right">
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;
+                                <script>document.write(new Date().getFullYear());</script> All rights reserved | This
+                                template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a
+                                    href="https://colorlib.com" target="_blank">Colorlib</a>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 col-lg-4 col-md-5">
+                        <div class="footer-copy-right f-right">
+                            <!-- social -->
+                            <div class="footer-social">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="https://www.facebook.com/sai4ull"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-behance"></i></a>
+                                <a href="#"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+    </footer>
 
     <!-- JS here -->
     <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
