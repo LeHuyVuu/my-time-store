@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Cuckoo Clock Shop | Home</title>
+    <title>Shoes Shop | Home </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
@@ -22,7 +22,6 @@
     <link rel="stylesheet" href="assets/css/slick.css">
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="mycss/home.css">
 </head>
 
 <body>
@@ -32,7 +31,7 @@
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
-                    <img src="assets/img/logo/logo.png" alt="logo">
+                    <img src="assets/img/logo/logo.png" alt="">
                 </div>
             </div>
         </div>
@@ -53,8 +52,8 @@
                             <nav>
                                 <ul id="navigation">
                                     <li><a href="home.html">Home</a></li>
-                                    <li><a href="shop.html">Shop</a></li>
-                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="shop.html">shop</a></li>
+                                    <li><a href="about.html">about</a></li>
                                     <li><a href="contact.html">Contact</a></li>
                                 </ul>
                             </nav>
@@ -62,8 +61,9 @@
                         <!-- Header Right -->
                         <div class="header-right">
                             <ul>
-                                <li><a href="login.html"><span class="flaticon-user"></span></a></li>
-                                <li><a href="cart.html"><span class="flaticon-shopping-cart" id="shopping-cart"></span></a></li>
+
+                                <li> <a href="login.html"><span class="flaticon-user"></span></a></li>
+                                <li><a href="cart.html"><span class="flaticon-shopping-cart" id="shopping-cart"></span></a> </li>
                             </ul>
                         </div>
                     </div>
@@ -78,7 +78,7 @@
     </header>
     <main>
         <!--? slider Area Start -->
-        <div class="slider-area">
+        <div class="slider-area ">
             <div class="slider-active">
                 <!-- Single Slider -->
                 <div class="single-slider slider-height d-flex align-items-center slide-bg">
@@ -86,17 +86,23 @@
                         <div class="row justify-content-between align-items-center">
                             <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
                                 <div class="hero__caption">
-                                    <h1 data-animation="fadeInLeft" data-delay=".4s" data-duration="2000ms">Discover Your Perfect Cuckoo Clock</h1>
-                                    <p data-animation="fadeInLeft" data-delay=".7s" data-duration="2000ms">Explore our exquisite collection of cuckoo clocks, crafted with precision and elegance to enhance your living space.</p>
+                                    <h1 data-animation="fadeInLeft" data-delay=".4s" data-duration="2000ms">Select Your
+                                        New Perfect Style</h1>
+                                    <p data-animation="fadeInLeft" data-delay=".7s" data-duration="2000ms">Ut enim ad
+                                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                        commodo consequat is aute irure.</p>
                                     <!-- Hero-btn -->
-                                    <div class="hero__btn" data-animation="fadeInLeft" data-delay=".8s" data-duration="2000ms">
+                                    <div class="hero__btn" data-animation="fadeInLeft" data-delay=".8s"
+                                        data-duration="2000ms">
                                         <a href="shop.html" class="btn hero-btn">Shop Now</a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
-                                <div class="hero__image" data-animation="fadeInRight" data-delay=".5s" data-duration="2000ms">
-                                    <img src="https://vangvong.com/wp-content/uploads/2023/11/products-Djong-ho-Cuckoo-ta-tuan-thiet-ke-hinh-anh-ngoi-nha-cung-cac-chi-tiet-noi-bat-tu-Djuc.png" alt="Cuckoo Clock" class="enhanced-floating-image">
+                            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 d-none d-sm-block">
+                                <div class="hero__img" data-animation="bounceIn" data-delay=".4s">
+                                    <img style="border-radius: 20px; height: 130%"
+                                        src="https://giaynam.com/images/upload/giay-cao-co-nam-xu-huong-thoi-trang-thu7.png"
+                                        alt="" class=" heartbeat">
                                 </div>
                             </div>
                         </div>
@@ -106,27 +112,79 @@
             </div>
         </div>
 
+
+
+
+
         <section class="new-product-area section-padding30">
             <div class="container">
                 <!-- Section tittle -->
                 <div class="row">
                     <div class="col-xl-12">
-                        <!-- Add any additional content here -->
+                        <div class="section-tittle mb-70">
+                            <h2>New Arrivals</h2>
+                        </div>
                     </div>
                 </div>
                 <div class="row" id="product-list">
-                    <!-- Product list will be populated here -->
+                   
+                    
                 </div>
             </div>
         </section>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                fetch('http://localhost:8080/api/v1/Products')
+                    .then(response => response.json())
+                    .then(data => {
+                        const productList = document.getElementById('product-list');
+                        productList.innerHTML = ''; // Clear any existing content
+
+                        data.forEach(product => {
+                            const productItem = document.createElement('div');
+                            productItem.classList.add('col-xl-4', 'col-lg-4', 'col-md-6', 'col-sm-6');
+
+                            productItem.innerHTML = `
+                    <div class="single-popular-items mb-50 text-center">
+                        <div class="popular-img">
+                            <img style="width: 200px; height: 200px;" src="${product.imageUrl}" alt="${product.name}">
+                            <div class="img-cap">
+                                <span>
+                                    <a>Add to Cart</a>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="popular-caption">
+                            <h3>c</h3>
+                            <span style="color: red">$ ${product.price}</span>
+                        </div>
+                    </div>
+                `;
+
+                            productList.appendChild(productItem);
+                        });
+                    })
+                    .catch(error => console.error('Error fetching product data:', error));
+            });
+        </script>
+
+
+
+
+
+
         <div class="popular-items section-padding30">
             <div class="container">
                 <!-- Section tittle -->
                 <div class="row justify-content-center">
                     <div class="col-xl-7 col-lg-8 col-md-10">
                         <div class="section-tittle mb-70 text-center">
-                            <h2>Popular Cuckoo Clocks</h2>
-                            <p>Experience the charm and craftsmanship of our most popular cuckoo clocks, each a masterpiece of design and functionality.</p>
+                            <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
+                            <span>$ 45,743</span>
+                            <h2>Popular Items</h2>
+                            <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                                aliqua. Quis ipsum suspendisse ultrices gravida.</p>
                         </div>
                     </div>
                 </div>
@@ -134,32 +192,47 @@
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-popular-items mb-50 text-center">
                             <div class="popular-img">
-                                <img src="https://donghotreotuong.store/wp-content/uploads/2023/08/03-08T-MT10719-1-600x600.jpg" alt="">
+                                <img src="https://dosi-in.com/file/detailed/521/dosiin-new-balance-men-s-new-balance-classic-sneakers-521103521103.jpg?w=670&h=670&fit=fill&fm=webp"
+                                    alt="">
                             </div>
                             <div class="popular-caption">
-                                <h3><a href="">Cuckoo August Schwer</a></h3>
+                                <h3><a href="">áccscas</a></h3>
+                                <span>$ 45,743</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-popular-items mb-50 text-center">
                             <div class="popular-img">
-                                <img src="https://donghotreotuong.store/wp-content/uploads/2023/08/03-08T-MT10719-1-600x600.jpg" alt="">
+                                <img src="https://dosi-in.com/file/detailed/330/dosiin-vans-giay-sneakers-vans-ua-bold-ni-distort-vn-a-wlpvx-330267330267.jpg?w=320&h=320&fit=fill&fm=webp"
+                                    alt="">
+
+
                             </div>
                             <div class="popular-caption">
-                                <h3><a href="">Cuckoo August Schwer</a></h3>
+                                <h3><a href="">Thermo Ball Etip Gloves</a></h3>
+                                <span>$ 45,743</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-popular-items mb-50 text-center">
                             <div class="popular-img">
-                                <img src="https://donghotreotuong.store/wp-content/uploads/2023/08/03-08T-MT10719-1-600x600.jpg" alt="">
+                                <img src="https://dosi-in.com/file/detailed/328/dosiin-converse-giay-sneakers-converse-chuck-taylor-all-star-dainty-328101328101.jpg?w=320&h=320&fit=fill&fm=webp"
+                                    alt="">
+
                             </div>
                             <div class="popular-caption">
-                                <h3><a href="">Cuckoo August Schwer</a></h3>
+                                <h3><a href="">Thermo Ball Etip Gloves</a></h3>
+                                <span>$ 45,743</span>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <!-- Button -->
+                <div class="row justify-content-center">
+                    <div class="room-btn pt-70">
+                        <a href="shop.html" class="btn view-btn1">View More Products</a>
                     </div>
                 </div>
             </div>
@@ -174,27 +247,33 @@
                 <div class="row align-items-center justify-content-between padding-130">
                     <div class="col-lg-5 col-md-6">
                         <div class="watch-details mb-40">
-                            <h2>Cuckoo Clocks of Choice</h2>
-                            <p>Find the perfect cuckoo clock that suits your style and adds a touch of tradition to your home.</p>
+                            <h2>Shoes of Choice</h2>
+                            <p>Enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
                             <a href="shop.html" class="btn">Shop now</a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-10">
                         <div class="choice-watch-img mb-40">
-                            <img style="border-radius: 15px" src="https://i.pinimg.com/736x/a1/07/79/a10779a6632a6ebc2dca666fca58dc9d--cuckoo-clocks-wall-clocks.jpg" alt="">
+                            <img style="border-radius: 15px"
+                                src="https://www.caoto.vn/images/data/2020/08/27/4f5cf3f2a99256cc0f83_eab6218f6bc44cb090e617498d4dfe82_1024x1024.jpg"
+                                alt="">
                         </div>
                     </div>
                 </div>
                 <div class="row align-items-center justify-content-between">
                     <div class="col-lg-6 col-md-6 col-sm-10">
                         <div class="choice-watch-img mb-40">
-                            <img style="border-radius: 15px" src="https://th.bing.com/th/id/OIP.23Q2H4mk3peSkAu2DOYf5QHaLe?w=1033&h=1600&rs=1&pid=ImgDetMain" alt="">
+                            <img style="border-radius: 15px"
+                                src="https://cdn.vuahanghieu.com/unsafe/0x0/left/top/smart/filters:quality(90)/https://admin.vuahanghieu.com/upload/news/content/2021/11/56-jpg-1637894904-26112021094824.jpg"
+                                alt="">
                         </div>
                     </div>
                     <div class="col-lg-5 col-md-6">
                         <div class="watch-details mb-40">
-                            <h2>Cuckoo Clocks of Choice</h2>
-                            <p>Discover the timeless beauty and intricate details of our cuckoo clocks, designed to bring joy and elegance to any room.</p>
+                            <h2>Shoes of Choice</h2>
+                            <p>Enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
                             <a href="shop.html" class="btn">Shop now</a>
                         </div>
                     </div>
@@ -202,6 +281,37 @@
             </div>
         </div>
         <!-- Watch Choice  End-->
+        <!--? Shop Method Start-->
+        <div class="shop-method-area">
+            <div class="ro">
+                <div class="method-wrapper">
+                    <div class="row d-flex justify-content-between">
+                        <div class="col-xl-4 col-lg-4 col-md-6">
+                            <div class="single-method mb-40">
+                                <i class="ti-package"></i>
+                                <h6>Free Shipping Method</h6>
+                                <p>aorem ixpsacdolor sit ameasecur adipisicing elitsf edasd.</p>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6">
+                            <div class="single-method mb-40">
+                                <i class="ti-unlock"></i>
+                                <h6>Secure Payment System</h6>
+                                <p>aorem ixpsacdolor sit ameasecur adipisicing elitsf edasd.</p>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6">
+                            <div class="single-method mb-40">
+                                <i class="ti-reload"></i>
+                                <h6>Secure Payment System</h6>
+                                <p>aorem ixpsacdolor sit ameasecur adipisicing elitsf edasd.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Shop Method End-->
     </main>
     <footer>
         <!-- Footer Start-->
@@ -217,7 +327,8 @@
                                 </div>
                                 <div class="footer-tittle">
                                     <div class="footer-pera">
-                                        <p>Asorem ipsum adipolor sdit amet, consectetur adipisicing elitcf sed do eiusmod tem.</p>
+                                        <p>Asorem ipsum adipolor sdit amet, consectetur adipisicing elitcf sed do
+                                            eiusmod tem.</p>
                                     </div>
                                 </div>
                             </div>
@@ -239,12 +350,12 @@
                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-7">
                         <div class="single-footer-caption mb-50">
                             <div class="footer-tittle">
-                                <h4>New Cuckoo Clocks</h4>
+                                <h4>New Products</h4>
                                 <ul>
-                                    <li><a href="#">Traditional Cuckoo Clocks</a></li>
-                                    <li><a href="#">Modern Cuckoo Clocks</a></li>
-                                    <li><a href="#">Handcrafted Cuckoo Clocks</a></li>
-                                    <li><a href="#">Limited Edition Cuckoo Clocks</a></li>
+                                    <li><a href="#">Woman Cloth</a></li>
+                                    <li><a href="#">Fashion Accessories</a></li>
+                                    <li><a href="#"> Man Accessories</a></li>
+                                    <li><a href="#"> Rubber made Toys</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -266,7 +377,7 @@
                 <!-- Footer bottom -->
                 <div class="row align-items-center">
                     <div class="col-xl-7 col-lg-8 col-md-7">
-                        <!-- Add any additional content here -->
+
                     </div>
                     <div class="col-xl-5 col-lg-4 col-md-5">
                         <div class="footer-copy-right f-right">

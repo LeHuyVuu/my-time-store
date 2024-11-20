@@ -8,158 +8,129 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f5f7fa;
-            color: #333;
-        }
-
         /* Sidebar */
         .sidebar {
             width: 25%;
+            float: left;
             padding: 20px;
-            background-color: #fff;
-            border-right: 1px solid #e3e3e3;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            background-color: #f9f9f9;
+            border-right: 1px solid #ddd;
         }
 
         .profile-pic {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .profile-pic img {
-            width: 120px;
-            height: 120px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .menu,
         .other-menu {
             list-style: none;
             padding: 0;
-            margin: 0;
         }
 
         .menu li,
         .other-menu li {
-            padding: 12px;
-            border-bottom: 1px solid #eee;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
             cursor: pointer;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            border-radius: 4px;
         }
 
+        .menu li.active,
         .menu li:hover,
-        .other-menu li:hover,
-        .menu li.active {
+        .other-menu li:hover {
             background-color: #007bff;
-            color: #fff;
-        }
-
-        .menu li a,
-        .other-menu li a {
-            text-decoration: none;
-            color: inherit;
-            display: block;
+            color: white;
         }
 
         /* Main Content */
         .main-content {
             width: 75%;
+            float: left;
             padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            margin-left: 20px;
         }
 
         .main-content h2 {
             margin-bottom: 20px;
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #007bff;
+            color: #333;
         }
 
         .main-content p {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             color: #666;
         }
 
         form label {
             font-weight: bold;
-            margin-bottom: 8px;
             display: block;
+            margin-bottom: 5px;
         }
 
         form input[type="text"],
         form input[type="email"],
-        form input[type="tel"] {
+        form input[type="tel"],
+        form select {
             width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            background-color: #f9f9f9;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        form input[type="text"]:focus,
-        form input[type="email"]:focus,
-        form input[type="tel"]:focus {
-            border-color: #007bff;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
         }
 
         form button[type="submit"] {
             background-color: #007bff;
             color: white;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 1.1rem;
-            transition: background-color 0.3s, transform 0.3s;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        form button[type="submit"]:hover {
-            background-color: #0056b3;
-            transform: translateY(-2px);
-        }
-
-        #logout {
-            float: right;
-            background-color: #dc3545;
-            color: white;
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
+            transition: background-color 0.3s;
         }
 
-        #logout:hover {
-            background-color: #c82333;
-            transform: translateY(-2px);
+        form button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Clearfix */
+        .container:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Sticky Header */
+        .header-sticky {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         /* Responsive Styles */
         @media (max-width: 768px) {
             .sidebar {
                 width: 100%;
-                margin-bottom: 20px;
-                box-shadow: none;
+                float: none;
+                border-right: none;
+                border-bottom: 1px solid #ddd;
             }
 
             .main-content {
                 width: 100%;
-                padding: 15px;
-                box-shadow: none;
-                margin-left: 0;
+                float: none;
+                padding: 10px;
+            }
+
+            .profile-pic img {
+                width: 100px;
+                height: 100px;
             }
         }
     </style>
@@ -171,7 +142,7 @@
         <div class="header-area">
             <div class="main-header header-sticky">
                 <div class="container-fluid">
-                    <div class="menu-wrapper d-flex justify-content-between align-items-center">
+                    <div class="menu-wrapper">
                         <!-- Logo -->
                         <div class="logo">
                             <a href="home.html"><img src="assets/img/logo/logo.png" alt="Logo"></a>
@@ -189,9 +160,10 @@
                         </div>
                         <!-- Header Right -->
                         <div class="header-right">
-                            <ul class="d-flex align-items-center">
+                            <ul>
                                 <li><a href="login.html"><span class="flaticon-user"></span></a></li>
-                                <li><a href="cart.html"><span class="flaticon-shopping-cart"></span></a></li>
+                                <li><a href="cart.html"><span class="flaticon-shopping-cart"
+                                            id="shopping-cart"></span></a></li>
                             </ul>
                         </div>
                     </div>
@@ -205,23 +177,25 @@
     </header>
 
     <!-- Profile Page -->
-    <div class="container d-flex">
+    <div class="container">
         <div class="sidebar">
             <div class="profile-pic">
-                <img src="assets/img/user/profile-pic.png" alt="Profile Picture">
+                <img src="" alt="Profile Picture">
             </div>
             <ul class="menu">
-                <li class="active"><a href="user-profile.html">Hồ sơ</a></li>
+                <li><a href="user-profile.html">Hồ sơ</a></li>
+                <li>Ngân Hàng</li>
+                <li>Địa Chỉ</li>
                 <li><a href="change-password.html">Đổi Mật Khẩu</a></li>
+                <li>Cài Đặt Thông Báo</li>
             </ul>
             <ul class="other-menu">
                 <li><a href="my-orders.html">Đơn Mua</a></li>
             </ul>
         </div>
-
         <div class="main-content">
             <h2>Hồ Sơ Của Tôi</h2>
-            <button id="logout">Log Out</button>
+            <button id="logout" class="btn btn-danger">Log Out</button>
             <p>Quản lý thông tin hồ sơ để bảo mật tài khoản</p>
             <form id="user_info" method="post">
                 <label for="username">Username</label>
@@ -236,7 +210,80 @@
             </form>
         </div>
     </div>
-    <script src="assets/js/jquery-1.12.4.min.js"></script>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-area footer-padding">
+            <div class="container">
+                <div class="row d-flex justify-content-between">
+                    <div class="col-xl-3 col-lg-3 col-md-5 col-sm-6">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-logo">
+                                <a href="home.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
+                            </div>
+                            <div class="footer-tittle">
+                                <div class="footer-pera">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua.</p>
+                                </div>
+                            </div>
+                            <div class="footer-social">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-5 col-sm-7">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <h4>Shop Categories</h4>
+                                <ul>
+                                    <li><a href="#">Man Fashion</a></li>
+                                    <li><a href="#">Woman Fashion</a></li>
+                                    <li><a href="#">Shoes</a></li>
+                                    <li><a href="#">Accessories</a></li>
+                                    <li><a href="#">Toys</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-5 col-sm-7">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <h4>Support</h4>
+                                <ul>
+                                    <li><a href="#">Frequently Asked Questions</a></li>
+                                    <li><a href="#">Terms & Conditions</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="#">Report a Payment Issue</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-5 col-sm-7">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <h4>Newsletter</h4>
+                                <div class="footer-form">
+                                    <form action="#">
+                                        <input type="text" placeholder="Email">
+                                        <button type="submit">Subscribe</button>
+                                    </form>
+                                </div>
+                                <p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="js/user-profile.js"></script>
     <script src="js/checkLogin.js"></script>

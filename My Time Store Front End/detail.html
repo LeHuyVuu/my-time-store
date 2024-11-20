@@ -22,7 +22,133 @@
     <link rel="stylesheet" href="assets/css/slick.css">
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="mycss/detail.css">
+    
+    <!-- Custom Styles for Detail Page -->
+    <style>
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .product-details-img img {
+                width: 100%;
+            }
+            .product-details-content {
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .product-quantity {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .product-quantity input {
+                width: 100px;
+                margin-top: 10px;
+            }
+
+            .add-to-cart button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        .product-details-area {
+            padding: 50px 0;
+        }
+
+        .product-details-img {
+            margin-bottom: 30px;
+        }
+
+        .product-details-content h2 {
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .product-price {
+            margin: 15px 0;
+            font-size: 24px;
+            color: #FF5E57;
+        }
+
+        .product-description {
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .product-quantity {
+            margin: 20px 0;
+        }
+
+        .product-quantity span {
+            margin-right: 15px;
+            font-size: 18px;
+        }
+
+        .product-quantity input {
+            width: 60px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .add-to-cart button {
+            padding: 10px 30px;
+            font-size: 16px;
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .add-to-cart button:hover {
+            background-color: #0056b3;
+        }
+
+        .tab-content {
+            margin-top: 50px;
+        }
+
+        .tab-pane h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .tab-pane p {
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        /* Tab styling */
+        .nav-tabs {
+            border-bottom: 2px solid #ddd;
+            margin-top: 30px;
+        }
+
+        .nav-tabs .nav-item {
+            margin-bottom: -1px;
+        }
+
+        .nav-tabs .nav-link {
+            border: 1px solid transparent;
+            border-radius: 0;
+            color: #333;
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+
+        .nav-tabs .nav-link.active {
+            border-color: #ddd;
+            border-bottom-color: transparent;
+        }
+        #imgProductDetail{
+            width: 80%;
+            height: 400px;
+        }
+    </style>
 </head>
 
 <body>
@@ -87,7 +213,28 @@
                     </div>
 
                 <!-- Product Description and Reviews -->
-             
+                <div class="row mt-5">
+                    <div class="col-lg-12">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab">Description</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab">Reviews</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="description" role="tabpanel">
+                                <h3>Product Description</h3>
+                                <p>This section contains a more detailed description of the product, covering specifications, materials, sizes, and other relevant information.</p>
+                            </div>
+                            <div class="tab-pane fade" id="reviews" role="tabpanel">
+                                <h3>Customer Reviews</h3>
+                                <p>Here, customers can leave reviews of the product, providing feedback on their experience and satisfaction.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         <!-- Product Details Area End -->

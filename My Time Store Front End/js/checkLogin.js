@@ -4,10 +4,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Lắng nghe sự kiện click vào biểu tượng giỏ hàng
     document.getElementById('shopping-cart').parentElement.addEventListener('click', function (event) {
-        // if (token == null) {
-        //     event.preventDefault(); // Ngăn không cho chuyển đến trang giỏ hàng
-        //     window.location.href = 'login.html'; // Chuyển hướng đến trang đăng nhập
-        // }
+        if (token == null) {
+            event.preventDefault(); // Ngăn không cho chuyển đến trang giỏ hàng
+            window.location.href = 'login.html'; // Chuyển hướng đến trang đăng nhập
+        }
     });
 });
 
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (currentTime >= expirationTime) {
             // Token đã hết hạn
             localStorage.removeItem('authToken'); // Xóa token khỏi localStorage
-       //     window.location.href = 'login.html'; // Chuyển hướng đến trang đăng nhập
+            window.location.href = 'login.html'; // Chuyển hướng đến trang đăng nhập
         } else {
             // Token còn hạn
             console.log("Token is valid");
