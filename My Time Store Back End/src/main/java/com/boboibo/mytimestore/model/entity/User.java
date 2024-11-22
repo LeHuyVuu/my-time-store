@@ -2,9 +2,11 @@ package com.boboibo.mytimestore.model.entity;
 
 
 import com.boboibo.mytimestore.model.RoleEnum;
+import com.boboibo.mytimestore.model.enums.Role;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -20,16 +22,27 @@ import java.util.Set;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "user_id")
     String userId;
     String username;
+    @NotNull
     String password;
-    String address;
-    String phone;
     String email;
+    @Column(name = "full_name")
+    String fullName;
+    @Enumerated(EnumType.STRING)
+    Role role;
     boolean status;
+    String image;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    Customer customer;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    Staff staff;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     Set<Order> orders;
     @Enumerated(EnumType.STRING)
     RoleEnum roles;
-    
 }
