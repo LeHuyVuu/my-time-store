@@ -36,10 +36,10 @@ public class OrderController {
     }
 
 
-    @GetMapping("/get")
-    public ResponseEntity<ResponseObject> getOrder(HttpServletRequest request) {
-        List<Order> list = orderService.getMyOrder(request);
-        return  ResponseObject.APIRepsonse("200", "Success", HttpStatus.OK, list);
-
-    }
+//    @GetMapping("/get")
+//    public ResponseEntity<ResponseObject> getOrder(HttpServletRequest request) {
+//        List<Order> list = orderService.getMyOrder(request);
+//        return  ResponseObject.APIRepsonse("200", "Success", HttpStatus.OK, list);
+//
+//    }
 }

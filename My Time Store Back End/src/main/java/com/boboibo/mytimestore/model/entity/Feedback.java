@@ -16,9 +16,9 @@ public class Feedback {
     String feedbackId;
     int star;
     @Lob
-    @Column(name = "description", columnDefinition = "TEXT")
+    @Column(name = "description")
     String description;
     @OneToOne
-    @JoinColumn(name = "order_id", referencedColumnName = "order_id")
+    @JoinColumn(name = "order_id", referencedColumnName = "order_id", nullable = true)  // Thêm nullable = true để cho phép không có Feedback cho mỗi Order
     Order order;
 }

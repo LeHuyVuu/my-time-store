@@ -41,8 +41,7 @@ public class User {
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     Staff staff;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    Set<Order> orders;
+
     @Enumerated(EnumType.STRING)
     RoleEnum roles;
 }
