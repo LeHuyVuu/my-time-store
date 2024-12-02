@@ -32,6 +32,8 @@ public class OrderService {
 
     @Autowired
     private OrderRepository orderRepository;
+    @Autowired
+    private CustomerRepository customerRepository;
 
     @Autowired
     private OrderDetailRepository orderDetailRepository;
@@ -47,11 +49,12 @@ public class OrderService {
         if(user == null){
             throw new RuntimeException("user not found");
         }
+        Customer customer = customerRepository.findByUserUserId(user.getUserId());
         // Tạo đối tượng đơn hàng
         Order order = new Order();
         order.setOrderDate(orderRequest.getOrderDate());
         order.setTotal(orderRequest.getTotal());
-        order.setUser(user);
+        order.setCustomer(customer);
 
         // Lưu đơn hàng vào cơ sở dữ liệu
         orderRepository.save(order);
@@ -69,7 +72,7 @@ public class OrderService {
             orderDetail.setOrder(order);
             orderDetail.setProduct(product);
             orderDetail.setQuantity(cartItem.getQuantity());
-            orderDetail.setPrice(product.getPrice());
+            orderDetail.setBasePrice(product.getPrice());
 
             orderDetailRepository.save(orderDetail);
         }

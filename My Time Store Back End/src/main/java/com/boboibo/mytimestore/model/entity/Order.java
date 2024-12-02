@@ -22,16 +22,19 @@
     public class Order {
         @Id
         @GeneratedValue(strategy = GenerationType.UUID)
-        String orderID;
+        @Column(name = "order_id")
+        String orderId;
         Date orderDate;
         Double total;
 
+
         @JsonIgnore  // This will prevent Jackson from serializing the lazy-loaded 'user
         @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-        @JoinColumn(name = "user_id")  // Chỉ định tên cột khóa ngoại trong bảng Order
-        User user;
+        @JoinColumn(name = "customer_id")  // Chỉ định tên cột khóa ngoại trong bảng Order
+        Customer customer;
 
-
+        @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+        Feedback feedback;
 
 
     }

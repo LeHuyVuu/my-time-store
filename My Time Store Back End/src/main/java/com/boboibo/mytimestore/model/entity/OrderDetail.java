@@ -18,7 +18,6 @@ public class OrderDetail {
     Product product;
 
     int quantity;
-    double price;
-
-
+    double basePrice;
+    double deliveryPrice;
 }
