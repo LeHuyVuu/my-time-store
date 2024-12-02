@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.util.Set;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -13,13 +15,18 @@ import lombok.experimental.FieldDefaults;
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "customer_id")
+    @Column(name = "customer_id"    )
     String customerId;
     String address;
     String phone;
     String image;
 
+
     @OneToOne
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     User user;
+
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    Set<Order> orders;
 }

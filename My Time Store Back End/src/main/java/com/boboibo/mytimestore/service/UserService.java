@@ -59,8 +59,6 @@ public class UserService {
         user.setUserId("est");
         user.setUsername(userRequest.getUsername()); // Lấy tên người dùng từ UserRequest
         user.setPassword( encoder.encode(userRequest.getPassword())); // Mã hóa và gán mật khẩu đã mã hóa
-        user.setAddress(userRequest.getAddress()); // Lấy địa chỉ từ UserRequest
-        user.setPhone(userRequest.getPhone());
         user.setEmail(userRequest.getEmail());// Lấy số điện thoại từ UserRequest
         user.setRoles(RoleEnum.CUSTOMER);
         user.setStatus(true);
@@ -107,8 +105,6 @@ public class UserService {
         if (existingUserOpt.isPresent()) {
             User existingUser = existingUserOpt.get();
             existingUser.setUsername(updatedUser.getUsername());
-            existingUser.setAddress(updatedUser.getAddress());
-            existingUser.setPhone(updatedUser.getPhone());
             existingUser.setEmail(updatedUser.getEmail());
 
             return userRepository.save(existingUser);
