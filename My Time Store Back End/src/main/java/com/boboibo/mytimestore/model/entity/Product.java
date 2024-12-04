@@ -30,8 +30,10 @@ public class Product {
     boolean status=true;
     String description;
     int quantityInStock ;
+    @Enumerated(EnumType.STRING)
     IsStatus isStatus;
     LocalDateTime createdAt;
+    @Enumerated(EnumType.STRING)
     Category category;
     Double discountPrice;
 }

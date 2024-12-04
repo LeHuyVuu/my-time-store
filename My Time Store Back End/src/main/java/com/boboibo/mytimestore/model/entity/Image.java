@@ -16,6 +16,7 @@ public class Image {
     @Column(name = "image_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long imageId ;
+    @Enumerated(EnumType.STRING)
     Category category ;
     @Column(name = "category_id")
     String categoryId ;
