@@ -22,9 +22,9 @@ public class EmailController {
     public ResponseEntity<ResponseObject> sendEmail(@RequestBody EmailRequest emailRequest) {
         boolean isSent = sendEmailService.sendMailSender(emailRequest.getRecipient(), emailRequest.getBody(), emailRequest.getSubject());
         if (isSent) {
-            return ResponseObject.APIRepsonse("200", "Email has been successfully sent. Please check your inbox.", HttpStatus.OK, "");
+            return ResponseObject.APIRepsonse(200, "Email has been successfully sent. Please check your inbox.", HttpStatus.OK, "");
         } else {
-            return ResponseObject.APIRepsonse("400", "Failed to send email.", HttpStatus.BAD_REQUEST, "");
+            return ResponseObject.APIRepsonse(400, "Failed to send email.", HttpStatus.BAD_REQUEST, "");
         }
     }
 }
