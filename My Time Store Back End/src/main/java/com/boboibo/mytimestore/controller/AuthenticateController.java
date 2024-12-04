@@ -36,25 +36,25 @@ public class AuthenticateController {
 
     @Autowired
     JWTUtilsHelper jwtUtilsHelper;
-
-    @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody @Valid LoginRequest loginRequest) {
-        if (authenticateService.checkLogin(loginRequest)) {
-            String token = jwtUtilsHelper.generateToken(loginRequest.getUsername());
-            return APIRepsonse("200", "Login Successfully", HttpStatus.OK, token);
-        } else {
-            return APIRepsonse("Failed", "Login Failed", HttpStatus.UNAUTHORIZED, "");
-        }
-    }
-
-    @PostMapping("/logout")
-    public ResponseEntity<?> logout(@RequestBody @Valid LogoutRequest logoutRequest) {
-        // Lưu token vào database
-        authenticateService.logout(logoutRequest.getToken());
-
-        // Thực hiện các hành động logout khác nếu cần
-        return new ResponseEntity<>("Logout successful", HttpStatus.OK);
-    }
+//
+//    @PostMapping("/login")
+//    public ResponseEntity<?> login(@RequestBody @Valid LoginRequest loginRequest) {
+//        if (authenticateService.checkLogin(loginRequest)) {
+//            String token = jwtUtilsHelper.generateToken(loginRequest.getUsername());
+//            return APIRepsonse("200", "Login Successfully", HttpStatus.OK, token);
+//        } else {
+//            return APIRepsonse("Failed", "Login Failed", HttpStatus.UNAUTHORIZED, "");
+//        }
+//    }
+//
+//    @PostMapping("/logout")
+//    public ResponseEntity<?> logout(@RequestBody @Valid LogoutRequest logoutRequest) {
+//        // Lưu token vào database
+//        authenticateService.logout(logoutRequest.getToken());
+//
+//        // Thực hiện các hành động logout khác nếu cần
+//        return new ResponseEntity<>("Logout successful", HttpStatus.OK);
+//    }
 
 }
 

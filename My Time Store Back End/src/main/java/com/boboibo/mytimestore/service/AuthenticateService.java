@@ -38,25 +38,7 @@ public class AuthenticateService {
     private LoggedOutTokenRepository loggedOutTokenRepository;
 
 
-    public boolean checkLogin(@Valid LoginRequest loginRequest) {
-        // Tìm người dùng theo username
-        User user = userRepository.findUsersByUsername(loginRequest.getUsername());
-        if(user == null) {
-            throw new UsernameNotFoundException("Username not found");
-        }
-        // Kiểm tra mật khẩu
-        boolean authenticated = passwordEncoder.matches(loginRequest.getPassword(), user.getPassword());
 
-        if (!authenticated) {
-            throw new RuntimeException("Wrong password");
-        }
-        return true;
-    }
-
-    public void logout(String token) {
-        LoggedOutToken loggedOutToken = new LoggedOutToken(token, new Date());
-        loggedOutTokenRepository.save(loggedOutToken);
-    }
 
 
 
@@ -91,14 +73,14 @@ public class AuthenticateService {
         }
     }
 
-
-    public String refreshToken(@Valid String refreshToken) {
-
-        verifyRefreshToken(refreshToken);
-
-        JWTUtilsHelper util = new JWTUtilsHelper();
-        return util.generateToken(refreshToken);
-    }
+//
+//    public String refreshToken(@Valid String refreshToken) {
+//
+//        verifyRefreshToken(refreshToken);
+//
+//        JWTUtilsHelper util = new JWTUtilsHelper();
+//        return util.generateToken(refreshToken);
+//    }
 }
 
 

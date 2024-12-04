@@ -30,22 +30,22 @@ public class JWTUtilsHelper {
         @Value("${myapp.api-key}")
         private String privateKey;
 
-    public String generateToken(String data){
-        SecretKey key = Keys.hmacShaKeyFor(Decoders.BASE64.decode(privateKey));
-        User user = userRepository.findUsersByUsername(data);
-
-        String jws = Jwts.builder().subject(data)
-                .claim("userid", user.getUserId())
-                .claim("role", user.getRoles())
-                .issuer("MyTimeStore.com")
-                .issuedAt(new Date())
-                .claim("jti", UUID.randomUUID().toString())
-                .expiration(new Date(
-                        Instant.now().plus(10, ChronoUnit.DAYS).toEpochMilli()
-                ))
-                .signWith(key).compact();
-        return jws;
-    }
+//    public String generateToken(String data){
+//        SecretKey key = Keys.hmacShaKeyFor(Decoders.BASE64.decode(privateKey));
+//        User user = userRepository.findUsersByUsername(data);
+//
+//        String jws = Jwts.builder().subject(data)
+//                .claim("userid", user.getUserId())
+//                .claim("role", user.getRoles())
+//                .issuer("MyTimeStore.com")
+//                .issuedAt(new Date())
+//                .claim("jti", UUID.randomUUID().toString())
+//                .expiration(new Date(
+//                        Instant.now().plus(10, ChronoUnit.DAYS).toEpochMilli()
+//                ))
+//                .signWith(key).compact();
+//        return jws;
+//    }
 
     public boolean verifyToken(String token) {
         try {
