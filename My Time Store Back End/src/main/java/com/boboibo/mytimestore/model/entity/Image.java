@@ -15,7 +15,7 @@ public class Image {
     @Id
     @Column(name = "image_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    String imageId ;
+    Long imageId ;
     Category category ;
     @Column(name = "category_id")
     String categoryId ;

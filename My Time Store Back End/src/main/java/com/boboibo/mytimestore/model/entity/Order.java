@@ -23,7 +23,7 @@
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "order_id")
-        String orderId;
+        Long orderId;
         Date orderDate;
         Double total;
 

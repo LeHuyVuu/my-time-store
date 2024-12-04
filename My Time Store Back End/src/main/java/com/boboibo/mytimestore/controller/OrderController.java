@@ -20,26 +20,5 @@ import static com.boboibo.mytimestore.model.response.ResponseObject.APIRepsonse;
 @RequestMapping("/api/v1/order")
 public class OrderController {
 
-    @Autowired
-    OrderService orderService;
 
-
-
-    @PostMapping("/checkout")
-    public ResponseEntity<ResponseObject> checkOut(@RequestBody OrderRequest orderRequest) {
-        try {
-            orderService.checkOut(orderRequest);
-            return APIRepsonse("200", "Order created successfully", HttpStatus.OK, "");
-        } catch (Exception e) {
-            return APIRepsonse("Failed", e.getMessage(), HttpStatus.BAD_REQUEST, "");
-        }
-    }
-
-
-//    @GetMapping("/get")
-//    public ResponseEntity<ResponseObject> getOrder(HttpServletRequest request) {
-//        List<Order> list = orderService.getMyOrder(request);
-//        return  ResponseObject.APIRepsonse("200", "Success", HttpStatus.OK, list);
-//
-//    }
 }

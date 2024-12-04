@@ -13,7 +13,7 @@ import lombok.experimental.FieldDefaults;
 public class Feedback {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    String feedbackId;
+    Long feedbackId;
     int star;
     @Lob
     @Column(name = "description")

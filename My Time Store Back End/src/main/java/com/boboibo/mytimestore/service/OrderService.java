@@ -24,101 +24,188 @@ import java.util.List;
 @Service
 public class OrderService {
 
-    @Autowired
-    private ProductRepository productRepository;
-
-    @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private OrderRepository orderRepository;
-    @Autowired
-    private CustomerRepository customerRepository;
-
-    @Autowired
-    private OrderDetailRepository orderDetailRepository;
-
-    @Value("${myapp.api-key}")
-    private String privateKey;
-    @Autowired
-    private CartItemRepository cartItemRepository;
-
-    public void checkOut(OrderRequest orderRequest) {
-        // Lấy người dùng từ cơ sở dữ liệu
-        User user = userRepository.findUsersByUsername(orderRequest.getUsername());
-        if(user == null){
-            throw new RuntimeException("user not found");
-        }
-        Customer customer = customerRepository.findByUserUserId(user.getUserId());
-        // Tạo đối tượng đơn hàng
-        Order order = new Order();
-        order.setOrderDate(orderRequest.getOrderDate());
-        order.setTotal(orderRequest.getTotal());
-        order.setCustomer(customer);
-
-        // Lưu đơn hàng vào cơ sở dữ liệu
-        orderRepository.save(order);
-
-        List<CartItem> cartItems = orderRequest.getCartItems(); // Bạn cần phải thêm trường này vào OrderRequest
-
-
-
-        for (CartItem cartItem : cartItems) {
-            Product product = productRepository.findProductByProductName(cartItem.getProduct().getProductName());
-            if(product == null){
-                throw new RuntimeException("Product not found");
-            }
-            OrderDetail orderDetail = new OrderDetail();
-            orderDetail.setOrder(order);
-            orderDetail.setProduct(product);
-            orderDetail.setQuantity(cartItem.getQuantity());
-            orderDetail.setBasePrice(product.getPrice());
-
-            orderDetailRepository.save(orderDetail);
-        }
-        cartItems.forEach(cartItem -> {
-            Product product = productRepository.findProductByProductName(cartItem.getProduct().getProductName());
-            CartItem newItem = new CartItem();
-            newItem.setQuantity(cartItem.getQuantity());
-            newItem.setUser(user);
-            newItem.setProduct(product);
-            cartItemRepository.save(newItem);
-        });
-
-        cartItems.forEach(cartItem -> {
-            Product product = productRepository.findProductByProductName(cartItem.getProduct().getProductName());
-            product.setQuantity( product.getQuantity() - cartItem.getQuantity());
-            productRepository.save(product);
-        });
 
 
 
 
-    }
 
-    public List<Order> getMyOrder(HttpServletRequest request) {
-        String token = request.getHeader("Authorization");
-        if (token != null && token.startsWith("Bearer ")) {
-            token = token.substring(7);
-        }
-        SecretKey key = Keys.hmacShaKeyFor(Decoders.BASE64.decode(privateKey));
-        Jws<Claims> jws =  Jwts.parser() // Use parserBuilder() instead of parser()
-                .setSigningKey(key)
-                .build()
-                .parseClaimsJws(token);
-        String userId = (String) jws.getBody().get("userid");
-//        Customer customer = customerRepository.findByUserUserId(userId);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    @Autowired
+//    private ProductRepository productRepository;
 //
+//    @Autowired
+//    private UserRepository userRepository;
 //
-//        List<Order> list =  orderRepository.findByCustomer_CustomerId(userId);
+//    @Autowired
+//    private OrderRepository orderRepository;
+//    @Autowired
+//    private CustomerRepository customerRepository;
 //
-//        for (Order order : list) {
-////            orderDetailRepository.findBy
+//    @Autowired
+//    private OrderDetailRepository orderDetailRepository;
+//
+//    @Value("${myapp.api-key}")
+//    private String privateKey;
+//    @Autowired
+//    private CartItemRepository cartItemRepository;
+//
+//    public void checkOut(OrderRequest orderRequest) {
+//        // Lấy người dùng từ cơ sở dữ liệu
+//        User user = userRepository.findUsersByUsername(orderRequest.getUsername());
+//        if(user == null){
+//            throw new RuntimeException("user not found");
 //        }
-
-
-        return null;
-    }
+//        Customer customer = customerRepository.findByUserUserId(user.getUserId());
+//        // Tạo đối tượng đơn hàng
+//        Order order = new Order();
+//        order.setOrderDate(orderRequest.getOrderDate());
+//        order.setTotal(orderRequest.getTotal());
+//        order.setCustomer(customer);
+//
+//        // Lưu đơn hàng vào cơ sở dữ liệu
+//        orderRepository.save(order);
+//
+//        List<CartItem> cartItems = orderRequest.getCartItems(); // Bạn cần phải thêm trường này vào OrderRequest
+//
+//
+//
+//        for (CartItem cartItem : cartItems) {
+//            Product product = productRepository.findProductByProductName(cartItem.getProduct().getProductName());
+//            if(product == null){
+//                throw new RuntimeException("Product not found");
+//            }
+//            OrderDetail orderDetail = new OrderDetail();
+//            orderDetail.setOrder(order);
+//            orderDetail.setProduct(product);
+//            orderDetail.setQuantity(cartItem.getQuantity());
+//            orderDetail.setBasePrice(product.getPrice());
+//
+//            orderDetailRepository.save(orderDetail);
+//        }
+//        cartItems.forEach(cartItem -> {
+//            Product product = productRepository.findProductByProductName(cartItem.getProduct().getProductName());
+//            CartItem newItem = new CartItem();
+//            newItem.setQuantity(cartItem.getQuantity());
+//            newItem.setUser(user);
+//            newItem.setProduct(product);
+//            cartItemRepository.save(newItem);
+//        });
+//
+//        cartItems.forEach(cartItem -> {
+//            Product product = productRepository.findProductByProductName(cartItem.getProduct().getProductName());
+//            product.setQuantity( product.getQuantity() - cartItem.getQuantity());
+//            productRepository.save(product);
+//        });
+//
+//
+//
+//
+//    }
+//
+//    public List<Order> getMyOrder(HttpServletRequest request) {
+//        String token = request.getHeader("Authorization");
+//        if (token != null && token.startsWith("Bearer ")) {
+//            token = token.substring(7);
+//        }
+//        SecretKey key = Keys.hmacShaKeyFor(Decoders.BASE64.decode(privateKey));
+//        Jws<Claims> jws =  Jwts.parser() // Use parserBuilder() instead of parser()
+//                .setSigningKey(key)
+//                .build()
+//                .parseClaimsJws(token);
+//        String userId = (String) jws.getBody().get("userid");
+////        Customer customer = customerRepository.findByUserUserId(userId);
+////
+////
+////        List<Order> list =  orderRepository.findByCustomer_CustomerId(userId);
+////
+////        for (Order order : list) {
+//////            orderDetailRepository.findBy
+////        }
+//
+//
+//        return null;
+//    }
 
 
 

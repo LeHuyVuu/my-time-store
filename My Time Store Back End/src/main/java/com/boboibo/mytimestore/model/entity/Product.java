@@ -21,7 +21,7 @@ import java.util.Set;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    String productId;
+    Long productId;
     String productName;
     String image;
     Double price;

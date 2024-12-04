@@ -8,7 +8,7 @@ import lombok.Data;
 public class OrderDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    String orderDetailId;
+    Long orderDetailId;
     @ManyToOne
     @JoinColumn(name = "order_id")
     Order order;

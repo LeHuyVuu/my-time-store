@@ -56,21 +56,6 @@ public class AuthenticateController {
         return new ResponseEntity<>("Logout successful", HttpStatus.OK);
     }
 
-
-//    @GetMapping("/loginGoogle")
-//    public ResponseEntity<?> loginGoogle(OAuth2AuthenticationToken oAuth2AuthenticationToken) {
-//        try {
-//            Map<String, Object> userAttributes = oAuth2AuthenticationToken.getPrincipal().getAttributes();
-//            log.info("User Attributes: " + userAttributes);
-//            return ResponseEntity.ok(userAttributes);
-//        } catch (Exception e) {
-//            log.error("Google login error: ", e);
-//            return APIRepsonse("500", "OAuth Login Failed", HttpStatus.INTERNAL_SERVER_ERROR, null);
-//        }
-//    }
-
-
-
 }
 
 
