@@ -12,7 +12,7 @@ import lombok.experimental.FieldDefaults;
 @Entity
 public class Staff {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "staff_id")
     String staffId;
     String address;

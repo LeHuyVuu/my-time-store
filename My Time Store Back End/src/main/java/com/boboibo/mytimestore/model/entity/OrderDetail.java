@@ -7,7 +7,7 @@ import lombok.Data;
 @Entity
 public class OrderDetail {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     String orderDetailId;
     @ManyToOne
     @JoinColumn(name = "order_id")

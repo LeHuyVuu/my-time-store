@@ -12,7 +12,7 @@ import lombok.experimental.FieldDefaults;
 @Entity
 public class Delivery {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "delivery_id")
     String deliveryId;
     @Column(name = "from_place")

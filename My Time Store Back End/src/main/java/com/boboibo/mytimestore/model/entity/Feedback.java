@@ -12,7 +12,7 @@ import lombok.experimental.FieldDefaults;
 @Entity
 public class Feedback {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     String feedbackId;
     int star;
     @Lob

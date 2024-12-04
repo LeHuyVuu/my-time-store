@@ -21,7 +21,7 @@
     @Table(name = "orders")  // Đổi tên bảng thành "orders"
     public class Order {
         @Id
-        @GeneratedValue(strategy = GenerationType.UUID)
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "order_id")
         String orderId;
         Date orderDate;

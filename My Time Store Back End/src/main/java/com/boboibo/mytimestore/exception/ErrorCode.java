@@ -8,8 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Getter
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
-public enum ErrorCode {
-    ;
+public enum ErrorCode {;
 
     int code;
     String message;

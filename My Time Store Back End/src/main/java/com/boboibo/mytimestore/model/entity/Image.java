@@ -1,9 +1,7 @@
 package com.boboibo.mytimestore.model.entity;
 
 import com.boboibo.mytimestore.model.enums.Category;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -16,6 +14,7 @@ import lombok.experimental.FieldDefaults;
 public class Image {
     @Id
     @Column(name = "image_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     String imageId ;
     Category category ;
     @Column(name = "category_id")
