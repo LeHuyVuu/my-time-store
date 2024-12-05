@@ -27,7 +27,7 @@ jobs:
     # Bước 3: Build ứng dụng Spring Boot
     - name: Build Spring Boot application
       working-directory: ./EchoCuckoo-Backend
-      run: mvn clean package -DskipTests
+      run: mvn install package -DskipTests
 
     # Bước 4: Build Docker image
     - name: Build Docker image
