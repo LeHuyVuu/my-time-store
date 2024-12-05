@@ -7,7 +7,7 @@ WORKDIR /app
 # Copy file JAR của ứng dụng vào Docker container
 COPY target/MyTimeStoreBackEnd-0.0.1-SNAPSHOT.jar app.jar
 
-# Mở cổng 8080 (hoặc cổng mà ứng dụng Spring Boot sử dụng)
+# Mở cổng 8080 (hoặc cổng mà ứng dụng Spring Boot sử dụg)
 EXPOSE 8080
 
 # Chạy ứng dụng Spring Boot
