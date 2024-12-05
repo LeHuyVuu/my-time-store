@@ -56,7 +56,7 @@ public class ProductController {
         if(!isCreated) {
             return ResponseObject.APIRepsonse(409, "Product creation failed", HttpStatus.CONFLICT, null);
         }
-        return ResponseObject.APIRepsonse(201, "Product created successfully", HttpStatus.CREATED, "");
+        return ResponseObject.APIRepsonse(200, "Product created successfully", HttpStatus.CREATED, "");
     }
 
     // PUT /api/v1/products/{id} - Cập nhật thông tin sản phẩm
