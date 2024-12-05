@@ -1,109 +1,85 @@
 package com.boboibo.mytimestore.service;
 
+import com.boboibo.mytimestore.exception.AppException;
+import com.boboibo.mytimestore.exception.ErrorCode;
+import com.boboibo.mytimestore.mapper.ProductMapper;
 import com.boboibo.mytimestore.model.entity.Product;
+import com.boboibo.mytimestore.model.enums.IsStatus;
 import com.boboibo.mytimestore.model.request.ProductRequest;
 import com.boboibo.mytimestore.repository.ProductRepository;
 import jakarta.validation.Valid;
+import lombok.extern.java.Log;
+import lombok.extern.log4j.Log4j;
+import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
+@Slf4j
 public class ProductService {
+    @Autowired
+    private ProductRepository productRepository;
+    @Autowired
+    private ProductMapper productMapper;
+
+    public List<Product> getAllProducts() {
+        try {
+            return productRepository.findByIsStatus(IsStatus.ACTIVE);
+        } catch (DataAccessException e) {
+            log.error("Database error occurred while fetching active products", e);
+            throw new AppException(ErrorCode.DATABASE_EXCEPTION, "Error while fetching active products");
+        } catch (Exception e) {
+            log.error("Unexpected error occurred", e);
+            throw new AppException(ErrorCode.UNCATEGORIZED_EXCEPTION);
+        }
+    }
+
+    public Optional<Product> getProductById(Long id) {
+        try {
+            Optional<Product> product = productRepository.findById(id);
+            if(product.get().getIsStatus() == IsStatus.ACTIVE) {
+                return product;
+            }
+        } catch (DataAccessException e) {
+            log.error("Database error occurred while fetching product by id", e);
+            throw new AppException(ErrorCode.DATABASE_EXCEPTION, "Error while fetching product by id");
+        } catch (Exception e) {
+            log.error("Unexpected error occurred", e);
+            throw new AppException(ErrorCode.UNCATEGORIZED_EXCEPTION);
+        }
+        return Optional.empty();
+    }
+
+
+    public boolean createProduct(@Valid ProductRequest productRequest) {
+        boolean result = false;
+        try{
+            Product product = productMapper.toProduct(productRequest);
+            productRepository.save(product);
+            result = true;
+        }catch(DataAccessException e){
+            log.error("Database error occurred while creating product", e.getMessage());
+            throw new AppException(ErrorCode.DATABASE_EXCEPTION, "Error while creating product");
+        }
+        return result;
+    }
+
+    public Optional<Product> updateProduct(Long id, @Valid Product product) {
+        return Optional.empty();
+    }
+
+    public boolean deleteProduct(Long id) {
+        return false;
+    }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//    @Autowired
-//    private ProductRepository productRepository;
-//    public List<Product> getAllProducts() {
-//        List<Product> products = new ArrayList<>();
-//        List<Product> list =  productRepository.findAll();
-//       for (Product product : list) {
-//           if (product.isStatus()) products.add(product);
-//       }
-//        return products;
-//    }
-//
 //    public Product getProductByName(String productName) {
 //        return productRepository.findProductByProductName(productName);
 //    }

@@ -27,7 +27,6 @@ public class Product {
     Double price;
     int quantity;
     Date expiryDate;
-    boolean status=true;
     String description;
     int quantityInStock ;
     @Enumerated(EnumType.STRING)
