@@ -51,5 +51,5 @@ jobs:
       env:
         RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}  # API Key từ GitHub Secrets
       run: |
-        curl -X POST https://api.render.com/v1/services/srv-ct8qaeggph6c73dgr690/deploy \
+        curl -X POST https://api.render.com/deploy/srv-ct8qaeggph6c73dgr690?key=h2HmOkC1TUU \
           -H "Authorization: Bearer $RENDER_API_KEY"
