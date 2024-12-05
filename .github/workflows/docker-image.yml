@@ -18,10 +18,10 @@ jobs:
       uses: actions/checkout@v2
 
     # Bước 2: Cài đặt JDK (cho backend Spring Boot)
-    - name: Set up JDK 17
+    - name: Set up JDK 21
       uses: actions/setup-java@v2
       with:
-        java-version: '17'
+        java-version: '21'
         distribution: 'temurin'
 
     # Bước 3: Build ứng dụng Spring Boot
