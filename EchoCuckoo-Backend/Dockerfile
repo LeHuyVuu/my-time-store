@@ -5,7 +5,7 @@ FROM openjdk:21-jdk-slim
 WORKDIR /app
 
 # Copy file JAR của ứng dụng vào Docker container
-COPY target/*.jar app.jar
+COPY target/MyTimeStoreBackEnd-0.0.1-SNAPSHOT.jar app.jar
 
 # Mở cổng 8080 (hoặc cổng mà ứng dụng Spring Boot sử dụng)
 EXPOSE 8080
