@@ -26,16 +26,27 @@ jobs:
 
     # Bước 3: Build ứng dụng Spring Boot
     - name: Build Spring Boot application
-      working-directory: ./EchoCuckoo-Backend
-      run: mvn install package -DskipTests
+      working-directory: ./EchoCuckoo-Backend  # Đảm bảo đúng đường dẫn
+      run: mvn clean install -DskipTests  # Dùng clean install thay vì package
 
-    # Bước 4: Build Docker image
+    # Bước 4: Kiểm tra xem file JAR có được tạo ra trong thư mục target không
+    - name: Verify JAR file creation
+      working-directory: ./EchoCuckoo-Backend  # Đảm bảo đúng đường dẫn
+      run: |
+        if [ ! -f target/*.jar ]; then
+          echo "JAR file not found! Build failed!"
+          exit 1
+        else
+          echo "JAR file found!"
+        fi
+
+    # Bước 5: Build Docker image
     - name: Build Docker image
-      working-directory: ./EchoCuckoo-Backend
+      working-directory: ./EchoCuckoo-Backend  # Đảm bảo đúng đường dẫn
       run: |
         docker build -t echo-cuckoo-backend .
 
-    # Bước 5: Deploy Docker container lên Render
+    # Bước 6: Deploy Docker container lên Render
     - name: Deploy to Render
       env:
         RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}  # API Key từ GitHub Secrets
