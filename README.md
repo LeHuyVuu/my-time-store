@@ -1,0 +1,1 @@
+[![CI/CD Pipeline for EchoCuckoo-Backend](https://github.com/LeHuyVuu/my-time-store/actions/workflows/docker-image.yml/badge.svg)](https://github.com/LeHuyVuu/my-time-store/actions/workflows/docker-image.yml)
