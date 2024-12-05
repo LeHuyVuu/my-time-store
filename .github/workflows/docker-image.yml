@@ -27,14 +27,14 @@ jobs:
     # Bước 3: Build ứng dụng Spring Boot
     - name: Build Spring Boot application
       working-directory: ./EchoCuckoo-Backend  # Đảm bảo đúng đường dẫn
-      run: mvn clean install -DskipTests  # Dùng clean install thay vì package
+      run: mvn clean package -DskipTests  # Dùng clean install thay vì package
 
     # Bước 4: Kiểm tra xem file JAR có được tạo ra trong thư mục target không
     - name: Verify JAR file creation
       working-directory: ./EchoCuckoo-Backend  # Đảm bảo đúng đường dẫn
       run: |
-        if [ ! -f target/*.jar ]; then
-          echo "JAR file not found! Build failed!"
+        if [ ! -f target/MyTimeStoreBackEnd-0.0.1-SNAPSHOT.jar ]; then
+          echo "JAR file not found! Build failed."
           exit 1
         else
           echo "JAR file found!"
