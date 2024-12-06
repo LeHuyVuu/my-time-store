@@ -26,14 +26,19 @@ jobs:
     - name: Build with Maven
       working-directory: ./EchoCuckoo-Backend  # Đảm bảo rằng đây là thư mục chứa pom.xml của bạn
       run: mvn clean install -DskipTests  # Lệnh Maven để build ứng dụng mà bỏ qua bước test (nếu cần)
+
+    # Bước 4: Đăng nhập vào Docker Hub
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}  # Lấy username từ GitHub Secrets
+        password: ${{ secrets.DOCKER_PASSWORD }}  # Lấy password từ GitHub Secrets
+
+    # Bước 5: Build và push Docker image
     - name: Build & push Docker image
       uses: docker/build-push-action@v3  # Sử dụng Docker Build and Push Action (v3)
       with:
-        context: ./EchoCuckoo-Backend  # Đảm bảo rằng context là thư mục gốc của dự án, chứa Dockerfile.ci
-        file: ./EchoCuckoo-Backend/Dockerfile  # Đường dẫn tới Dockerfile (có thể là 'Dockerfile.ci' như bạn đề cập)
-        push: true  # Đẩy image lên Docker Hub
-        tags: boboibo/springboot-images-new:v1, boboibo/springboot-images-new:latest  # Tags cho image
-        registry: docker.io  # Registry Docker (Docker Hub)
-        username: ${{ secrets.DOCKER_USERNAME }}  # Sử dụng secrets để bảo mật username Docker Hub
-        password: ${{ secrets.DOCKER_PASSWORD }}  # Sử dụng secrets để bảo mật password Docker Hub
-      
+        context: ./EchoCuckoo-Backend  # Đảm bảo chỉ định đúng thư mục chứa Dockerfile
+        file: ./EchoCuckoo-Backend/Dockerfile  # Đảm bảo chỉ định đúng đường dẫn đến Dockerfile
+        push: true  # Push image lên Docker Hub
+        tags: boboibo/springboot-images-new:v1, boboibo/springboot-images-new:latest  # Tag Docker image
