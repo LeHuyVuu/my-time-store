@@ -239,6 +239,7 @@
                     <release>21</release> <!-- Thêm dòng này để chỉ định sử dụng Java 21 -->
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 
