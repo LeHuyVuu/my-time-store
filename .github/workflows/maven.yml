@@ -29,7 +29,7 @@ jobs:
     - name: Build & push Docker image
       uses: docker/build-push-action@v3  # Sử dụng Docker Build and Push Action (v3)
       with:
-        context: .  # Đảm bảo rằng context là thư mục gốc của dự án, chứa Dockerfile.ci
+        context: ./EchoCuckoo-Backend  # Đảm bảo rằng context là thư mục gốc của dự án, chứa Dockerfile.ci
         file: Dockerfile  # Đường dẫn tới Dockerfile (có thể là 'Dockerfile.ci' như bạn đề cập)
         push: true  # Đẩy image lên Docker Hub
         tags: boboibo/springboot-images-new:v1, boboibo/springboot-images-new:latest  # Tags cho image
