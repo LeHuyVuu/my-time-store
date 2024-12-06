@@ -1,36 +1,32 @@
-# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
-
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
 name: Project CICD
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main" ]  # Workflow sẽ chạy khi có commit vào nhánh main
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main" ]  # Workflow cũng sẽ chạy khi có PR vào nhánh main
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Chạy trên môi trường Ubuntu
 
     steps:
+    # Bước 1: Checkout mã nguồn từ GitHub repository
     - uses: actions/checkout@v4
+
+    # Bước 2: Cài đặt JDK 21 từ Temurin
     - name: Set up JDK 21
       uses: actions/setup-java@v4
       with:
-        java-version: '21'
-        distribution: 'temurin'
-        cache: maven
-    - name: Build with Maven
-      working-directory: ./EchoCuckoo-Backend
-      run: mvn clean install -DskipTests
+        java-version: '21'  # Cài đặt Java version 21
+        distribution: 'temurin'  # Chọn Temurin làm distribution
+        cache: maven  # Cache dependencies của Maven
 
-    # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
+    # Bước 3: Build ứng dụng bằng Maven
+    - name: Build with Maven
+      working-directory: ./EchoCuckoo-Backend  # Đảm bảo rằng đây là thư mục chứa pom.xml của bạn
+      run: mvn clean install -DskipTests  # Lệnh Maven để build ứng dụng mà bỏ qua bước test (nếu cần)
+
+    # Bước 4 (Tùy chọn): Cập nhật dependency graph (một tính năng bổ sung để cải thiện các cảnh báo của Dependabot)
     - name: Update dependency graph
       uses: advanced-security/maven-dependency-submission-action@571e99aab1055c2e71a1e2309b9691de18d6b7d6
