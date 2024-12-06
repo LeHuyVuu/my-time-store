@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Copy file JAR của ứng dụng vào Docker container
 # Kiểm tra lại build context và đảm bảo target/MyTimeStoreBackEnd-0.0.1-SNAPSHOT.jar tồn tại
-COPY EchoCuckoo-Backend/target/MyTimeStoreBackEnd-0.0.1-SNAPSHOT.jar app.jar
+COPY ./target/MyTimeStoreBackEnd-0.0.1-SNAPSHOT.jar app.jar
 
 # Mở cổng 8080 (hoặc cổng mà ứng dụng Spring Boot sử dụng)
 EXPOSE 8080
