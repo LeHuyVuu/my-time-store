@@ -9,6 +9,7 @@ import jakarta.validation.Valid;
 import org.hibernate.annotations.Cache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +22,7 @@ import static com.boboibo.mytimestore.model.response.ResponseObject.APIRepsonse;
 
 @RestController
 @RequestMapping("/api/v1/products")
+@EnableCaching
 public class ProductController {
     @Autowired
     ProductService productService;
