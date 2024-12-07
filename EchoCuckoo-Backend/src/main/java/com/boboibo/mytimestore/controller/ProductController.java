@@ -34,7 +34,7 @@ public class ProductController {
         }
 
         // Trả về danh sách sản phẩm nếu có
-        return ResponseObject.APIRepsonse(200, "Products retrieved successfully hehe", HttpStatus.OK, productList);
+        return ResponseObject.APIRepsonse(200, "Products retrieved successfully vu dep taiaiasiasiasiasiasi", HttpStatus.OK, productList);
     }
 
     // GET /api/v1/products/{id} - Lấy thông tin sản phẩm theo ID
