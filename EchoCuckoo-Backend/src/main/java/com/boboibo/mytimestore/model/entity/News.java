@@ -16,14 +16,11 @@ public class News {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "new_id")
     String newId;
-    @Lob
-    @Column(name = "title", columnDefinition = "TEXT")
+    @Column(name = "title", length = 65535)
     String title;
-    @Lob
-    @Column(name = "preview", columnDefinition = "TEXT")
+    @Column(name = "preview", length = 65535)
     String preview;
-    @Lob
-    @Column(name = "content", columnDefinition = "TEXT")
+    @Column(name = "content", length = 65535)
     String content;
     String img;
     boolean status;
