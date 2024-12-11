@@ -26,7 +26,6 @@ import static com.boboibo.mytimestore.model.response.ResponseObject.APIRepsonse;
 public class ProductController {
     @Autowired
     ProductService productService;
-    @Cacheable(value = "productsCache", key = "#root.getAllProducts")
     @GetMapping()
     public ResponseEntity<ResponseObject> getAllProducts() {
         List<Product> productList = productService.getAllProducts();
