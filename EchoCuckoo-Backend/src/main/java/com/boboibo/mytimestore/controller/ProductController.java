@@ -31,7 +31,7 @@ public class ProductController {
         List<Product> productList = productService.getAllProducts();
         // Nếu danh sách sản phẩm rỗng, trả về thông báo không có sản phẩm
         if (productList.isEmpty()) {
-            return ResponseObject.APIRepsonse(404, "No products found", HttpStatus.NOT_FOUND, null);
+            return ResponseObject.APIRepsonse(404, "No products found ", HttpStatus.NOT_FOUND, null);
         }
 
         // Trả về danh sách sản phẩm nếu có
