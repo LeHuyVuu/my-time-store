@@ -36,7 +36,7 @@ public class NewService {
     }
 
 
-    public News getNewsById(String id) {
+    public News getNewsById(Long id) {
         News news = newsRepository.findBynewId(id);
         if (news != null && news.isStatus()) {
             return news;
@@ -61,7 +61,7 @@ public class NewService {
         }
     }
 
-    public boolean updateNews(String newId, NewsRequest newsDetails) {
+    public boolean updateNews(Long newId, NewsRequest newsDetails) {
         try {
             News optionalNews = newsRepository.findBynewId(newId);
             if (optionalNews != null) {
@@ -80,7 +80,7 @@ public class NewService {
         }
     }
 
-    public boolean deleteNews(String newId) {
+    public boolean deleteNews(Long newId) {
         try {
             News news = getNewsById(newId);
             news.setStatus(false);

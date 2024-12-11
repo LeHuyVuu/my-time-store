@@ -37,7 +37,7 @@ public class NewsController {
         return ResponseObject.APIRepsonse(200, "Fetched all news successfully", HttpStatus.OK, newsList);
     }
     @GetMapping("/{id}")
-    public ResponseEntity<ResponseObject> getNewsById(@PathVariable String id) {
+    public ResponseEntity<ResponseObject> getNewsById(@PathVariable Long id) {
         News news = newService.getNewsById(id);
         if (news != null) {
             return ResponseObject.APIRepsonse(200, "Fetched news successfully", HttpStatus.OK, news);
@@ -55,7 +55,7 @@ public class NewsController {
         }
     }
     @PutMapping("")
-    public ResponseEntity<ResponseObject> updateNews(@RequestParam String newId,@RequestBody NewsRequest newsDetails) {
+    public ResponseEntity<ResponseObject> updateNews(@RequestParam Long newId,@RequestBody NewsRequest newsDetails) {
         boolean isUpdated = newService.updateNews(newId, newsDetails);
         if (isUpdated) {
             return ResponseObject.APIRepsonse(200, "Update news successfully", HttpStatus.OK, newsDetails);
@@ -64,7 +64,7 @@ public class NewsController {
         }
     }
     @DeleteMapping("/{newsId}")
-    public ResponseEntity<ResponseObject> deleteNews(@PathVariable String newsId) {
+    public ResponseEntity<ResponseObject> deleteNews(@PathVariable Long newsId) {
         try {
             boolean isDeleted = newService.deleteNews(newsId);
             if (isDeleted) {
