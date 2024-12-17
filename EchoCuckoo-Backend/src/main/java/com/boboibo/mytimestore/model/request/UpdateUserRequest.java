@@ -2,20 +2,20 @@ package com.boboibo.mytimestore.model.request;
 
 
 import jakarta.persistence.Entity;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 @Data
 @AllArgsConstructor
+@Getter
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class UpdateUserRequest {
-    String username;
-    String address;
-    String phone;
+    Long userId;
+    String fullName;
     String email;
+    String phoneNumber;
+    String address;
+    String image;
 
 }

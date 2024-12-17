@@ -1,10 +1,19 @@
 package com.boboibo.mytimestore.service;
 
+import com.boboibo.mytimestore.exception.AppException;
+import com.boboibo.mytimestore.exception.ErrorCode;
+import com.boboibo.mytimestore.mapper.CustomerMapper;
+import com.boboibo.mytimestore.mapper.UserMapper;
 import com.boboibo.mytimestore.model.RoleEnum;
+import com.boboibo.mytimestore.model.entity.Customer;
 import com.boboibo.mytimestore.model.entity.User;
+import com.boboibo.mytimestore.model.enums.Role;
 import com.boboibo.mytimestore.model.request.UpdatePasswordRequest;
 import com.boboibo.mytimestore.model.request.UpdateUserRequest;
 import com.boboibo.mytimestore.model.request.UserRequest;
+import com.boboibo.mytimestore.model.request.authentication.RegisterRequest;
+import com.boboibo.mytimestore.model.response.user.UserResponse;
+import com.boboibo.mytimestore.repository.CustomerRepository;
 import com.boboibo.mytimestore.repository.UserRepository;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
@@ -16,11 +25,15 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.core.context.SecurityContextHolder;
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 //import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -33,101 +46,129 @@ import java.util.Optional;
 import java.util.Set;
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    @Autowired
+    UserRepository userRepository;
+    @Autowired
+    CustomerRepository customerRepository;
+    @Autowired
+    UserMapper userMapper;
+    @Autowired
+    CustomerMapper customerMapper;
+
+    @Value("${myapp.api-key}")
+    private String privateKey;
+
+    @Autowired
+    PasswordEncoder encoder;
+
+
+    public void createCustomer(RegisterRequest newUser) {
+        User user = userMapper.toUser(newUser);
+        user.setPassword(encoder.encode(newUser.getPassword()));
+        user.setStatus(true);
+        user.setRole(Role.CUSTOMER);
+        userRepository.save(user);
+        if (user.getRole() == Role.CUSTOMER) {
+            Customer customer = customerMapper.userToCustomer(user);
+            customer.setAddress(newUser.getAddress());
+            customer.setPhone(newUser.getPhone());
+            customer.setUser(user);
+            customerRepository.save(customer);
+        }
+    }
+    public UserResponse updateUser(UpdateUserRequest updateUserRequest) {
+        try {
+            User user = getUserByUserId(updateUserRequest.getUserId());
+            user.setImage(updateUserRequest.getImage());
+            user.setFullName(updateUserRequest.getFullName());
+            user.setEmail(updateUserRequest.getEmail());
+            if (user.getRole().equals(Role.CUSTOMER)) {
+                Customer customer = customerRepository.findByUser_UserId(updateUserRequest.getUserId());
+                customer.setPhone(updateUserRequest.getPhoneNumber());
+                customer.setAddress(updateUserRequest.getAddress());
+                customerRepository.save(customer);
+            }
+            userRepository.save(user);
+            UserResponse userResponse = userMapper.toUserResponse(user);
+            return userResponse;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+    public UserResponse getMyInfo(HttpServletRequest request) {
+        String token = request.getHeader("Authorization");
+        if (token != null && token.startsWith("Bearer ")) {
+            token = token.substring(7);
+        }
+        String username;
+        try {
+            SecretKey key = Keys.hmacShaKeyFor(Decoders.BASE64.decode(privateKey));
+            Jws<Claims> jws = Jwts.parser() // Use parserBuilder() instead of parser()
+                    .setSigningKey(key)
+                    .build()
+                    .parseClaimsJws(token);
+            username = jws.getBody().getSubject();
+        } catch (Exception e) {
+            throw new AppException(ErrorCode.INVALID_TOKEN);
+        }
+        return getUserByUsernameV2(username);
+    }
+    private UserResponse getUserByUsernameV2(String username) {
+        User user = findUserByUsername(username);
+        UserResponse userResponse = userMapper.toUserResponse(user);
+        Customer customer = customerRepository.findByUser_UserId(user.getUserId());
+        userResponse.setCustomerResponse(customerMapper.customerToCustomerResponse(customer));
+       return userResponse;
+    }
+    public boolean deleteUser(Long userId) {
+        try {
+            User user = userRepository.findByUserId(userId);
+            if (user.isStatus()) {
+                user.setStatus(false);
+            } else {
+                user.setStatus(true);
+            }
+            userRepository.save(user);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    private User getUserByUserId(Long userId) {
+        User user = userRepository.findByUserId(userId);
+        if (user == null) {
+            throw new AppException(ErrorCode.USER_NOT_EXIST);
+        }
+        return user;
+    }
+
+    private User findUserByUsername(String username) {
+        User user = userRepository.findByUsername(username);
+        if (user == null) {
+            throw new AppException(ErrorCode.USER_NOT_EXIST);
+        }
+        return null;
+    }
+
+    public boolean getUserByUsername(String username) {
+        User user = userRepository.findByUsername(username);
+        if (user == null) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean getUserByEmail(String email) {
+        User user = userRepository.findByEmail(email);
+        if (user == null) {
+            return false;
+        }
+        return true;
+    }
+}
 
 
 //    @Autowired
@@ -228,4 +269,4 @@ public class UserService {
 //    public User getUserByEmail(String email) {
 //       return userRepository.findByEmail(email);
 //    }
-}
+//}

@@ -18,6 +18,9 @@ public enum ErrorCode {
     INVALID_DOB(1008, "Your age must be at least {min}", HttpStatus.BAD_REQUEST),
     DATABASE_EXCEPTION(1009, "Database error", HttpStatus.INTERNAL_SERVER_ERROR),
     NEWS_NOT_EXIST(1010, "News not exist", HttpStatus.NOT_FOUND),
+    USER_NOT_EXIST(1011, "User not existed", HttpStatus.NOT_FOUND),
+    INVALID_TOKEN(1012,"Invalid token",HttpStatus.FORBIDDEN),
+
     ;
 
     private final int code;

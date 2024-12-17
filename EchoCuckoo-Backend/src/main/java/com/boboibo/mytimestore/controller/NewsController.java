@@ -27,7 +27,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class NewsController {
     NewService newService;
-    @Cacheable(value = "newsCache", key = "#root.getAllNews")
+//    @Cacheable(value = "newsCache", key = "#root.getAllNews")
     @GetMapping
     public ResponseEntity<ResponseObject> getAllNews() {
         List<News> newsList = newService.getAllNews();
