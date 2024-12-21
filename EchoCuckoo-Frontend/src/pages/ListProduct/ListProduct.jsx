@@ -24,7 +24,7 @@ const ListProduct = () => {
                         <div className="product-card">
                             <div className="image-wrapper">
                                 <Link to="/product-detail">
-                                    <img src="https://themewagon.github.io/timezone/assets/img/gallery/popular1.png" alt="Luxury Watch" className="img-fluid"/>
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Luxury Watch" className="img-fluid"/>
                                 </Link>
                                 <div className="overlay">
                                     <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
@@ -44,7 +44,7 @@ const ListProduct = () => {
                         <div className="product-card">
                             <div className="image-wrapper">
                                 <Link to="/product-detail">
-                                    <img src="https://themewagon.github.io/timezone/assets/img/gallery/popular2.png" alt="Elegant Watch" className="img-fluid"/>
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Elegant Watch" className="img-fluid"/>
                                 </Link>
                                 <div className="overlay">
                                     <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
@@ -63,7 +63,7 @@ const ListProduct = () => {
                         <div className="product-card">
                             <div className="image-wrapper">
                                 <Link to="/product-detail">
-                                    <img src="https://themewagon.github.io/timezone/assets/img/gallery/popular3.png" alt="Smart Watch" className="img-fluid"/>
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Smart Watch" className="img-fluid"/>
                                 </Link>
                                 <div className="overlay">
                                     <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
