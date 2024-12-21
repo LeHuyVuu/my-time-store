@@ -1,4 +1,5 @@
 // Carousel.jsx
+import { Link } from 'react-router-dom';
 import './Carousel.css';
 
 const Carousel = () => {
@@ -24,9 +25,9 @@ const Carousel = () => {
                         <p className="lead mb-4 w-75">
                             Discover our exclusive collection of handcrafted cuckoo clocks and accessories that redefine classic style with a modern touch.
                         </p>
-                        <a href="#" className="btn btn-light btn-lg">
+                        <Link to="/shop" className="btn btn-light btn-lg">
                             Shop Now
-                        </a>
+                        </Link>
                     </div>
                     <div className="mt-4 mt-lg-0 d-flex justify-content-center">
                         <img

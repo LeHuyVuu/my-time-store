@@ -1,0 +1,100 @@
+.product-title {
+    font-size: 2rem;
+    color: #1a1a2e;
+    font-weight: 700;
+}
+
+.product-price h4 {
+    font-weight: bold;
+    color: red;
+}
+
+.product-description {
+    line-height: 1.6;
+    color: #555;
+}
+
+.product-image {
+    max-width: 60%;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-image:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.quantity-controls label {
+    font-weight: 600;
+    color: #333;
+}
+
+.quantity-controls input {
+    max-width: 80px;
+    text-align: center;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+.quantity-controls input:focus {
+    border-color: #1a1a2e;
+    outline: none;
+    box-shadow: 0 0 8px rgba(26, 26, 46, 0.4);
+}
+
+.related-products {
+    background-color: #f9f9f9;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+.related-products h3 {
+    font-size: 1.8rem;
+    color: #1a1a2e;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.related-products .card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.related-products .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.related-products .card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.related-products .card-title:hover {
+    color: #1a1a2e;
+}
+
+.related-products .text-primary {
+    color: #e63946 !important;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.related-products .text-primary:hover {
+    color: #d62828 !important;
+}

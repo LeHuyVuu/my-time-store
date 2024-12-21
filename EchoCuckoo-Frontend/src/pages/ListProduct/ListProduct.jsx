@@ -2,7 +2,6 @@ import './ListProduct.css'
 const ListProduct = () => {
     return (
         <div>
-
             <main className="container my-5">
                 <div className="filter-bar d-flex justify-content-between align-items-center mb-4">
                     <div className="sort-options">

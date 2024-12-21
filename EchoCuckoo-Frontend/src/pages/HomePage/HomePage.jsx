@@ -3,7 +3,9 @@ import FeatureCollections from "../../components/_HomePage/FeartureCollections/F
 import NewArrival from "../../components/_HomePage/New Arrival/NewArrival"
 
 const HomePage = () => {
+
   return (
+    
     <div>
         <Carousel/>
         <NewArrival/>

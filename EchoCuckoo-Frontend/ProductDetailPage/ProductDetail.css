@@ -32,17 +32,11 @@ body {
     transform: scale(1.05);
 }
 
-.modal-content {
-    background-color: transparent;
-    border: none;
-    text-align: center;
-}
 
-.modal-content img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
+
+
+
+
 
 .card {
     border-radius: 15px;

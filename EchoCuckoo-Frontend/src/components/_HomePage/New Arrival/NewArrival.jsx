@@ -1,4 +1,5 @@
 import './NewArrival.css';
+import { Link } from 'react-router-dom';
 
 const NewArrival = () => {
   return (
@@ -23,31 +24,37 @@ const NewArrival = () => {
               <div className="carousel-item active">
                 <div className="row">
                   <div className="col-md-4">
-                    <div className="card border-0">
-                      <img src="https://i.postimg.cc/qR0yqkTx/Nobackground.png" className="card-img-top img-fluid" alt="Product 1" />
-                      <div className="card-body">
-                        <h5 className="card-title">Thermo Ball Etip Gloves</h5>
-                        <p className="text-danger fw-bold">$45,743</p>
+                    <Link to='/product-detail'>
+                      <div className="card border-0">
+                        <img src="https://i.postimg.cc/qR0yqkTx/Nobackground.png" className="card-img-top img-fluid" alt="Product 1" />
+                        <div className="card-body">
+                          <h5 className="card-title">Thermo Ball Etip Gloves</h5>
+                          <p className="text-danger fw-bold">$45,743</p>
+                        </div>
                       </div>
-                    </div>
+                    </Link>
                   </div>
                   <div className="col-md-4">
-                    <div className="card border-0">
-                      <img src="https://i.postimg.cc/qR0yqkTx/Nobackground.png" className="card-img-top img-fluid" alt="Product 2" />
-                      <div className="card-body">
-                        <h5 className="card-title">Thermo Ball Etip Gloves</h5>
-                        <p className="text-danger fw-bold">$45,743</p>
+                    <Link to='/product-detail'>
+                      <div className="card border-0">
+                        <img src="https://i.postimg.cc/qR0yqkTx/Nobackground.png" className="card-img-top img-fluid" alt="Product 2" />
+                        <div className="card-body">
+                          <h5 className="card-title">Thermo Ball Etip Gloves</h5>
+                          <p className="text-danger fw-bold">$45,743</p>
+                        </div>
                       </div>
-                    </div>
+                    </Link>
                   </div>
                   <div className="col-md-4">
-                    <div className="card border-0">
-                      <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" className="card-img-top img-fluid" alt="Product 3" />
-                      <div className="card-body">
-                        <h5 className="card-title">Thermo Ball Etip Gloves</h5>
-                        <p className="text-danger fw-bold">$45,743</p>
+                    <Link to='/product-detail'>
+                      <div className="card border-0">
+                        <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" className="card-img-top img-fluid" alt="Product 3" />
+                        <div className="card-body">
+                          <h5 className="card-title">Thermo Ball Etip Gloves</h5>
+                          <p className="text-danger fw-bold">$45,743</p>
+                        </div>
                       </div>
-                    </div>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -56,31 +63,37 @@ const NewArrival = () => {
               <div className="carousel-item">
                 <div className="row">
                   <div className="col-md-4">
-                    <div className="card border-0">
-                      <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" className="card-img-top img-fluid" alt="Product 4" />
-                      <div className="card-body">
-                        <h5 className="card-title">Winter Jacket</h5>
-                        <p className="text-danger fw-bold">$60,000</p>
+                    <Link to='/product-detail'>
+                      <div className="card border-0">
+                        <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" className="card-img-top img-fluid" alt="Product 4" />
+                        <div className="card-body">
+                          <h5 className="card-title">Winter Jacket</h5>
+                          <p className="text-danger fw-bold">$60,000</p>
+                        </div>
                       </div>
-                    </div>
+                    </Link>
                   </div>
                   <div className="col-md-4">
-                    <div className="card border-0">
-                      <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" className="card-img-top img-fluid" alt="Product 5" />
-                      <div className="card-body">
-                        <h5 className="card-title">Leather Bag</h5>
-                        <p className="text-danger fw-bold">$80,000</p>
+                    <Link to='/product-detail'>
+                      <div className="card border-0">
+                        <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" className="card-img-top img-fluid" alt="Product 5" />
+                        <div className="card-body">
+                          <h5 className="card-title">Leather Bag</h5>
+                          <p className="text-danger fw-bold">$80,000</p>
+                        </div>
                       </div>
-                    </div>
+                    </Link>
                   </div>
                   <div className="col-md-4">
-                    <div className="card border-0">
-                      <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" className="card-img-top img-fluid" alt="Product 6" />
-                      <div className="card-body">
-                        <h5 className="card-title">Stylish Hat</h5>
-                        <p className="text-danger fw-bold">$35,000</p>
+                    <Link to='/product-detail'>
+                      <div className="card border-0">
+                        <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" className="card-img-top img-fluid" alt="Product 6" />
+                        <div className="card-body">
+                          <h5 className="card-title">Stylish Hat</h5>
+                          <p className="text-danger fw-bold">$35,000</p>
+                        </div>
                       </div>
-                    </div>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -89,31 +102,37 @@ const NewArrival = () => {
               <div className="carousel-item">
                 <div className="row">
                   <div className="col-md-4">
-                    <div className="card border-0">
-                      <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" className="card-img-top img-fluid" alt="Product 7" />
-                      <div className="card-body">
-                        <h5 className="card-title">Classic Watch</h5>
-                        <p className="text-danger fw-bold">$100,000</p>
+                    <Link to='/product-detail'>
+                      <div className="card border-0">
+                        <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" className="card-img-top img-fluid" alt="Product 7" />
+                        <div className="card-body">
+                          <h5 className="card-title">Classic Watch</h5>
+                          <p className="text-danger fw-bold">$100,000</p>
+                        </div>
                       </div>
-                    </div>
+                    </Link>
                   </div>
                   <div className="col-md-4">
-                    <div className="card border-0">
-                      <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" className="card-img-top img-fluid" alt="Product 8" />
-                      <div className="card-body">
-                        <h5 className="card-title">Running Shoes</h5>
-                        <p className="text-danger fw-bold">$75,000</p>
+                    <Link to='/product-detail'>
+                      <div className="card border-0">
+                        <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" className="card-img-top img-fluid" alt="Product 8" />
+                        <div className="card-body">
+                          <h5 className="card-title">Running Shoes</h5>
+                          <p className="text-danger fw-bold">$75,000</p>
+                        </div>
                       </div>
-                    </div>
+                    </Link>
                   </div>
                   <div className="col-md-4">
-                    <div className="card border-0">
-                      <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" className="card-img-top img-fluid" alt="Product 9" />
-                      <div className="card-body">
-                        <h5 className="card-title">Sports Cap</h5>
-                        <p className="text-danger fw-bold">$25,000</p>
+                    <Link to='/product-detail'>
+                      <div className="card border-0">
+                        <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" className="card-img-top img-fluid" alt="Product 9" />
+                        <div className="card-body">
+                          <h5 className="card-title">Sports Cap</h5>
+                          <p className="text-danger fw-bold">$25,000</p>
+                        </div>
                       </div>
-                    </div>
+                    </Link>
                   </div>
                 </div>
               </div>
