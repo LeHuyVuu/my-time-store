@@ -11,7 +11,7 @@ const FeatureCollections = () => {
             <div className="col-md-4">
               <div className="collection-item position-relative">
                 <img
-                  src="/Image/OIP-3.jpg"
+                  src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg"
                   className="img-fluid rounded shadow"
                   alt="Elegant Watches"
                 />
@@ -29,7 +29,7 @@ const FeatureCollections = () => {
             <div className="col-md-4">
               <div className="collection-item position-relative">
                 <img
-                  src="/Image/OIP-3.jpg"
+                  src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg"
                   className="img-fluid rounded shadow"
                   alt="Luxury Bags"
                 />
@@ -47,7 +47,7 @@ const FeatureCollections = () => {
             <div className="col-md-4">
               <div className="collection-item position-relative">
                 <img
-                  src="/Image/OIP-3.jpg"
+                  src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg"
                   className="img-fluid rounded shadow"
                   alt="Winter Essentials"
                 />
