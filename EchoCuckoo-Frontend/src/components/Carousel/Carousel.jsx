@@ -30,7 +30,7 @@ const Carousel = () => {
                     </div>
                     <div className="mt-4 mt-lg-0 d-flex justify-content-center">
                         <img
-                            src="src/assets/Image/Nobackground.png"
+                            src="https://i.postimg.cc/qR0yqkTx/Nobackground.png"
                             alt="Watch"
                             className="img-fluid custom-img"
                         />
