@@ -1,4 +1,5 @@
-import './Header.css'; 
+import { Link } from 'react-router-dom';
+import './Header.css';
 const Header = () => {
     return (
         <div>
@@ -16,20 +17,23 @@ const Header = () => {
                         </button>
                         <div className="collapse navbar-collapse" id="navbarNav">
                             <ul className="navbar-nav mx-auto">
-                                <li className="nav-item"><a className="nav-link"
-                                    href="#">Home</a></li>
-                                <li className="nav-item"><a className="nav-link"
-                                    href="#">Shop</a></li>
-                                <li className="nav-item"><a className="nav-link"
-                                    href="#">About</a></li>
-                                <li className="nav-item"><a className="nav-link"
-                                    href="#">Latest</a></li>
-                                <li className="nav-item"><a className="nav-link"
-                                    href="#">Blog</a></li>
-                                <li className="nav-item"><a className="nav-link"
-                                    href="#">Pages</a></li>
-                                <li className="nav-item"><a className="nav-link"
-                                    href="#">Contact</a></li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/">Home</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/shop">Shop</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/about">About</Link>
+                                </li>
+                              
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/blog">Blog</Link>
+                                </li>
+                               
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/contact">Contact</Link>
+                                </li>
                             </ul>
                             <div className="d-flex align-items-center ms-3">
                                 <a href="#" className="text-dark me-3"><i

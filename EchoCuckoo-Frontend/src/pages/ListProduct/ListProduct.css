@@ -1,0 +1,118 @@
+
+.header-section {
+    background: var(--main-bg); /* Sử dụng hình nền từ :root */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 250px; /* Chiều cao của header */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-section h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 3rem;
+    color: #1a1a2e;
+}
+
+.filter-bar a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.filter-bar a.active {
+    color: #dc3545;
+    border-bottom: 2px solid #dc3545;
+}
+
+.product-card {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    background: #fff;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.image-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-wrapper img {
+    transition: transform 0.3s ease;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+.product-card:hover .image-wrapper img {
+    transform: scale(1.05);
+}
+
+.overlay {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    /* background: #dc3545; */
+    display: flex;
+    justify-content: center;
+    transition: bottom 0.3s ease;
+}
+
+.product-card:hover .overlay {
+    bottom: 0;
+}
+
+.product-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.product-price {
+    font-size: 1.2rem;
+    color: #dc3545;
+    margin-bottom: 0;
+}
+
+.page-link {
+    color: #1a1a2e;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin: 0 0.25rem;
+}
+
+.page-item.active .page-link {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+@media (max-width: 768px) {
+    .header-section h1 {
+        font-size: 2.5rem;
+    }
+    
+    .filter-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .sort-options {
+        margin-bottom: 1rem;
+    }
+    
+    .filter-bar a {
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+}

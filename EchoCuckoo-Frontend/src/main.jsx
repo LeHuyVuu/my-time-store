@@ -3,9 +3,10 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import HomePage from './pages/HomePage.jsx'
+import HomePage from './pages/HomePage/HomePage.jsx'
 import RootLayout from './pages/RootLayout.jsx'
-import Carousel from './components/Carousel/Carousel.jsx'
+import Carousel from './components/_HomePage/Carousel/Carousel.jsx'
+import ListProduct from './pages/ListProduct/ListProduct.jsx'
 
 
 
@@ -18,12 +19,11 @@ const router = createBrowserRouter([
         element: <HomePage />
       },
       {
-        path: '/movie/:id',
         element: <Carousel />
       },
       {
-        // path: '/tv/:id',
-        // element: <TVShowDetail />
+        path: '/shop',
+        element: <ListProduct />
       }
     ]
   }
