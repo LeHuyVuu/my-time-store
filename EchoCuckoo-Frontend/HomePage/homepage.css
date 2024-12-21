@@ -1,0 +1,150 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+
+}
+
+/* Navbar */
+.navbar .nav-item .nav-link:hover {
+    color: #ff4d4d !important;
+    text-decoration: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero img {
+        margin-top: 20px;
+        max-width: 100%;
+    }
+}
+
+
+
+/* New-arrival */
+.new-arrivals h2 {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    color: #555;
+    margin-top: 10px;
+}
+
+.card-body p {
+    font-size: 1.2rem;
+}
+
+/* Card Hover Effect */
+.card {
+    max-width: 300px; /* Giới hạn chiều rộng tối đa của card */
+    margin: 50px auto; /* Giảm khoảng cách giữa các card */
+    transition: transform 0.3s, box-shadow 0.3s; /* Thêm hiệu ứng chuyển tiếp */
+    border-radius: 15px; /* Đặt giá trị góc bo */
+    overflow: hidden; /* Đảm bảo nội dung không vượt ra ngoài */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Phóng to card khi hover */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Thêm bóng cho card khi hover */
+}
+
+/* Card Image Styling */
+.card-img-top {
+    height: 300px; /* Giảm chiều cao của hình ảnh */
+    object-fit: cover; /* Đảm bảo hình ảnh được cắt và giữ tỷ lệ */
+}
+
+
+
+/* Featured Collections Section */
+.featured-collections .collection-item {
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+}
+
+.featured-collections img {
+    transition: transform 0.5s ease, filter 0.5s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.featured-collections .collection-item:hover img {
+    transform: scale(1.1);
+    filter: brightness(70%);
+}
+
+.featured-collections .overlay {
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    border-radius: 10px;
+}
+
+.featured-collections .collection-item:hover .overlay {
+    opacity: 1;
+}
+
+.featured-collections .overlay h5 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.featured-collections .overlay p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.featured-collections .overlay a {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    border-radius: 30px;
+}
+
+
+
+
+
+
+/* footer */
+/* Hiệu ứng hover cho tiêu đề */
+footer h5:hover {
+    color: #e74c3c; /* Đổi màu chữ sang đỏ */
+    transform: translateY(-2px); /* Dịch lên nhẹ */
+    transition: all 0.3s ease; /* Hiệu ứng chuyển động */
+}
+
+/* Hiệu ứng hover cho các liên kết */
+footer a {
+    color: #333; /* Màu mặc định cho text */
+    transition: all 0.3s ease; /* Hiệu ứng mượt */
+}
+
+footer a:hover {
+    color: #e74c3c; /* Đổi màu chữ sang đỏ khi hover */
+    text-decoration: underline; /* Thêm gạch chân */
+}
+
+/* Hiệu ứng hover cho các đoạn văn */
+footer p:hover {
+    color: #555; /* Đổi màu chữ sang xám đậm */
+    transform: scale(1.05); /* Phóng to nhẹ */
+    transition: all 0.3s ease; /* Hiệu ứng chuyển động */
+}
+
+/* Hiệu ứng hover cho biểu tượng mạng xã hội */
+footer .social-icons a {
+    color: #555; /* Màu biểu tượng mặc định */
+    transition: color 0.3s ease, transform 0.3s ease; /* Hiệu ứng chuyển động */
+}
+
+footer .social-icons a:hover {
+    color: #e74c3c; /* Đổi màu biểu tượng sang đỏ */
+    transform: rotate(10deg); /* Xoay nhẹ */
+}
+
+
+

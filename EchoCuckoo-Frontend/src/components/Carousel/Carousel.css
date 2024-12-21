@@ -1,0 +1,143 @@
+/* Hero Section */
+.hero {
+    position: relative;
+    padding: 5rem 0;
+    overflow: hidden; /* Đảm bảo video không bị tràn */
+}
+
+.hero .video-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Video bao phủ toàn bộ khung nền */
+    z-index: 0; /* Video nằm dưới overlay và nội dung */
+}
+
+.hero .backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Overlay tối để làm nổi nội dung */
+    z-index: 1;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2; /* Nội dung nằm trên video và overlay */
+}
+
+.hero h1 {
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Bóng chữ */
+}
+
+.hero p {
+    color: #ddd;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.hero .btn {
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+    transition: background 0.3s ease;
+}
+
+.hero .btn:hover {
+    background: #333;
+    color: #fff;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+.custom-img {
+    max-width: 200px; /* Kích thước ảnh */
+    width: 60%; /* Co dãn theo container */
+    height: auto; /* Giữ tỉ lệ khung hình */
+    display: block;
+    margin: 0 auto;
+    position: relative; /* Để sử dụng pseudo-element */
+    z-index: 2;
+    filter: brightness(100%);
+    animation: float 3s ease-in-out infinite, glow 3s ease-in-out infinite alternate;
+    border: 2px solid rgba(255, 255, 255, 0.8); /* Viền trắng mờ */
+    border-radius: 1000px; /* Bo góc cho viền */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Tạo bóng */
+    backdrop-filter: blur(5px); /* Hiệu ứng làm mờ nền */
+    margin-right: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng hover */
+}
+
+.custom-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(50, 200, 223, 0.5);
+}
+
+/* Hiệu ứng di chuyển lên xuống */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Hiệu ứng tăng độ sáng */
+@keyframes glow {
+    0%, 100% {
+        filter: brightness(100%);
+    }
+    50% {
+        filter: brightness(120%);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        text-align: center;
+    }
+
+    .hero .container {
+        flex-direction: column;
+    }
+
+    .hero .lead {
+        width: 100%; /* Đảm bảo text không bị cắt */
+    }
+
+    .custom-img {
+        max-width: 250px; /* Giới hạn kích thước ảnh trên màn hình nhỏ */
+    }
+}
+
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 1.8rem; /* Giảm kích thước chữ */
+    }
+
+    .hero .btn {
+        font-size: 0.9rem; /* Điều chỉnh kích thước nút */
+        padding: 0.5rem 1rem;
+    }
+
+    .custom-img {
+        display: none; /* Ẩn ảnh trên màn hình nhỏ */
+    }
+}
+
+@media (max-width: 912px) {
+    .custom-img {
+       display: none; /* Ảnh nhỏ hơn trên màn hình tablet */
+    }
+}
+
+@media (max-width: 576px) {
+    .custom-img {
+        display: none;  /* Ảnh nhỏ hơn trên màn hình điện thoại */
+    }
+}

@@ -1,0 +1,37 @@
+
+/* footer */
+/* Hiệu ứng hover cho tiêu đề */
+footer h5:hover {
+    color: #e74c3c; /* Đổi màu chữ sang đỏ */
+    transform: translateY(-2px); /* Dịch lên nhẹ */
+    transition: all 0.3s ease; /* Hiệu ứng chuyển động */
+}
+
+/* Hiệu ứng hover cho các liên kết */
+footer a {
+    color: #333; /* Màu mặc định cho text */
+    transition: all 0.3s ease; /* Hiệu ứng mượt */
+}
+
+footer a:hover {
+    color: #e74c3c; /* Đổi màu chữ sang đỏ khi hover */
+    text-decoration: underline; /* Thêm gạch chân */
+}
+
+/* Hiệu ứng hover cho các đoạn văn */
+footer p:hover {
+    color: #555; /* Đổi màu chữ sang xám đậm */
+    transform: scale(1.05); /* Phóng to nhẹ */
+    transition: all 0.3s ease; /* Hiệu ứng chuyển động */
+}
+
+/* Hiệu ứng hover cho biểu tượng mạng xã hội */
+footer .social-icons a {
+    color: #555; /* Màu biểu tượng mặc định */
+    transition: color 0.3s ease, transform 0.3s ease; /* Hiệu ứng chuyển động */
+}
+
+footer .social-icons a:hover {
+    color: #e74c3c; /* Đổi màu biểu tượng sang đỏ */
+    transform: rotate(10deg); /* Xoay nhẹ */
+}

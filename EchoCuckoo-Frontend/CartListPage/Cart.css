@@ -1,0 +1,130 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Header Section */
+.header-section {
+    background: url('/path/to/your-header-image.jpg') center center/cover no-repeat;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-title {
+    color: #1a1a2e;
+    font-weight: 700;
+}
+
+/* Cart Items */
+.cart-item img {
+    object-fit: cover;
+}
+
+.cart-item h5 {
+    font-weight: 600;
+    color: #1a1a2e;
+}
+
+.cart-item p {
+    margin: 0;
+}
+
+/* Order Summary */
+.order-summary {
+    background-color: #f8f9fa;
+}
+
+.order-summary h3 {
+    font-weight: 700;
+}
+
+.order-summary .btn-primary {
+    background-color: #6c5ce7;
+    border: none;
+}
+
+.order-summary .btn-primary:hover {
+    background-color: #564fb1;
+}
+
+.order-summary .btn-outline-secondary {
+    border-color: #6c5ce7;
+    color: #6c5ce7;
+}
+
+.order-summary .btn-outline-secondary:hover {
+    background-color: #6c5ce7;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+
+
+/* VNPay Button */
+.btn-vnpay {
+    background-color: #c9bce9; /* Màu pastel tím */
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    padding: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-vnpay:hover {
+    background-color: #b2a3d6; /* Màu tím đậm hơn khi hover */
+    transform: scale(1.1);
+}
+
+/* Momo Button */
+.btn-momo {
+    background-color: #f7c1cc; /* Màu pastel hồng */
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    padding: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-momo:hover {
+    background-color: #e7acba; /* Màu hồng đậm hơn khi hover */
+    transform: scale(1.1);
+}
+
+/* PayPal Button */
+.btn-paypal {
+    background-color: #fbe5a3; /* Màu pastel vàng */
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    padding: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-paypal:hover {
+    background-color: #e8cd8c; /* Màu vàng đậm hơn khi hover */
+    transform: scale(1.1);
+}
+
+/* Logo trong nút */
+.btn img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}

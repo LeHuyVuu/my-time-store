@@ -1,0 +1,37 @@
+/* New-arrival */
+.new-arrivals h2 {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    color: #555;
+    margin-top: 10px;
+}
+
+.card-body p {
+    font-size: 1.2rem;
+}
+
+/* Card Hover Effect */
+.card {
+    max-width: 300px; /* Giới hạn chiều rộng tối đa của card */
+    margin: 50px auto; /* Giảm khoảng cách giữa các card */
+    transition: transform 0.3s, box-shadow 0.3s; /* Thêm hiệu ứng chuyển tiếp */
+    border-radius: 50px; /* Đặt giá trị góc bo */
+    overflow: hidden; /* Đảm bảo nội dung không vượt ra ngoài */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Phóng to card khi hover */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Thêm bóng cho card khi hover */
+}
+
+/* Card Image Styling */
+.card-img-top {
+    width: 100%; /* Đảm bảo hình ảnh chiếm toàn bộ chiều rộng của card */
+    height: 250px; /* Cố định chiều cao của hình ảnh */
+    object-fit: cover; /* Đảm bảo hình ảnh được cắt và giữ tỷ lệ */
+    display: block; /* Loại bỏ khoảng trắng dưới hình ảnh */
+}

@@ -1,0 +1,78 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f8f9fa;
+}
+
+
+.header-section {
+    background: var(--main-bg); /* Sử dụng hình nền từ :root */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 250px; /* Chiều cao của header */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header-title {
+    position: relative;
+    z-index: 2;
+    color: #1a1a2e;
+}
+
+.new-user-box {
+    background: linear-gradient(135deg, #6c5ce7, #a363d9);
+    color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.login-form-box {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-control {
+    border: 2px solid #e9ecef;
+    padding: 12px 20px;
+}
+
+.form-control:focus {
+    border-color: #6c5ce7;
+    box-shadow: none;
+}
+
+.btn-primary {
+    background-color: #1a1a2e;
+    border: none;
+    padding: 12px 30px;
+}
+
+.btn-primary:hover {
+    background-color: #141428;
+}
+
+.btn-light {
+    padding: 12px 30px;
+}
+
+.btn-light:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-2px);
+    transition: transform 0.3s ease;
+}
+
+a {
+    color: #6c5ce7;
+}
+
+@media (max-width: 768px) {
+    .header-title {
+        font-size: 2.5rem;
+    }
+    
+    .new-user-box {
+        margin-bottom: 2rem;
+    }
+}

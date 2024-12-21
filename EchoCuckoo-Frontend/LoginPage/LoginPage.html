@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="LoginPage.css" rel="stylesheet">
+    <link href="../index.css" rel="stylesheet">
+
+</head>
+<body>
+    <header class="header-section position-relative ">
+        <div class="overlay"></div>
+        <div class="container">
+            <h1 class="text-center header-title ">Login</h1>
+        </div>
+    </header>
+    
+    <main class="main-content py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="new-user-box h-100 p-4 d-flex flex-column justify-content-center align-items-center text-center">
+                        <h2 class="mb-4">New to our Shop?</h2>
+                        <p class="mb-4">Join us today and discover a world of amazing products and exclusive offers!</p>
+                        <button class="btn btn-light btn-lg rounded-pill shadow-sm">Register Now</button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="login-form-box p-4">
+                        <h2 class="mb-4 text-center">Welcome Back</h2>
+                        <form>
+                            <div class="mb-3">
+                                <input type="email" class="form-control form-control-lg rounded-pill" placeholder="Email Address" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" class="form-control form-control-lg rounded-pill" placeholder="Password" required>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="rememberMe">
+                                <label class="form-check-label" for="rememberMe">Remember me</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg w-100 rounded-pill mb-3">Login</button>
+                            <div class="text-center">
+                                <a href="#" class="text-decoration-none">Forgot Password?</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

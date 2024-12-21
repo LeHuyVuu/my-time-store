@@ -1,0 +1,14 @@
+/* :root {
+    --main-bg: url('https://themewagon.github.io/timezone/assets/img/hero/about_hero.png') center/cover no-repeat;
+    background-repeat: no-repeat;
+    background-position: center center;
+} */
+:root {
+    --main-bg: url('https://themewagon.github.io/timezone/assets/img/hero/about_hero.png');
+}
+footer {
+    background-color: #dc3545
+}
+h1{
+    color: #333;
+}

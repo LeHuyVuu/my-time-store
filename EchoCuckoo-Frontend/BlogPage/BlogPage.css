@@ -1,0 +1,125 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #1a1a2e;
+}
+
+.blog-header {
+    background-image: url('https://images.unsplash.com/photo-1557683316-973673baf926');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.header-section {
+    background: var(--main-bg); /* Sử dụng hình nền từ :root */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 250px; /* Chiều cao của header */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blog-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.blog-header h1 {
+    position: relative;
+    color: #1a1a2e;
+}
+
+.blog-post {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.date-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: #dc3545;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.post-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.post-excerpt {
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.post-meta span {
+    color: #777;
+    margin-right: 1rem;
+    font-size: 0.9rem;
+}
+
+.post-meta i {
+    margin-right: 5px;
+}
+
+.widget-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.categories-widget li a {
+    color: #555;
+    text-decoration: none;
+    display: block;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.recent-post-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.recent-post-info h4 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.tags-cloud .tag {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 0 5px 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    color: #555;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.instagram-widget img {
+    border-radius: 5px;
+}
+
+@media (max-width: 991px) {
+    .sidebar {
+        margin-top: 3rem;
+    }
+}

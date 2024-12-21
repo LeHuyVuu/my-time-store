@@ -1,0 +1,46 @@
+
+/* Featured Collections Section */
+.featured-collections .collection-item {
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+}
+
+.featured-collections img {
+    transition: transform 0.5s ease, filter 0.5s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.featured-collections .collection-item:hover img {
+    transform: scale(1.1);
+    filter: brightness(70%);
+}
+
+.featured-collections .overlay {
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    border-radius: 10px;
+}
+
+.featured-collections .collection-item:hover .overlay {
+    opacity: 1;
+}
+
+.featured-collections .overlay h5 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.featured-collections .overlay p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.featured-collections .overlay a {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    border-radius: 30px;
+}

@@ -1,0 +1,54 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+.header-section {
+    background: var(--main-bg); /* Sử dụng hình nền từ :root */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 250px; /* Chiều cao của header */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-navy {
+    color: #1a1a2e;
+}
+
+.contact-form .form-control {
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+
+.contact-form .form-control::placeholder {
+    color: #adb5bd;
+}
+
+.contact-form .btn-danger {
+    background-color: #dc3545;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.contact-form .btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(220,53,69,0.2);
+}
+
+.contact-info {
+    border-left: 1px solid #dee2e6;
+}
+
+@media (max-width: 991.98px) {
+    .contact-info {
+        border-left: none;
+        border-top: 1px solid #dee2e6;
+        padding-top: 2rem;
+        margin-top: 2rem;
+    }
+}

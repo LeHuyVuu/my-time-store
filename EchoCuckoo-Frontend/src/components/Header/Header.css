@@ -1,0 +1,13 @@
+/* Navbar */
+.navbar .nav-item .nav-link:hover {
+    color: #ff4d4d !important;
+    text-decoration: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero img {
+        margin-top: 20px;
+        max-width: 100%;
+    }
+}

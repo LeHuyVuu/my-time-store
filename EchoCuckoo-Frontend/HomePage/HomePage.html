@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Time Zone</title>
+        <!-- Bootstrap CSS -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet">
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+            rel="stylesheet">
+        <link rel="stylesheet" href="homepage.css">
+        <!-- Animate.css -->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <!-- Wow.js -->
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    </head>
+
+    <body>
+        <div class="header-section">
+            <!-- Navbar -->
+            <nav id="navbar"
+                class="navbar navbar-expand-lg bg-white py-3 sticky-top">
+                <div class="container">
+                    <a class="navbar-brand fw-bold" href="#">Echo<span
+                            class="text-danger">Cuckoo</span></a>
+                    <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="nav-item"><a class="nav-link"
+                                    href="#">Home</a></li>
+                            <li class="nav-item"><a class="nav-link"
+                                    href="#">Shop</a></li>
+                            <li class="nav-item"><a class="nav-link"
+                                    href="#">About</a></li>
+                            <li class="nav-item"><a class="nav-link"
+                                    href="#">Latest</a></li>
+                            <li class="nav-item"><a class="nav-link"
+                                    href="#">Blog</a></li>
+                            <li class="nav-item"><a class="nav-link"
+                                    href="#">Pages</a></li>
+                            <li class="nav-item"><a class="nav-link"
+                                    href="#">Contact</a></li>
+                        </ul>
+                        <div class="d-flex align-items-center ms-3">
+                            <a href="#" class="text-dark me-3"><i
+                                    class="bi bi-search"></i></a>
+                            <a href="#" class="text-dark me-3"><i
+                                    class="bi bi-person"></i></a>
+                            <a href="#" class="text-dark"><i
+                                    class="bi bi-cart"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero bg-light py-5">
+            <div
+                class="container d-flex flex-column flex-lg-row align-items-center justify-content-between">
+                <div class="text-start">
+                    <h1 class="display-4 fw-bold mb-3">Select Your New <br>
+                        Perfect Style</h1>
+                    <p class="lead mb-4 w-75">
+                        Discover our exclusive collection of handcrafted cuckoo
+                        clocks and accessories that redefine classic
+                        style with a modern touch </p>
+                    <a href="#" class="btn btn-dark btn-lg">Shop Now</a>
+                </div>
+                <div class="mt-4 mt-lg-0">
+                    <img src="/Image/OID-1.jpg" alt="Watch" class="img-fluid"
+                        style="max-width: 300px; transition: transform 0.3s ease;"
+                        onmouseover="this.style.transform='scale(1.1) rotate(5deg)'"
+                        onmouseout="this.style.transform='scale(1) rotate(0deg)'">
+                </div>
+            </div>
+        </section>
+
+        <section class="new-arrivals py-5">
+            <div class="container text-center">
+                <!-- Section Title -->
+                <h2 class="fw-bold mb-4">New Arrivals</h2>
+
+                <!-- Bootstrap Carousel -->
+                <div id="productCarousel" class="carousel slide"
+                    data-bs-ride="carousel" data-bs-interval="2000">
+                    <!-- Carousel Indicators (Dots) -->
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#productCarousel"
+                            data-bs-slide-to="0" class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#productCarousel"
+                            data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#productCarousel"
+                            data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    </div>
+
+                    <!-- Carousel Items -->
+                    <div class="carousel-inner">
+                        <!-- Slide 1 -->
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card border-0">
+                                        <img src="/Image/OID-1.jpg"
+                                            class="card-img-top img-fluid"
+                                            alt="Product 1">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Thermo Ball
+                                                Etip Gloves</h5>
+                                            <p
+                                                class="text-danger fw-bold">$45,743</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card border-0">
+                                        <img src="/Image/OIP-2.jpg"
+                                            class="card-img-top img-fluid"
+                                            alt="Product 2">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Thermo Ball
+                                                Etip Gloves</h5>
+                                            <p
+                                                class="text-danger fw-bold">$45,743</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card border-0">
+                                        <img src="/Image/OIP-3.jpg"
+                                            class="card-img-top img-fluid"
+                                            alt="Product 3">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Thermo Ball
+                                                Etip Gloves</h5>
+                                            <p
+                                                class="text-danger fw-bold">$45,743</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card border-0">
+                                        <img src="/Image/OIP-3.jpg"
+                                            class="card-img-top img-fluid"
+                                            alt="Product 4">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Winter
+                                                Jacket</h5>
+                                            <p
+                                                class="text-danger fw-bold">$60,000</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card border-0">
+                                        <img src="/Image/OIP-3.jpg"
+                                            class="card-img-top img-fluid"
+                                            alt="Product 5">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Leather
+                                                Bag</h5>
+                                            <p
+                                                class="text-danger fw-bold">$80,000</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card border-0">
+                                        <img src="/Image/OIP-3.jpg"
+                                            class="card-img-top img-fluid"
+                                            alt="Product 6">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Stylish
+                                                Hat</h5>
+                                            <p
+                                                class="text-danger fw-bold">$35,000</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card border-0">
+                                        <img src="/Image/OIP-3.jpg"
+                                            class="card-img-top img-fluid"
+                                            alt="Product 7">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Classic
+                                                Watch</h5>
+                                            <p
+                                                class="text-danger fw-bold">$100,000</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card border-0">
+                                        <img src="/Image/OIP-3.jpg"
+                                            class="card-img-top img-fluid"
+                                            alt="Product 8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Running
+                                                Shoes</h5>
+                                            <p
+                                                class="text-danger fw-bold">$75,000</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card border-0">
+                                        <img src="/Image/OIP-3.jpg"
+                                            class="card-img-top img-fluid"
+                                            alt="Product 9">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Sports
+                                                Cap</h5>
+                                            <p
+                                                class="text-danger fw-bold">$25,000</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carousel Controls -->
+                    <button class="carousel-control-prev" type="button"
+                        data-bs-target="#productCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"
+                            aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button"
+                        data-bs-target="#productCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon"
+                            aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature collection -->
+        <section class="featured-collections py-5">
+            <div class="container text-center">
+                <h2 class="fw-bold mb-4">Featured Collections</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="collection-item position-relative">
+                            <img src="/Image/OIP-3.jpg"
+                                class="img-fluid rounded shadow"
+                                alt="Elegant Watches">
+                            <div
+                                class="overlay position-absolute w-100 h-100 top-0 start-0 d-flex align-items-center justify-content-center">
+                                <div class="text-white text-center">
+                                    <h5 class="fw-bold">Elegant Watches</h5>
+                                    <p class="small">Discover timeless
+                                        pieces.</p>
+                                    <a href="#"
+                                        class="btn btn-outline-light">Explore
+                                        Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="collection-item position-relative">
+                            <img src="/Image/OIP-3.jpg"
+                                class="img-fluid rounded shadow"
+                                alt="Luxury Bags">
+                            <div
+                                class="overlay position-absolute w-100 h-100 top-0 start-0 d-flex align-items-center justify-content-center">
+                                <div class="text-white text-center">
+                                    <h5 class="fw-bold">Luxury Bags</h5>
+                                    <p class="small">Premium quality and
+                                        design.</p>
+                                    <a href="#"
+                                        class="btn btn-outline-light">Explore
+                                        Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="collection-item position-relative">
+                            <img src="/Image/OIP-3.jpg"
+                                class="img-fluid rounded shadow"
+                                alt="Winter Essentials">
+                            <div
+                                class="overlay position-absolute w-100 h-100 top-0 start-0 d-flex align-items-center justify-content-center">
+                                <div class="text-white text-center">
+                                    <h5 class="fw-bold">Winter Essentials</h5>
+                                    <p class="small">Stay warm in style.</p>
+                                    <a href="#"
+                                        class="btn btn-outline-light">Explore
+                                        Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- From the Blog Section -->
+        <section class="from-the-blog py-5 bg-light">
+            <div class="container text-center">
+                <h2 class="fw-bold mb-4">From The Blog</h2>
+                <div class="row row-cols-1 row-cols-md-3 g-3">
+                    <div class="col">
+                        <div class="card h-90 border-0 shadow-sm">
+                            <img
+                                src="/Image/BlogImage/AdobeStock_307574699.webp"
+                                class="card-img-top img-fluid" alt="Blog 1">
+                            <div class="card-body">
+                                <p class="text-muted mb-1 small">May 4, 2019 | 5
+                                    Comments</p>
+                                <h5 class="card-title fw-bold">The Best Street
+                                    Style From London Fashion Week</h5>
+                                <p class="text-muted small">Sed quia non numquam
+                                    modi tempora.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-90 border-0 shadow-sm">
+                            <img src="/Image/BlogImage/images.jpg"
+                                class="card-img-top img-fluid" alt="Blog 2">
+                            <div class="card-body">
+                                <p class="text-muted mb-1 small">May 4, 2019 | 5
+                                    Comments</p>
+                                <h5 class="card-title fw-bold">Vogue's Ultimate
+                                    Guide To Autumn/Winter 2019 Shoes</h5>
+                                <p class="text-muted small">Sed quia non numquam
+                                    modi tempora.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-90 border-0 shadow-sm">
+                            <img
+                                src="/Image/BlogImage/world_clock_dark_and_clock_list_4x.png"
+                                class="card-img-top img-fluid" alt="Blog 3">
+                            <div class="card-body">
+                                <p class="text-muted mb-1 small">May 4, 2019 | 5
+                                    Comments</p>
+                                <h5 class="card-title fw-bold">How To Brighten
+                                    Your Wardrobe With A Dash Of Lime</h5>
+                                <p class="text-muted small">Sed quia non numquam
+                                    modi tempora.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-90 border-0 shadow-sm">
+                            <img
+                                src="/Image/BlogImage/AdobeStock_307574699.webp"
+                                class="card-img-top img-fluid" alt="Blog 4">
+                            <div class="card-body">
+                                <p class="text-muted mb-1 small">June 10, 2024 |
+                                    3 Comments</p>
+                                <h5 class="card-title fw-bold">Exploring the
+                                    Latest Trends in Fashion</h5>
+                                <p class="text-muted small">Discover what's hot
+                                    this season.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-90 border-0 shadow-sm">
+                            <img
+                                src="/Image/BlogImage/AdobeStock_307574699.webp"
+                                class="card-img-top img-fluid" alt="Blog 5">
+                            <div class="card-body">
+                                <p class="text-muted mb-1 small">June 12, 2024 |
+                                    2 Comments</p>
+                                <h5 class="card-title fw-bold">Sustainable
+                                    Fashion: A Guide</h5>
+                                <p class="text-muted small">Learn how to shop
+                                    sustainably.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-90 border-0 shadow-sm">
+                            <img
+                                src="/Image/BlogImage/AdobeStock_307574699.webp"
+                                class="card-img-top img-fluid" alt="Blog 6">
+                            <div class="card-body">
+                                <p class="text-muted mb-1 small">June 15, 2024 |
+                                    4 Comments</p>
+                                <h5 class="card-title fw-bold">Accessorizing:
+                                    The Key to Any Outfit</h5>
+                                <p class="text-muted small">Tips on how to
+                                    elevate your look.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="benefits py-5">
+            <div class="container text-center">
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div
+                            class="benefit-item d-flex flex-column align-items-center">
+                            <i class="bi bi-truck fs-1 text-primary"></i>
+                            <h5 class="fw-bold mt-3">Free Shipping</h5>
+                            <p class="text-muted small">For all orders over
+                                $99</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div
+                            class="benefit-item d-flex flex-column align-items-center">
+                            <i class="bi bi-clock fs-1 text-primary"></i>
+                            <h5 class="fw-bold mt-3">Delivery On Time</h5>
+                            <p class="text-muted small">If goods have
+                                problems</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div
+                            class="benefit-item d-flex flex-column align-items-center">
+                            <i class="bi bi-shield-lock fs-1 text-primary"></i>
+                            <h5 class="fw-bold mt-3">Secure Payment</h5>
+                            <p class="text-muted small">100% secure payment</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-light text-dark py-5">
+            <div class="container">
+                <div class="row text-center text-md-start">
+                    <!-- About Section -->
+                    <div class="col-md-4 col-12 mb-4">
+                        <h5 class="fw-bold mb-4">About EchoCuckoo</h5>
+                        <p>We bring you timeless designs and quality products
+                            that enhance your lifestyle. Discover our
+                            curated collections and experience luxury at its
+                            finest.</p>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="col-md-4 col-12 mb-4">
+                        <h5 class="fw-bold mb-4">Quick Links</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#"
+                                    class="text-black text-decoration-none d-block">Home</a></li>
+                            <li><a href="#"
+                                    class="text-black text-decoration-none d-block">Shop</a></li>
+                            <li><a href="#"
+                                    class="text-black text-decoration-none d-block">About</a></li>
+                            <li><a href="#"
+                                    class="text-black text-decoration-none d-block">Contact</a></li>
+                            <li><a href="#"
+                                    class="text-black text-decoration-none d-block">Privacy
+                                    Policy</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Section -->
+                    <div class="col-md-4 col-12 mb-4">
+                        <h5 class="fw-bold mb-4">Get in Touch</h5>
+                        <p><i class="bi bi-geo-alt"></i> 123 Echo Street,
+                            Fashion City</p>
+                        <p><i class="bi bi-telephone"></i> +1 234 567 890</p>
+                        <p><i class="bi bi-envelope"></i>
+                            info@echocuckoo.com</p>
+
+                        <div
+                            class="social-icons mt-3 d-flex justify-content-center">
+                            <a href="#" class="text-dark me-3"><i
+                                    class="bi bi-facebook"></i></a>
+                            <a href="#" class="text-dark me-3"><i
+                                    class="bi bi-twitter"></i></a>
+                            <a href="#" class="text-dark me-3"><i
+                                    class="bi bi-instagram"></i></a>
+                            <a href="#" class="text-dark"><i
+                                    class="bi bi-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer Bottom -->
+                <div class="text-center mt-4">
+                    <p class="mb-0">&copy; 2024 EchoCuckoo. All rights
+                        reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Bootstrap JS -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Custom JavaScript -->
+
+        <script>
+        new WOW().init();
+    </script>
+    </body>
+
+</html>
