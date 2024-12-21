@@ -11,8 +11,8 @@ const ProductDetail = () => {
                         {/* Product Image */}
                         <div className="col-md-6 text-center">
                             {/* Lightbox Wrapper */}
-                            <a href="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" data-bs-toggle="modal" data-bs-target="#imageModal">
-                                <img src="/Image/OID-1.jpg" alt="Product" className="img-fluid product-image rounded" />
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal">
+                                <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Product" className="img-fluid product-image rounded" />
                             </a>
                         </div>
 
