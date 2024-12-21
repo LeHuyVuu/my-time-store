@@ -7,7 +7,7 @@ const Carousel = () => {
             <section className="hero position-relative text-white py-5">
                 {/* Video làm nền */}
                 <video className="video-backdrop" autoPlay loop muted playsInline>
-                    <source src="src\assets\video\v.mp4" type="video/mp4" />
+                    <source src="https://o9tsmhgampqsoqts.public.blob.vercel-storage.com/v-ta8BeogxN4UVwvgbs0l3jzDOP1Azcf.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
 
