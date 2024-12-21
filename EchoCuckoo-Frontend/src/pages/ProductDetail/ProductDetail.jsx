@@ -11,7 +11,7 @@ const ProductDetail = () => {
                         {/* Product Image */}
                         <div className="col-md-6 text-center">
                             {/* Lightbox Wrapper */}
-                            <a href="/Image/OID-1.jpg" data-bs-toggle="modal" data-bs-target="#imageModal">
+                            <a href="https://themewagon.github.io/timezone/assets/img/gallery/popular1.png" data-bs-toggle="modal" data-bs-target="#imageModal">
                                 <img src="/Image/OID-1.jpg" alt="Product" className="img-fluid product-image rounded" />
                             </a>
                         </div>

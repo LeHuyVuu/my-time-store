@@ -1,4 +1,7 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
 import './ListProduct.css'
+
 const ListProduct = () => {
     return (
         <div>
@@ -20,7 +23,9 @@ const ListProduct = () => {
                     <div className="col-lg-4 col-md-6">
                         <div className="product-card">
                             <div className="image-wrapper">
-                                <img src="https://themewagon.github.io/timezone/assets/img/gallery/popular1.png" alt="Luxury Watch" className="img-fluid"/>
+                                <Link to="/product-detail">
+                                    <img src="https://themewagon.github.io/timezone/assets/img/gallery/popular1.png" alt="Luxury Watch" className="img-fluid"/>
+                                </Link>
                                 <div className="overlay">
                                     <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
                                     <button className="btn btn-light"><i className="bi bi-heart"></i></button>
@@ -28,7 +33,9 @@ const ListProduct = () => {
                                 <span className="badge bg-danger position-absolute top-0 start-0 m-3">New</span>
                             </div>
                             <div className="product-info p-3">
-                                <h3 className="product-name">Classic Chronograph</h3>
+                                <Link to="/product-detail">
+                                    <h3 className="product-name">Classic Chronograph</h3>
+                                </Link>
                                 <p className="product-price">$299.99</p>
                             </div>
                         </div>
@@ -36,14 +43,18 @@ const ListProduct = () => {
                     <div className="col-lg-4 col-md-6">
                         <div className="product-card">
                             <div className="image-wrapper">
-                                <img src="https://themewagon.github.io/timezone/assets/img/gallery/popular2.png" alt="Elegant Watch" className="img-fluid"/>
+                                <Link to="/product-detail">
+                                    <img src="https://themewagon.github.io/timezone/assets/img/gallery/popular2.png" alt="Elegant Watch" className="img-fluid"/>
+                                </Link>
                                 <div className="overlay">
                                     <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
                                     <button className="btn btn-light"><i className="bi bi-heart"></i></button>
                                 </div>
                             </div>
                             <div className="product-info p-3">
-                                <h3 className="product-name">Elegant Timepiece</h3>
+                                <Link to="/product-detail">
+                                    <h3 className="product-name">Elegant Timepiece</h3>
+                                </Link>
                                 <p className="product-price">$399.99</p>
                             </div>
                         </div>
@@ -51,14 +62,18 @@ const ListProduct = () => {
                     <div className="col-lg-4 col-md-6">
                         <div className="product-card">
                             <div className="image-wrapper">
-                                <img src="https://themewagon.github.io/timezone/assets/img/gallery/popular3.png" alt="Smart Watch" className="img-fluid"/>
+                                <Link to="/product-detail">
+                                    <img src="https://themewagon.github.io/timezone/assets/img/gallery/popular3.png" alt="Smart Watch" className="img-fluid"/>
+                                </Link>
                                 <div className="overlay">
                                     <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
                                     <button className="btn btn-light"><i className="bi bi-heart"></i></button>
                                 </div>
                             </div>
                             <div className="product-info p-3">
-                                <h3 className="product-name">Modern Smartwatch</h3>
+                                <Link to="/product-detail">
+                                    <h3 className="product-name">Modern Smartwatch</h3>
+                                </Link>
                                 <p className="product-price">$199.99</p>
                             </div>
                         </div>

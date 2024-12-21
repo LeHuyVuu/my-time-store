@@ -1,21 +1,5 @@
 
-.header-section {
-    background: var(--main-bg); /* Sử dụng hình nền từ :root */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 250px; /* Chiều cao của header */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-.header-section h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 3rem;
-    color: #1a1a2e;
-}
 
 .filter-bar a {
     text-decoration: none;
@@ -36,6 +20,19 @@
     background: #fff;
     overflow: hidden;
 }
+.product-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.product-name:hover {
+    color: #1a1a2e;
+}
+
+
 
 .product-card:hover {
     transform: translateY(-5px);

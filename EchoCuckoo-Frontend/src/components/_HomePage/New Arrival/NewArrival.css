@@ -8,7 +8,17 @@
     font-size: 1.25rem;
     color: #555;
     margin-top: 10px;
+    text-decoration: none !important;
 }
+.new-arrivals a {
+    text-decoration: none !important;
+    color: inherit; /* Giữ nguyên màu của text */
+}
+
+.new-arrivals a:hover {
+    text-decoration: none !important; /* Đảm bảo không có gạch chân khi hover */
+}
+
 
 .card-body p {
     font-size: 1.2rem;
