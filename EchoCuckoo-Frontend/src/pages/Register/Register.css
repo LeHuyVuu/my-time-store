@@ -58,3 +58,13 @@ a:hover {
         font-size: 2.5rem;
     }
 }
+/* Media Query for Small Screens */
+@media (max-width: 768px) {
+    .background-video {
+      display: none; /* Ẩn video trên màn hình nhỏ */
+    }
+  
+    .register-page .main-content {
+      padding: 2rem 1rem; /* Điều chỉnh khoảng cách nội dung */
+    }
+  }
