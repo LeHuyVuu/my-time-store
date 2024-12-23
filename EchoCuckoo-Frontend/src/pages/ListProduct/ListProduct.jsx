@@ -6,25 +6,34 @@ const ListProduct = () => {
     return (
         <div>
             <main className="container my-5">
-                <div className="filter-bar d-flex justify-content-between align-items-center mb-4">
-                    <div className="sort-options">
-                        <a href="#" className="me-4 active">Newest Arrivals</a>
-                        <a href="#" className="me-4">Price High to Low</a>
-                        <a href="#" className="me-4">Most Popular</a>
+                <div className="filter-bar mb-4">
+                    <div className="row align-items-center">
+                        <div className="col-12 col-md-8 mb-2 mb-md-0">
+                            <div className="sort-options d-flex flex-wrap justify-content-center justify-content-md-start">
+                                <a href="#" className="me-3 active">Newest Arrivals</a>
+                                <a href="#" className="me-3">Price High to Low</a>
+                                <a href="#" className="me-3">Most Popular</a>
+                            </div>
+                        </div>
+                        <div className="col-12 col-md-4">
+                            <div className="d-flex justify-content-center justify-content-md-end">
+                                <select className="form-select w-auto">
+                                    <option>40 per page</option>
+                                    <option>20 per page</option>
+                                    <option>60 per page</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
-                    <select className="form-select w-auto">
-                        <option>40 per page</option>
-                        <option>20 per page</option>
-                        <option>60 per page</option>
-                    </select>
                 </div>
+
 
                 <div className="row g-4">
                     <div className="col-lg-4 col-md-6">
                         <div className="product-card">
                             <div className="image-wrapper">
                                 <Link to="/product-detail">
-                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Luxury Watch" className="img-fluid"/>
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Luxury Watch" className="img-fluid" />
                                 </Link>
                                 <div className="overlay">
                                     <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
@@ -44,7 +53,7 @@ const ListProduct = () => {
                         <div className="product-card">
                             <div className="image-wrapper">
                                 <Link to="/product-detail">
-                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Elegant Watch" className="img-fluid"/>
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Elegant Watch" className="img-fluid" />
                                 </Link>
                                 <div className="overlay">
                                     <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
@@ -63,7 +72,7 @@ const ListProduct = () => {
                         <div className="product-card">
                             <div className="image-wrapper">
                                 <Link to="/product-detail">
-                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Smart Watch" className="img-fluid"/>
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Smart Watch" className="img-fluid" />
                                 </Link>
                                 <div className="overlay">
                                     <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
@@ -84,7 +93,7 @@ const ListProduct = () => {
                         <div className="product-card">
                             <div className="image-wrapper">
                                 <Link to="/product-detail">
-                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Luxury Watch" className="img-fluid"/>
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Luxury Watch" className="img-fluid" />
                                 </Link>
                                 <div className="overlay">
                                     <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
@@ -104,7 +113,7 @@ const ListProduct = () => {
                         <div className="product-card">
                             <div className="image-wrapper">
                                 <Link to="/product-detail">
-                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Elegant Watch" className="img-fluid"/>
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Elegant Watch" className="img-fluid" />
                                 </Link>
                                 <div className="overlay">
                                     <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
@@ -123,7 +132,7 @@ const ListProduct = () => {
                         <div className="product-card">
                             <div className="image-wrapper">
                                 <Link to="/product-detail">
-                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Smart Watch" className="img-fluid"/>
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Smart Watch" className="img-fluid" />
                                 </Link>
                                 <div className="overlay">
                                     <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
@@ -144,7 +153,7 @@ const ListProduct = () => {
                         <div className="product-card">
                             <div className="image-wrapper">
                                 <Link to="/product-detail">
-                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Luxury Watch" className="img-fluid"/>
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Luxury Watch" className="img-fluid" />
                                 </Link>
                                 <div className="overlay">
                                     <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
@@ -164,7 +173,7 @@ const ListProduct = () => {
                         <div className="product-card">
                             <div className="image-wrapper">
                                 <Link to="/product-detail">
-                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Elegant Watch" className="img-fluid"/>
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Elegant Watch" className="img-fluid" />
                                 </Link>
                                 <div className="overlay">
                                     <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
@@ -183,7 +192,7 @@ const ListProduct = () => {
                         <div className="product-card">
                             <div className="image-wrapper">
                                 <Link to="/product-detail">
-                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Smart Watch" className="img-fluid"/>
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Smart Watch" className="img-fluid" />
                                 </Link>
                                 <div className="overlay">
                                     <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
@@ -204,7 +213,7 @@ const ListProduct = () => {
                         <div className="product-card">
                             <div className="image-wrapper">
                                 <Link to="/product-detail">
-                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Luxury Watch" className="img-fluid"/>
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Luxury Watch" className="img-fluid" />
                                 </Link>
                                 <div className="overlay">
                                     <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
@@ -224,7 +233,7 @@ const ListProduct = () => {
                         <div className="product-card">
                             <div className="image-wrapper">
                                 <Link to="/product-detail">
-                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Elegant Watch" className="img-fluid"/>
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Elegant Watch" className="img-fluid" />
                                 </Link>
                                 <div className="overlay">
                                     <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
@@ -243,7 +252,7 @@ const ListProduct = () => {
                         <div className="product-card">
                             <div className="image-wrapper">
                                 <Link to="/product-detail">
-                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Smart Watch" className="img-fluid"/>
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Smart Watch" className="img-fluid" />
                                 </Link>
                                 <div className="overlay">
                                     <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
@@ -264,7 +273,7 @@ const ListProduct = () => {
                         <div className="product-card">
                             <div className="image-wrapper">
                                 <Link to="/product-detail">
-                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Luxury Watch" className="img-fluid"/>
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Luxury Watch" className="img-fluid" />
                                 </Link>
                                 <div className="overlay">
                                     <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
@@ -284,7 +293,7 @@ const ListProduct = () => {
                         <div className="product-card">
                             <div className="image-wrapper">
                                 <Link to="/product-detail">
-                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Elegant Watch" className="img-fluid"/>
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Elegant Watch" className="img-fluid" />
                                 </Link>
                                 <div className="overlay">
                                     <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
@@ -303,7 +312,7 @@ const ListProduct = () => {
                         <div className="product-card">
                             <div className="image-wrapper">
                                 <Link to="/product-detail">
-                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Smart Watch" className="img-fluid"/>
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Smart Watch" className="img-fluid" />
                                 </Link>
                                 <div className="overlay">
                                     <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
@@ -324,7 +333,7 @@ const ListProduct = () => {
                         <div className="product-card">
                             <div className="image-wrapper">
                                 <Link to="/product-detail">
-                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Luxury Watch" className="img-fluid"/>
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Luxury Watch" className="img-fluid" />
                                 </Link>
                                 <div className="overlay">
                                     <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
@@ -344,7 +353,7 @@ const ListProduct = () => {
                         <div className="product-card">
                             <div className="image-wrapper">
                                 <Link to="/product-detail">
-                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Elegant Watch" className="img-fluid"/>
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Elegant Watch" className="img-fluid" />
                                 </Link>
                                 <div className="overlay">
                                     <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
@@ -363,7 +372,7 @@ const ListProduct = () => {
                         <div className="product-card">
                             <div className="image-wrapper">
                                 <Link to="/product-detail">
-                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Smart Watch" className="img-fluid"/>
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Smart Watch" className="img-fluid" />
                                 </Link>
                                 <div className="overlay">
                                     <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
@@ -384,7 +393,7 @@ const ListProduct = () => {
                         <div className="product-card">
                             <div className="image-wrapper">
                                 <Link to="/product-detail">
-                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Luxury Watch" className="img-fluid"/>
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Luxury Watch" className="img-fluid" />
                                 </Link>
                                 <div className="overlay">
                                     <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
@@ -404,7 +413,7 @@ const ListProduct = () => {
                         <div className="product-card">
                             <div className="image-wrapper">
                                 <Link to="/product-detail">
-                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Elegant Watch" className="img-fluid"/>
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Elegant Watch" className="img-fluid" />
                                 </Link>
                                 <div className="overlay">
                                     <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
@@ -423,7 +432,7 @@ const ListProduct = () => {
                         <div className="product-card">
                             <div className="image-wrapper">
                                 <Link to="/product-detail">
-                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Smart Watch" className="img-fluid"/>
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Smart Watch" className="img-fluid" />
                                 </Link>
                                 <div className="overlay">
                                     <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
@@ -444,7 +453,7 @@ const ListProduct = () => {
                         <div className="product-card">
                             <div className="image-wrapper">
                                 <Link to="/product-detail">
-                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Luxury Watch" className="img-fluid"/>
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Luxury Watch" className="img-fluid" />
                                 </Link>
                                 <div className="overlay">
                                     <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
@@ -464,7 +473,7 @@ const ListProduct = () => {
                         <div className="product-card">
                             <div className="image-wrapper">
                                 <Link to="/product-detail">
-                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Elegant Watch" className="img-fluid"/>
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Elegant Watch" className="img-fluid" />
                                 </Link>
                                 <div className="overlay">
                                     <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
@@ -483,7 +492,7 @@ const ListProduct = () => {
                         <div className="product-card">
                             <div className="image-wrapper">
                                 <Link to="/product-detail">
-                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Smart Watch" className="img-fluid"/>
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Smart Watch" className="img-fluid" />
                                 </Link>
                                 <div className="overlay">
                                     <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
