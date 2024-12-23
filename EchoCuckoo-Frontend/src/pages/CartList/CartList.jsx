@@ -60,17 +60,17 @@ const CartList = () => {
                                 <div className="mt-4 d-flex justify-content-between gap-3">
                                     {/* VNPay Button */}
                                     <button className="btn btn-vnpay rounded-circle d-flex align-items-center justify-content-center">
-                                        <img src="/Image/Payment Logo/Logo-VNPAY-QR-1.webp" alt="VNPay" className="payment-logo" />
+                                        <img src="https://vinadesign.vn/uploads/images/2023/05/vnpay-logo-vinadesign-25-12-57-55.jpg" alt="VNPay" className="payment-logo" />
                                     </button>
 
                                     {/* Momo Button */}
                                     <button className="btn btn-momo rounded-circle d-flex align-items-center justify-content-center">
-                                        <img src="/Image/Payment Logo/logo-momo-4.jpg" alt="Momo" className="payment-logo" />
+                                        <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/10/Logo-MoMo-Circle-1024x1024.png" alt="Momo" className="payment-logo" />
                                     </button>
 
                                     {/* PayPal Button */}
                                     <button className="btn btn-paypal rounded-circle d-flex align-items-center justify-content-center">
-                                        <img src="/Image/Payment Logo/images.png" alt="PayPal" className="payment-logo" />
+                                        <img src="https://th.bing.com/th/id/OIP.wBKSzdf1HTUgx1Ax_EecKwHaHa?rs=1&pid=ImgDetMain" alt="PayPal" className="payment-logo" />
                                     </button>
                                 </div>
                             </div>
