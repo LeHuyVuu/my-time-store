@@ -32,7 +32,7 @@ import static com.boboibo.mytimestore.model.response.ResponseObject.APIRepsonse;
 public class UserController {
     UserService userService;
     // them,sua,xoa,update
-    @PostMapping("/registerr")
+    @PostMapping("/register")
     public ResponseEntity<ResponseObject> register(@RequestBody RegisterRequest newUser) {
         try {
             if (userService.getUserByUsername(newUser.getUsername()) || userService.getUserByEmail(newUser.getEmail())) {
