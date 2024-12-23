@@ -60,6 +60,7 @@ public class SecurityConfig {
                             .requestMatchers(HttpMethod.GET,"api/v1/mail/sendEmail").permitAll()
                             .requestMatchers(HttpMethod.GET, "api/v1/payment/vn-pay" ).permitAll()
                             .requestMatchers(HttpMethod.GET, "api/v1/payment/vn-pay-callback").permitAll()
+                            .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
                             .anyRequest().authenticated(); // Các yêu cầu khác cần xác thực
                 });
 
@@ -70,7 +71,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.addAllowedOrigin("http://127.0.0.1:5501"); // Thay thế bằng domain cụ thể nếu cần
+        configuration.addAllowedOrigin("*"); // Thay thế bằng domain cụ thể nếu cần
         configuration.addAllowedMethod("*"); // Thay thế bằng các phương thức cụ thể nếu cần
         configuration.addAllowedHeader("*"); // Thay thế bằng các tiêu đề cụ thể nếu cần
 
