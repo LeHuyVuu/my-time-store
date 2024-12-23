@@ -11,3 +11,47 @@
         max-width: 100%;
     }
 }
+/* Header.css */
+
+.shop-link {
+    position: relative;
+    color: red;
+    text-decoration: none;
+}
+
+.sale-badge {
+    font-size: 0.6em; /* Kích thước nhỏ hơn chữ "Shop" */
+    color: rgb(0, 0, 0);
+    background-color: yellow;
+    border-radius: 5px;
+    padding: 2px 4px;
+    margin-left: 5px;
+    position: absolute;
+    top: -5px; /* Điều chỉnh vị trí theo trục Y */
+    right: -10px; /* Điều chỉnh vị trí theo trục X */
+    transform: rotate(-10deg); /* Xoay nhẹ để tạo hiệu ứng */
+}
+
+
+/* Header.css */
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        color: #ff0000;
+    }
+    50% {
+        transform: scale(1.1);
+        color: #ff0000; /* Highlight color */
+    }
+    100% {
+        transform: scale(1);
+        color: #ff0000;
+    }
+}
+
+.nav-link.shop-link {
+    animation: pulse 1.5s infinite;
+}
+
+

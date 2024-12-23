@@ -26,7 +26,7 @@ const Carousel = () => {
                             Discover our exclusive collection of handcrafted cuckoo clocks and accessories that redefine classic style with a modern touch.
                         </p>
                         <Link to="/shop" className="btn btn-light btn-lg">
-                            Shop Now
+                            Buy Now
                         </Link>
                     </div>
                     <div className="mt-4 mt-lg-0 d-flex justify-content-center">

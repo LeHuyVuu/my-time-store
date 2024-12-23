@@ -79,6 +79,426 @@ const ListProduct = () => {
                         </div>
                     </div>
                 </div>
+                <div className="row g-4">
+                    <div className="col-lg-4 col-md-6">
+                        <div className="product-card">
+                            <div className="image-wrapper">
+                                <Link to="/product-detail">
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Luxury Watch" className="img-fluid"/>
+                                </Link>
+                                <div className="overlay">
+                                    <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
+                                    <button className="btn btn-light"><i className="bi bi-heart"></i></button>
+                                </div>
+                                <span className="badge bg-danger position-absolute top-0 start-0 m-3">New</span>
+                            </div>
+                            <div className="product-info p-3">
+                                <Link to="/product-detail">
+                                    <h3 className="product-name">Classic Chronograph</h3>
+                                </Link>
+                                <p className="product-price">$299.99</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-4 col-md-6">
+                        <div className="product-card">
+                            <div className="image-wrapper">
+                                <Link to="/product-detail">
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Elegant Watch" className="img-fluid"/>
+                                </Link>
+                                <div className="overlay">
+                                    <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
+                                    <button className="btn btn-light"><i className="bi bi-heart"></i></button>
+                                </div>
+                            </div>
+                            <div className="product-info p-3">
+                                <Link to="/product-detail">
+                                    <h3 className="product-name">Elegant Timepiece</h3>
+                                </Link>
+                                <p className="product-price">$399.99</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-4 col-md-6">
+                        <div className="product-card">
+                            <div className="image-wrapper">
+                                <Link to="/product-detail">
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Smart Watch" className="img-fluid"/>
+                                </Link>
+                                <div className="overlay">
+                                    <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
+                                    <button className="btn btn-light"><i className="bi bi-heart"></i></button>
+                                </div>
+                            </div>
+                            <div className="product-info p-3">
+                                <Link to="/product-detail">
+                                    <h3 className="product-name">Modern Smartwatch</h3>
+                                </Link>
+                                <p className="product-price">$199.99</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="row g-4">
+                    <div className="col-lg-4 col-md-6">
+                        <div className="product-card">
+                            <div className="image-wrapper">
+                                <Link to="/product-detail">
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Luxury Watch" className="img-fluid"/>
+                                </Link>
+                                <div className="overlay">
+                                    <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
+                                    <button className="btn btn-light"><i className="bi bi-heart"></i></button>
+                                </div>
+                                <span className="badge bg-danger position-absolute top-0 start-0 m-3">New</span>
+                            </div>
+                            <div className="product-info p-3">
+                                <Link to="/product-detail">
+                                    <h3 className="product-name">Classic Chronograph</h3>
+                                </Link>
+                                <p className="product-price">$299.99</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-4 col-md-6">
+                        <div className="product-card">
+                            <div className="image-wrapper">
+                                <Link to="/product-detail">
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Elegant Watch" className="img-fluid"/>
+                                </Link>
+                                <div className="overlay">
+                                    <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
+                                    <button className="btn btn-light"><i className="bi bi-heart"></i></button>
+                                </div>
+                            </div>
+                            <div className="product-info p-3">
+                                <Link to="/product-detail">
+                                    <h3 className="product-name">Elegant Timepiece</h3>
+                                </Link>
+                                <p className="product-price">$399.99</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-4 col-md-6">
+                        <div className="product-card">
+                            <div className="image-wrapper">
+                                <Link to="/product-detail">
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Smart Watch" className="img-fluid"/>
+                                </Link>
+                                <div className="overlay">
+                                    <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
+                                    <button className="btn btn-light"><i className="bi bi-heart"></i></button>
+                                </div>
+                            </div>
+                            <div className="product-info p-3">
+                                <Link to="/product-detail">
+                                    <h3 className="product-name">Modern Smartwatch</h3>
+                                </Link>
+                                <p className="product-price">$199.99</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="row g-4">
+                    <div className="col-lg-4 col-md-6">
+                        <div className="product-card">
+                            <div className="image-wrapper">
+                                <Link to="/product-detail">
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Luxury Watch" className="img-fluid"/>
+                                </Link>
+                                <div className="overlay">
+                                    <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
+                                    <button className="btn btn-light"><i className="bi bi-heart"></i></button>
+                                </div>
+                                <span className="badge bg-danger position-absolute top-0 start-0 m-3">New</span>
+                            </div>
+                            <div className="product-info p-3">
+                                <Link to="/product-detail">
+                                    <h3 className="product-name">Classic Chronograph</h3>
+                                </Link>
+                                <p className="product-price">$299.99</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-4 col-md-6">
+                        <div className="product-card">
+                            <div className="image-wrapper">
+                                <Link to="/product-detail">
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Elegant Watch" className="img-fluid"/>
+                                </Link>
+                                <div className="overlay">
+                                    <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
+                                    <button className="btn btn-light"><i className="bi bi-heart"></i></button>
+                                </div>
+                            </div>
+                            <div className="product-info p-3">
+                                <Link to="/product-detail">
+                                    <h3 className="product-name">Elegant Timepiece</h3>
+                                </Link>
+                                <p className="product-price">$399.99</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-4 col-md-6">
+                        <div className="product-card">
+                            <div className="image-wrapper">
+                                <Link to="/product-detail">
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Smart Watch" className="img-fluid"/>
+                                </Link>
+                                <div className="overlay">
+                                    <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
+                                    <button className="btn btn-light"><i className="bi bi-heart"></i></button>
+                                </div>
+                            </div>
+                            <div className="product-info p-3">
+                                <Link to="/product-detail">
+                                    <h3 className="product-name">Modern Smartwatch</h3>
+                                </Link>
+                                <p className="product-price">$199.99</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="row g-4">
+                    <div className="col-lg-4 col-md-6">
+                        <div className="product-card">
+                            <div className="image-wrapper">
+                                <Link to="/product-detail">
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Luxury Watch" className="img-fluid"/>
+                                </Link>
+                                <div className="overlay">
+                                    <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
+                                    <button className="btn btn-light"><i className="bi bi-heart"></i></button>
+                                </div>
+                                <span className="badge bg-danger position-absolute top-0 start-0 m-3">New</span>
+                            </div>
+                            <div className="product-info p-3">
+                                <Link to="/product-detail">
+                                    <h3 className="product-name">Classic Chronograph</h3>
+                                </Link>
+                                <p className="product-price">$299.99</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-4 col-md-6">
+                        <div className="product-card">
+                            <div className="image-wrapper">
+                                <Link to="/product-detail">
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Elegant Watch" className="img-fluid"/>
+                                </Link>
+                                <div className="overlay">
+                                    <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
+                                    <button className="btn btn-light"><i className="bi bi-heart"></i></button>
+                                </div>
+                            </div>
+                            <div className="product-info p-3">
+                                <Link to="/product-detail">
+                                    <h3 className="product-name">Elegant Timepiece</h3>
+                                </Link>
+                                <p className="product-price">$399.99</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-4 col-md-6">
+                        <div className="product-card">
+                            <div className="image-wrapper">
+                                <Link to="/product-detail">
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Smart Watch" className="img-fluid"/>
+                                </Link>
+                                <div className="overlay">
+                                    <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
+                                    <button className="btn btn-light"><i className="bi bi-heart"></i></button>
+                                </div>
+                            </div>
+                            <div className="product-info p-3">
+                                <Link to="/product-detail">
+                                    <h3 className="product-name">Modern Smartwatch</h3>
+                                </Link>
+                                <p className="product-price">$199.99</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="row g-4">
+                    <div className="col-lg-4 col-md-6">
+                        <div className="product-card">
+                            <div className="image-wrapper">
+                                <Link to="/product-detail">
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Luxury Watch" className="img-fluid"/>
+                                </Link>
+                                <div className="overlay">
+                                    <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
+                                    <button className="btn btn-light"><i className="bi bi-heart"></i></button>
+                                </div>
+                                <span className="badge bg-danger position-absolute top-0 start-0 m-3">New</span>
+                            </div>
+                            <div className="product-info p-3">
+                                <Link to="/product-detail">
+                                    <h3 className="product-name">Classic Chronograph</h3>
+                                </Link>
+                                <p className="product-price">$299.99</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-4 col-md-6">
+                        <div className="product-card">
+                            <div className="image-wrapper">
+                                <Link to="/product-detail">
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Elegant Watch" className="img-fluid"/>
+                                </Link>
+                                <div className="overlay">
+                                    <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
+                                    <button className="btn btn-light"><i className="bi bi-heart"></i></button>
+                                </div>
+                            </div>
+                            <div className="product-info p-3">
+                                <Link to="/product-detail">
+                                    <h3 className="product-name">Elegant Timepiece</h3>
+                                </Link>
+                                <p className="product-price">$399.99</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-4 col-md-6">
+                        <div className="product-card">
+                            <div className="image-wrapper">
+                                <Link to="/product-detail">
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Smart Watch" className="img-fluid"/>
+                                </Link>
+                                <div className="overlay">
+                                    <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
+                                    <button className="btn btn-light"><i className="bi bi-heart"></i></button>
+                                </div>
+                            </div>
+                            <div className="product-info p-3">
+                                <Link to="/product-detail">
+                                    <h3 className="product-name">Modern Smartwatch</h3>
+                                </Link>
+                                <p className="product-price">$199.99</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="row g-4">
+                    <div className="col-lg-4 col-md-6">
+                        <div className="product-card">
+                            <div className="image-wrapper">
+                                <Link to="/product-detail">
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Luxury Watch" className="img-fluid"/>
+                                </Link>
+                                <div className="overlay">
+                                    <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
+                                    <button className="btn btn-light"><i className="bi bi-heart"></i></button>
+                                </div>
+                                <span className="badge bg-danger position-absolute top-0 start-0 m-3">New</span>
+                            </div>
+                            <div className="product-info p-3">
+                                <Link to="/product-detail">
+                                    <h3 className="product-name">Classic Chronograph</h3>
+                                </Link>
+                                <p className="product-price">$299.99</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-4 col-md-6">
+                        <div className="product-card">
+                            <div className="image-wrapper">
+                                <Link to="/product-detail">
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Elegant Watch" className="img-fluid"/>
+                                </Link>
+                                <div className="overlay">
+                                    <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
+                                    <button className="btn btn-light"><i className="bi bi-heart"></i></button>
+                                </div>
+                            </div>
+                            <div className="product-info p-3">
+                                <Link to="/product-detail">
+                                    <h3 className="product-name">Elegant Timepiece</h3>
+                                </Link>
+                                <p className="product-price">$399.99</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-4 col-md-6">
+                        <div className="product-card">
+                            <div className="image-wrapper">
+                                <Link to="/product-detail">
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Smart Watch" className="img-fluid"/>
+                                </Link>
+                                <div className="overlay">
+                                    <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
+                                    <button className="btn btn-light"><i className="bi bi-heart"></i></button>
+                                </div>
+                            </div>
+                            <div className="product-info p-3">
+                                <Link to="/product-detail">
+                                    <h3 className="product-name">Modern Smartwatch</h3>
+                                </Link>
+                                <p className="product-price">$199.99</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="row g-4">
+                    <div className="col-lg-4 col-md-6">
+                        <div className="product-card">
+                            <div className="image-wrapper">
+                                <Link to="/product-detail">
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Luxury Watch" className="img-fluid"/>
+                                </Link>
+                                <div className="overlay">
+                                    <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
+                                    <button className="btn btn-light"><i className="bi bi-heart"></i></button>
+                                </div>
+                                <span className="badge bg-danger position-absolute top-0 start-0 m-3">New</span>
+                            </div>
+                            <div className="product-info p-3">
+                                <Link to="/product-detail">
+                                    <h3 className="product-name">Classic Chronograph</h3>
+                                </Link>
+                                <p className="product-price">$299.99</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-4 col-md-6">
+                        <div className="product-card">
+                            <div className="image-wrapper">
+                                <Link to="/product-detail">
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Elegant Watch" className="img-fluid"/>
+                                </Link>
+                                <div className="overlay">
+                                    <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
+                                    <button className="btn btn-light"><i className="bi bi-heart"></i></button>
+                                </div>
+                            </div>
+                            <div className="product-info p-3">
+                                <Link to="/product-detail">
+                                    <h3 className="product-name">Elegant Timepiece</h3>
+                                </Link>
+                                <p className="product-price">$399.99</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-4 col-md-6">
+                        <div className="product-card">
+                            <div className="image-wrapper">
+                                <Link to="/product-detail">
+                                    <img src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg" alt="Smart Watch" className="img-fluid"/>
+                                </Link>
+                                <div className="overlay">
+                                    <button className="btn btn-light me-2"><i className="bi bi-cart-plus"></i></button>
+                                    <button className="btn btn-light"><i className="bi bi-heart"></i></button>
+                                </div>
+                            </div>
+                            <div className="product-info p-3">
+                                <Link to="/product-detail">
+                                    <h3 className="product-name">Modern Smartwatch</h3>
+                                </Link>
+                                <p className="product-price">$199.99</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <nav className="mt-5">
                     <ul className="pagination justify-content-center">

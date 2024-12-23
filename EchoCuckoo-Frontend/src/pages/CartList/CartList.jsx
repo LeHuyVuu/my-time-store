@@ -13,7 +13,7 @@ const CartList = () => {
                                 {/* Single Cart Item 1 */}
                                 <div className="cart-item d-flex align-items-center justify-content-between border-bottom py-3">
                                     <div className="d-flex align-items-center">
-                                        <img src="/Image/OID-1.jpg" alt="Product" className="img-fluid rounded me-3" style={{ width: '80px', height: '80px' }} />
+                                        <img src="https://i.postimg.cc/wTYNQbXx/cuckoo-august-schwer-036-50-47101c.jpg" alt="Product" className="img-fluid rounded me-3" style={{ width: '80px', height: '80px' }} />
                                         <div>
                                             <h5 className="mb-1">Elegant Wooden Clock</h5>
                                             <p className="text-muted mb-0">Price: $120.00</p>
@@ -27,7 +27,7 @@ const CartList = () => {
                                 {/* Single Cart Item 2 */}
                                 <div className="cart-item d-flex align-items-center justify-content-between border-bottom py-3">
                                     <div className="d-flex align-items-center">
-                                        <img src="/Image/OID-1.jpg" alt="Product" className="img-fluid rounded me-3" style={{ width: '80px', height: '80px' }} />
+                                        <img src="https://i.postimg.cc/wTYNQbXx/cuckoo-august-schwer-036-50-47101c.jpg" alt="Product" className="img-fluid rounded me-3" style={{ width: '80px', height: '80px' }} />
                                         <div>
                                             <h5 className="mb-1">Classic Wall Clock</h5>
                                             <p className="text-muted mb-0">Price: $90.00</p>

@@ -3,6 +3,18 @@
     font-size: 2.5rem;
     color: #333;
 }
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    
+    background-color: black; /* Đặt màu nền đen */
+    border-radius: 100px; /* Nếu muốn nút có hình tròn */
+}
+
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+    background-color: #333; /* Đặt màu khi hover (tùy chỉnh) */
+}
+
 
 .card-title {
     font-size: 1.25rem;

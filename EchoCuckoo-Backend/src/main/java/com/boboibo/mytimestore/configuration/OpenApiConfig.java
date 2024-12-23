@@ -1,6 +1,5 @@
 package com.boboibo.mytimestore.configuration;
 
-
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.info.License;
@@ -17,12 +16,14 @@ public class OpenApiConfig {
     public OpenAPI openAPI(@Value("${open.api.title}") String title,
                            @Value("${open.api.url}") String url,
                            @Value("${open.api.version}") String version,
-                           @Value("${open.api.server}") String server){
+                           @Value("${open.api.server}") String server) {
         return new OpenAPI()
                 .info(new Info()
                         .title(title)
-                        .license(new License().url(url))
-                        .version(version))
+                        .description("This is the API documentation for My Time Store application")
+                        .version(version)
+                        .license(new License().name("Apache 2.0").url(url))
+                )
                 .servers(Collections.singletonList(new Server().url(server)));
     }
 }
