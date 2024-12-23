@@ -27,6 +27,7 @@ public class ProductController {
     @Autowired
     ProductService productService;
     @GetMapping()
+    @Cacheable(value = "products")
     public ResponseEntity<ResponseObject> getAllProducts() {
         List<Product> productList = productService.getAllProducts();
         // Nếu danh sách sản phẩm rỗng, trả về thông báo không có sản phẩm
