@@ -6,6 +6,7 @@ import com.boboibo.mytimestore.mapper.ProductMapper;
 import com.boboibo.mytimestore.model.entity.Product;
 import com.boboibo.mytimestore.model.enums.IsStatus;
 import com.boboibo.mytimestore.model.request.ProductRequest;
+import com.boboibo.mytimestore.model.response.page.PageResponse;
 import com.boboibo.mytimestore.repository.ProductRepository;
 import jakarta.validation.Valid;
 import lombok.extern.java.Log;
@@ -14,6 +15,10 @@ import lombok.extern.log4j.Log4j2;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -29,9 +34,18 @@ public class ProductService {
     @Autowired
     private ProductMapper productMapper;
 
-    public List<Product> getAllProducts() {
+    public PageResponse<Product> getAllProducts(int offSet ,int pageSize) {
         try {
-            return productRepository.findByIsStatus(IsStatus.ACTIVE);
+            Pageable pageable = PageRequest.of(offSet, pageSize, Sort.by(Sort.Direction.DESC, "createdAt"));
+
+            Page<Product> page = productRepository.findByIsStatus(IsStatus.ACTIVE, pageable);
+            return new PageResponse<>(
+                    page.getContent(),               // Nội dung của trang (danh sách sản phẩm)
+                    page.getTotalPages(),            // Tổng số trang
+                    page.getNumber(),                // Trang hiện tại (bắt đầu từ 0)
+                    page.getTotalElements(),         // Tổng số phần tử
+                    pageSize                         // Kích thước trang
+            );
         } catch (DataAccessException e) {
             log.error("Database error occurred while fetching active products", e);
             throw new AppException(ErrorCode.DATABASE_EXCEPTION, "Error while fetching active products");

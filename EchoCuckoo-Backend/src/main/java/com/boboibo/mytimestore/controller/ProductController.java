@@ -4,12 +4,14 @@ package com.boboibo.mytimestore.controller;
 import com.boboibo.mytimestore.model.entity.Product;
 import com.boboibo.mytimestore.model.request.ProductRequest;
 import com.boboibo.mytimestore.model.response.ResponseObject;
+import com.boboibo.mytimestore.model.response.page.PageResponse;
 import com.boboibo.mytimestore.service.ProductService;
 import jakarta.validation.Valid;
 import org.hibernate.annotations.Cache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,10 +30,10 @@ public class ProductController {
     ProductService productService;
     @GetMapping()
     @Cacheable(value = "products")
-    public ResponseEntity<ResponseObject> getAllProducts() {
-        List<Product> productList = productService.getAllProducts();
+    public ResponseEntity<ResponseObject> getAllProducts(@RequestParam int offSet ,@RequestParam int pageSize) {
+        PageResponse<Product> productList = productService.getAllProducts(offSet,pageSize);
         // Nếu danh sách sản phẩm rỗng, trả về thông báo không có sản phẩm
-        if (productList.isEmpty()) {
+        if (productList == null) {
             return ResponseObject.APIRepsonse(404, "No products found ", HttpStatus.NOT_FOUND, null);
         }
 
