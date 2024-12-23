@@ -1,16 +1,37 @@
 package com.boboibo.mytimestore.service;
 
+import com.boboibo.mytimestore.exception.AppException;
+import com.boboibo.mytimestore.exception.ErrorCode;
+import com.boboibo.mytimestore.mapper.CartItemMapper;
+import com.boboibo.mytimestore.model.entity.CartItem;
+import com.boboibo.mytimestore.model.response.cart.CartItemResponse;
 import com.boboibo.mytimestore.repository.CartItemRepository;
 import com.boboibo.mytimestore.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class CartService {
+public class CartItemService {
     @Autowired
     CartItemRepository cartItemRepository;
     @Autowired
     private ProductRepository productRepository;
+    @Autowired
+    CartItemMapper cartItemMapper ;
+
+    public List<CartItemResponse> getAll(){
+        List<CartItem> cartItems = cartItemRepository.findAll();
+        return cartItemMapper.cartItemResponseList(cartItems);
+    }
+    public CartItemResponse getById(Long id){
+        CartItem cartItems = cartItemRepository.findById(id).orElse(null);
+        if(cartItems == null){
+            throw new AppException(ErrorCode.CART_NOT_EXIST);
+        }
+        return cartItemMapper.cartItemResponse(cartItems);
+    }
 
 
 

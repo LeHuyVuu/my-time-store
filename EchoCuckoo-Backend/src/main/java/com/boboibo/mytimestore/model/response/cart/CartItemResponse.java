@@ -1,13 +1,14 @@
-package com.boboibo.mytimestore.model.response;
+package com.boboibo.mytimestore.model.response.cart;
 
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
+
 @Data
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class CartResponse {
+public class CartItemResponse {
     String id;
     String productId;
     int quantity;

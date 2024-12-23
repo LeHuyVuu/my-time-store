@@ -18,7 +18,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Product {
+public class    Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long productId;

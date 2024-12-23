@@ -1,13 +1,36 @@
 package com.boboibo.mytimestore.controller;
 
-import org.springframework.web.bind.annotation.*;
+import com.boboibo.mytimestore.model.entity.Product;
+import com.boboibo.mytimestore.model.response.ResponseObject;
+import com.boboibo.mytimestore.model.response.cart.CartItemResponse;
+import com.boboibo.mytimestore.service.CartItemService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/carts")
+@RequestMapping("/api/v1/cartItems")
 
-public class CartController {
-//    CartService cartService;
+public class CartItemController {
+    @Autowired
+    CartItemService cartItemService;
 
+        @GetMapping("/all")
+    public ResponseEntity<ResponseObject> getAllCartItems() {
+            List<CartItemResponse> cartItemResponseList = cartItemService.getAll();
+            // Nếu danh sách sản phẩm rỗng, trả về thông báo không có sản phẩm
+            if (cartItemResponseList.isEmpty()) {
+                return ResponseObject.APIRepsonse(404, "No cart Item found ", HttpStatus.NOT_FOUND, null);
+            }
+            // Trả về danh sách sản phẩm nếu có
+            return ResponseObject.APIRepsonse(200, "CartItems retrieved successfully", HttpStatus.OK, cartItemResponseList);
+
+        }
 //}
 
 
