@@ -7,7 +7,9 @@ import com.boboibo.mytimestore.model.entity.Product;
 import com.boboibo.mytimestore.model.enums.IsStatus;
 import com.boboibo.mytimestore.model.request.ProductRequest;
 import com.boboibo.mytimestore.model.response.page.PageResponse;
+import com.boboibo.mytimestore.model.response.product.ProductResponse;
 import com.boboibo.mytimestore.repository.ProductRepository;
+import com.boboibo.mytimestore.utils.Common;
 import jakarta.validation.Valid;
 import lombok.extern.java.Log;
 import lombok.extern.log4j.Log4j;
@@ -34,19 +36,37 @@ public class ProductService {
     @Autowired
     private ProductMapper productMapper;
 
-    public PageResponse<Product> getAllProducts(int offSet ,int pageSize) {
-        try {
-            Pageable pageable = PageRequest.of(offSet, pageSize, Sort.by(Sort.Direction.DESC, "createdAt"));
-
-            Page<Product> page = productRepository.findByIsStatus(IsStatus.ACTIVE, pageable);
-            return new PageResponse<>(
-                    page.getContent(),               // Nội dung của trang (danh sách sản phẩm)
-                    page.getTotalPages(),            // Tổng số trang
-                    page.getNumber(),                // Trang hiện tại (bắt đầu từ 0)
-                    page.getTotalElements(),         // Tổng số phần tử
-                    pageSize                         // Kích thước trang
-            );
-        } catch (DataAccessException e) {
+    @Autowired
+    private Common utils;
+    public PageResponse<ProductResponse> getAllProduct(int page ,int pageSize) {
+        try{
+            Sort sort = Sort.by("createdAt").descending();
+            Pageable pageable = PageRequest.of(page - 1 , pageSize,sort);
+            var pageData = productRepository.findByIsStatus(IsStatus.ACTIVE, pageable);
+            List<ProductResponse> productResponses = pageData.getContent().stream()
+                    .map(productMapper::toProductResponse)
+                    .collect(Collectors.toList());
+            return utils.getPaginatedResponse(pageable,productResponses,pageData.getTotalElements());
+        }
+        catch (DataAccessException e) {
+            log.error("Database error occurred while fetching active products", e);
+            throw new AppException(ErrorCode.DATABASE_EXCEPTION, "Error while fetching active products");
+        } catch (Exception e) {
+            log.error("Unexpected error occurred", e);
+            throw new AppException(ErrorCode.UNCATEGORIZED_EXCEPTION);
+        }
+    }
+    public PageResponse<ProductResponse> getProductByName(String productName , int page ,int pageSize) {
+        try{
+            Sort sort = Sort.by("createdAt").descending();
+            Pageable pageable = PageRequest.of(page - 1 , pageSize,sort);
+            var pageData = productRepository.findByProductNameContainingIgnoreCase(productName, pageable);
+            List<ProductResponse> productResponses = pageData.getContent().stream()
+                    .map(productMapper::toProductResponse)
+                    .collect(Collectors.toList());
+            return utils.getPaginatedResponse(pageable,productResponses,pageData.getTotalElements());
+        }
+        catch (DataAccessException e) {
             log.error("Database error occurred while fetching active products", e);
             throw new AppException(ErrorCode.DATABASE_EXCEPTION, "Error while fetching active products");
         } catch (Exception e) {
@@ -70,8 +90,6 @@ public class ProductService {
         }
         return Optional.empty();
     }
-
-
     public boolean createProduct(@Valid ProductRequest productRequest) {
         boolean result = false;
         try{
@@ -93,6 +111,19 @@ public class ProductService {
         return false;
     }
 
+//    private PageResponse<ProductResponse> paginateProducts (List<ProductResponse> productResponses,int offSet ,int pageSize){
+//        Pageable pageable = PageRequest.of(offSet-1, pageSize).withSort(Sort.by(Sort.Direction.DESC, "createdAt"));
+//        int totalItems  = productResponses.size();
+//        int totalElements = pageSize;
+//        int totalPages = (totalItems + pageSize - 1) / pageSize;
+//        Integer start = (int) pageable.getOffset();
+//        int end = Math.min(start + pageSize, totalItems);
+//        if (start > totalItems) {
+//            return new PageResponse<>(new ArrayList<>(), (int) Math.ceil((double) productResponses.size() / pageSize), offSet, 0, pageSize);
+//        }
+//        productResponses = productResponses.subList(start, end);
+//        return new PageResponse<>(productResponses,totalPages,offSet,totalItems,totalElements);
+//    }
 
 //    public Product getProductByName(String productName) {
 //        return productRepository.findProductByProductName(productName);

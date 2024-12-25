@@ -17,5 +17,14 @@ import java.util.Optional;
 public interface ProductRepository extends JpaRepository<Product,Long> {
 
     Page<Product> findByIsStatus(IsStatus isStatus, Pageable pageable);
+    Page<Product> findByProductNameContainingIgnoreCase(
+            String productName,
+            Pageable pageable
+    );
 
+    List<Product> findByProductNameContains(String productName);
+//    List<Product> findByProductNameContains(String productName);
+
+
+    Long countByProductNameContainingIgnoreCase(String productName);
 }

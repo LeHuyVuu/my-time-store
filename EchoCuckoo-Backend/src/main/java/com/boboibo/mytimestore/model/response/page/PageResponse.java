@@ -4,20 +4,20 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.util.Collections;
 import java.util.List;
 
 @Data
+@Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@Getter
-@Setter
 public class PageResponse<T> {
-    List<T> content ;
-    int totalPages;
-    int currentPage ;
-    long totalElements;
+    int currentPage;
     int pageSize;
+    int totalPages;
+    long totalElements;
+    @Builder.Default
+    private List<T> data = Collections.emptyList();
 }
 
