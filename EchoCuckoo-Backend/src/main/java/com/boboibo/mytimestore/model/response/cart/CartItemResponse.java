@@ -1,5 +1,6 @@
 package com.boboibo.mytimestore.model.response.cart;
 
+import com.boboibo.mytimestore.model.response.product.ProductResponse;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Data;
@@ -16,4 +17,5 @@ public class CartItemResponse {
     String productName;
     String userId;
     Double price;
+    ProductResponse productResponse;
 }

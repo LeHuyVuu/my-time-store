@@ -1,15 +1,17 @@
 package com.boboibo.mytimestore.controller;
 
+import com.boboibo.mytimestore.model.entity.CartItem;
+import com.boboibo.mytimestore.model.entity.Customer;
 import com.boboibo.mytimestore.model.entity.Product;
+import com.boboibo.mytimestore.model.request.CartItemRequest;
 import com.boboibo.mytimestore.model.response.ResponseObject;
 import com.boboibo.mytimestore.model.response.cart.CartItemResponse;
 import com.boboibo.mytimestore.service.CartItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.core.parameters.P;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,7 +22,7 @@ public class CartItemController {
     @Autowired
     CartItemService cartItemService;
 
-        @GetMapping("/all")
+        @GetMapping("")
     public ResponseEntity<ResponseObject> getAllCartItems() {
             List<CartItemResponse> cartItemResponseList = cartItemService.getAll();
             // Nếu danh sách sản phẩm rỗng, trả về thông báo không có sản phẩm
@@ -29,8 +31,15 @@ public class CartItemController {
             }
             // Trả về danh sách sản phẩm nếu có
             return ResponseObject.APIRepsonse(200, "CartItems retrieved successfully", HttpStatus.OK, cartItemResponseList);
-
         }
+//        @PostMapping("/{userId}")
+//    public ResponseEntity<ResponseObject> addCartItems(@PathVariable Long userId, @RequestBody CartItemRequest cartItemRequest) {
+//            CartItemResponse cartItem = cartItemService.createCartItems(userId,cartItemRequest);
+//            if (cartItem == null) {
+//                return ResponseObject.APIRepsonse(403,"Can't create cart item", HttpStatus.FORBIDDEN, null);
+//            }
+//            return ResponseObject.APIRepsonse(200, "Cart item created successfully", HttpStatus.OK, cartItem);
+//        }
 //}
 
 

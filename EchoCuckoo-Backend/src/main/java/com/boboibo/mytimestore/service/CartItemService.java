@@ -4,27 +4,49 @@ import com.boboibo.mytimestore.exception.AppException;
 import com.boboibo.mytimestore.exception.ErrorCode;
 import com.boboibo.mytimestore.mapper.CartItemMapper;
 import com.boboibo.mytimestore.model.entity.CartItem;
+import com.boboibo.mytimestore.model.request.CartItemRequest;
 import com.boboibo.mytimestore.model.response.cart.CartItemResponse;
 import com.boboibo.mytimestore.repository.CartItemRepository;
 import com.boboibo.mytimestore.repository.ProductRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Slf4j
 @Service
 public class CartItemService {
     @Autowired
     CartItemRepository cartItemRepository;
     @Autowired
     private ProductRepository productRepository;
+
     @Autowired
     CartItemMapper cartItemMapper ;
 
+    @Autowired
+    ProductService productService;
+
     public List<CartItemResponse> getAll(){
-        List<CartItem> cartItems = cartItemRepository.findAll();
-        return cartItemMapper.cartItemResponseList(cartItems);
+        try{
+            List<CartItem> cartItems = cartItemRepository.findAll();
+            return cartItemMapper.cartItemResponseList(cartItems);  }
+        catch (DataAccessException e) {
+            log.error("Database error occurred while fetching active products", e);
+            throw new AppException(ErrorCode.DATABASE_EXCEPTION, "Error while fetching active products");
+        } catch (Exception e) {
+            log.error("Unexpected error occurred", e);
+            throw new AppException(ErrorCode.UNCATEGORIZED_EXCEPTION);
+        }
     }
+//    public CartItemResponse createCartItems(Long userId,CartItemRequest cartItemRequest){
+//        long productId = 1 ;
+//        long userId1 = 1 ;
+//        CartItem cartItem = cartItemRepository.findByProduct_ProductIdAndUser_UserId(productId,userId1);
+//        return
+//        }
     public CartItemResponse getById(Long id){
         CartItem cartItems = cartItemRepository.findById(id).orElse(null);
         if(cartItems == null){
@@ -32,6 +54,7 @@ public class CartItemService {
         }
         return cartItemMapper.cartItemResponse(cartItems);
     }
+
 
 
 
