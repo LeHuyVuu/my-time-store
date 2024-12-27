@@ -1,8 +1,15 @@
 // Carousel.jsx
 import { Link } from 'react-router-dom';
 import './Carousel.css';
+import { useContext } from 'react';
+import { ToastContext } from '../../../context/ToastProvider';
 
 const Carousel = () => {
+    const toast = useContext(ToastContext); // Lấy giá trị `toast` từ context
+    
+    if (!toast) {
+        console.error('ToastContext is not defined! Make sure ToastProvider is wrapping this component.');
+    }
     return (
         <div>
             <section className="hero position-relative text-white py-5">
@@ -29,6 +36,7 @@ const Carousel = () => {
                             Buy Now
                         </Link>
                     </div>
+                
                     <div className="mt-4 mt-lg-0 d-flex justify-content-center">
                         <img
                             src="https://i.postimg.cc/qR0yqkTx/Nobackground.png"

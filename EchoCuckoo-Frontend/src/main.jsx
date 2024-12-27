@@ -13,6 +13,7 @@ import Login from './pages/Login/Login.jsx'
 import CartList from './pages/CartList/CartList.jsx'
 import Register from './pages/Register/Register.jsx'
 import ProductDetail from './pages/ProductDetail/ProductDetail.jsx'
+import { ToastProvider } from './context/ToastProvider.jsx'
 
 
 
@@ -52,7 +53,7 @@ const router = createBrowserRouter([
       }
       ,
       {
-        path: '/product-detail',
+        path: '/product-detail/:id',
         element: <ProductDetail />
       }
     ]
@@ -65,7 +66,9 @@ const router = createBrowserRouter([
 ]);
 
 createRoot(document.getElementById('root')).render(
+  <ToastProvider>
+    <RouterProvider router={router} />
+  </ToastProvider>
 
-  <RouterProvider router={router} />
 
 )
