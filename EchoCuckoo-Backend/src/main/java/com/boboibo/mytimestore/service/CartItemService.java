@@ -41,12 +41,12 @@ public class CartItemService {
             throw new AppException(ErrorCode.UNCATEGORIZED_EXCEPTION);
         }
     }
-//    public CartItemResponse createCartItems(Long userId,CartItemRequest cartItemRequest){
-//        long productId = 1 ;
-//        long userId1 = 1 ;
-//        CartItem cartItem = cartItemRepository.findByProduct_ProductIdAndUser_UserId(productId,userId1);
-//        return
-//        }
+    public CartItemResponse createCartItems(Long userId,CartItemRequest cartItemRequest){
+        long productId = 1 ;
+        long userId1 = 1 ;
+        CartItem cartItem = cartItemRepository.findByProduct_ProductIdAndUser_UserId(productId,userId1);
+        return cartItemMapper.cartItemResponse(cartItem);
+        }
     public CartItemResponse getById(Long id){
         CartItem cartItems = cartItemRepository.findById(id).orElse(null);
         if(cartItems == null){
