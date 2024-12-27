@@ -99,3 +99,44 @@
 .product-detail .related-products .text-primary:hover {
     color: #d62828 !important;
 }
+
+  
+  .product-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1a1a1a;
+  }
+  
+  .product-price {
+    margin: 20px 0;
+  }
+  
+  .old-price {
+    font-size: 1.2rem;
+    color: #a6a6a6;
+    text-decoration: line-through;
+    margin-right: 10px;
+  }
+  
+  .new-price {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  
+  .product-description {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .quantity-controls {
+    font-size: 1rem;
+  }
+  
+  .quantity-input {
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px 10px;
+  }
+  
+  
+  

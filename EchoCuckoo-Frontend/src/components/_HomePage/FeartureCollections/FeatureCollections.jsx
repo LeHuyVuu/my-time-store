@@ -1,7 +1,30 @@
+import { useEffect, useState } from 'react';
 import './FeatureCollections.css'
 import { Link } from 'react-router-dom'
+import {  getProducts } from '../../../apis/Product API/product';
 
 const FeatureCollections = () => {
+  
+  const [products, setProducts] = useState([]);
+  const [page, setPage] = useState(1); // State quản lý số trang
+  const pageSize = 3; // Số sản phẩm trên mỗi trang
+
+  useEffect(() => {
+    // Gọi API để lấy danh sách sản phẩm với tham số page và pageSize
+    getProducts({ page, pageSize })
+      .then((res) => {
+        if (res.data && res.data.data) {
+          setProducts(res.data.data.data); // Lấy danh sách sản phẩm từ API
+        }
+      })
+      .catch((err) => {
+        console.error('Error fetching products:', err);
+      });
+  }, [page]);
+
+
+  console.log(products);
+
   return (
     <div>
       {/* Feature collection */}
@@ -9,18 +32,19 @@ const FeatureCollections = () => {
         <div className="container text-center">
           <h2 className="fw-bold mb-4">Featured Collections</h2>
           <div className="row g-4">
-            <div className="col-md-4">
-              <Link to='/product-detail'>
+            {products.map((product, index) => (
+            <div className="col-md-4" key={index}>
+              <Link to={`/product-detail/${product.productId}`}>
                 <div className="collection-item position-relative">
                   <img
-                    src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg"
+                    src={product.image}
                     className="img-fluid rounded shadow"
                     alt="Elegant Watches"
                   />
                   <div className="overlay position-absolute w-100 h-100 top-0 start-0 d-flex align-items-center justify-content-center">
                     <div className="text-white text-center">
-                      <h5 className="fw-bold">Elegant Watches</h5>
-                      <p className="small">Discover timeless pieces.</p>
+                      <h5 className="fw-bold">{product.productName}</h5>
+                      <p className="small">{product.description}</p>
                       <a href="#" className="btn btn-outline-light">
                         Explore Now
                       </a>
@@ -29,46 +53,7 @@ const FeatureCollections = () => {
                 </div>
               </Link>
             </div>
-            <div className="col-md-4">
-              <Link to='/product-detail'>
-                <div className="collection-item position-relative">
-                  <img
-                    src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg"
-                    className="img-fluid rounded shadow"
-                    alt="Luxury Bags"
-                  />
-                  <div className="overlay position-absolute w-100 h-100 top-0 start-0 d-flex align-items-center justify-content-center">
-                    <div className="text-white text-center">
-                      <h5 className="fw-bold">Luxury Bags</h5>
-                      <p className="small">Premium quality and design.</p>
-                      <a href="#" className="btn btn-outline-light">
-                        Explore Now
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </div>
-            <div className="col-md-4">
-              <Link to='/product-detail'>
-                <div className="collection-item position-relative">
-                  <img
-                    src="https://i.postimg.cc/1X7qvwNv/OID-1.jpg"
-                    className="img-fluid rounded shadow"
-                    alt="Winter Essentials"
-                  />
-                  <div className="overlay position-absolute w-100 h-100 top-0 start-0 d-flex align-items-center justify-content-center">
-                    <div className="text-white text-center">
-                      <h5 className="fw-bold">Winter Essentials</h5>
-                      <p className="small">Stay warm in style.</p>
-                      <a href="#" className="btn btn-outline-light">
-                        Explore Now
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </div>
+            ))}
           </div>
         </div>
       </section>
