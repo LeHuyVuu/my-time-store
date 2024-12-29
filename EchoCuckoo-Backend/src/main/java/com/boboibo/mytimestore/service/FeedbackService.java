@@ -62,6 +62,13 @@ public class FeedbackService {
 
         return feedBackMapper.toFeedbackResponse(feedback);
     }
+    public FeedbackResponse updateFeedbackById(Long feedbackId, FeedbackRequest feedbackRequest) {
+        Feedback feedback = getFeedBackById(feedbackId);
+        feedback.setStar(feedbackRequest.getStar());
+        feedback.setDescription(feedbackRequest.getDescription());
+        feedBackRepository.save(feedback);
+        return feedBackMapper.toFeedbackResponse(feedback);
+    }
     public void deleteFeedbackByOrder(Long feedbackId) {
         Feedback feedback = getFeedBackById(feedbackId);
         feedBackRepository.delete(feedback);

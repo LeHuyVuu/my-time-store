@@ -38,4 +38,13 @@ public class FeedbackController {
             return ResponseObject.APIRepsonse(403, "Can't delete Feedback", HttpStatus.FORBIDDEN, null);
         }
     }
+    @PutMapping("/{feedbackId}")
+    public ResponseEntity<ResponseObject> updateFeedBackByOrderId(@PathVariable Long feedbackId,@RequestBody FeedbackRequest feedbackRequest) {
+        try {
+            FeedbackResponse feedbackResponse = feedbackService.updateFeedbackById(feedbackId,feedbackRequest);
+            return ResponseObject.APIRepsonse(200, "FeedBack update successfully", HttpStatus.OK, feedbackResponse);
+        } catch (AppException e) {
+            return ResponseObject.APIRepsonse(403, "Can't update Feedback", HttpStatus.FORBIDDEN, null);
+        }
+    }
 }
