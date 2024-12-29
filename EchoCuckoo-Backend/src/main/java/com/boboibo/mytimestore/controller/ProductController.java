@@ -33,8 +33,10 @@ public class ProductController {
         @Cacheable(value = "products")
         public ResponseEntity<ResponseObject> getAllProducts(
                 @RequestParam(value = "page",required = false,defaultValue = "1") int page,
-                @RequestParam(value = "pageSize",required = false,defaultValue = "10") int pageSize) {
-            PageResponse<ProductResponse> productPageResponse = productService.getAllProduct(page,pageSize);
+                @RequestParam(value = "pageSize",required = false,defaultValue = "10") int pageSize,
+                @RequestParam(value = "sortField",required = false,defaultValue = "createdAt")String sortField,
+                @RequestParam(value = "sortDirection",required = false,defaultValue = "DESC") String sortDirection) {
+            PageResponse<ProductResponse> productPageResponse = productService.getAllProduct(page,pageSize,sortField,sortDirection);
             // Nếu danh sách sản phẩm rỗng, trả về thông báo không có sản phẩm
             if (productPageResponse == null) {
                 return ResponseObject.APIRepsonse(404, "No products found ", HttpStatus.NOT_FOUND, null);

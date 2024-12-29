@@ -38,9 +38,13 @@ public class ProductService {
 
     @Autowired
     private Common utils;
-    public PageResponse<ProductResponse> getAllProduct(int page ,int pageSize) {
+    public PageResponse<ProductResponse> getAllProduct(int page ,int pageSize,String sortField,String sortDirection) {
         try{
-            Sort sort = Sort.by("createdAt").descending();
+            Sort.Direction direction = Sort.Direction.ASC;
+            if ("DESC".equalsIgnoreCase(sortDirection)) {
+                direction = Sort.Direction.DESC;
+            }
+            Sort sort = Sort.by(direction, sortField);
             Pageable pageable = PageRequest.of(page - 1 , pageSize,sort);
             var pageData = productRepository.findByIsStatus(IsStatus.ACTIVE, pageable);
             List<ProductResponse> productResponses = pageData.getContent().stream()
