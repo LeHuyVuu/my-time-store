@@ -2,6 +2,7 @@ package com.boboibo.mytimestore.model.entity;
 
 import com.boboibo.mytimestore.model.enums.Category;
 import com.boboibo.mytimestore.model.enums.IsStatus;
+import com.boboibo.mytimestore.model.enums.ProductStatus;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -35,4 +36,6 @@ public class    Product {
     @Enumerated(EnumType.STRING)
     Category category;
     Double discountPrice;
+    @Enumerated(EnumType.STRING)
+    ProductStatus status;
 }

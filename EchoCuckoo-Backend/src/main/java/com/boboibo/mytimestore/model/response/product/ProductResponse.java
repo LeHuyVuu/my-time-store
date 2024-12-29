@@ -2,6 +2,7 @@ package com.boboibo.mytimestore.model.response.product;
 
 import com.boboibo.mytimestore.model.enums.Category;
 import com.boboibo.mytimestore.model.enums.IsStatus;
+import com.boboibo.mytimestore.model.enums.ProductStatus;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import lombok.Builder;
@@ -26,4 +27,5 @@ public class ProductResponse {
         LocalDateTime createdAt;
     Category category;
     Double discountPrice;
+    ProductStatus status;
 }

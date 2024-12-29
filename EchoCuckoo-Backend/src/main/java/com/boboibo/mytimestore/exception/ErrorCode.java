@@ -24,6 +24,8 @@ public enum ErrorCode {
     CART_NOT_ADD(1014, "Cart not add", HttpStatus.NOT_FOUND),
     PRODUCT_ID_NOT_EXIST(1015, "Product id not exist", HttpStatus.NOT_FOUND),
     CART_ITEM_NOT_EXIST(1016, "Cart item not exist", HttpStatus.NOT_FOUND),
+    CART_ITEM_NOT_EXIST_BY_USERID(1017, "No cart item exists for the given user ID", HttpStatus.NOT_FOUND),
+    CUSTOMER_NOT_EXIST(1018, "Customer not exist", HttpStatus.NOT_FOUND),
     ;
 
     private final int code;

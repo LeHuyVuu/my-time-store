@@ -1,6 +1,7 @@
 package com.boboibo.mytimestore.model.request;
 
 
+import com.boboibo.mytimestore.model.enums.ProductStatus;
 import jakarta.validation.constraints.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -50,4 +51,8 @@ public class ProductRequest {
 
     @Min(value = 0, message = "Quantity in stock must be greater than or equal to 0")
     int quantityInStock;
+
+    @NotNull(message = "Status cannot be null")
+    ProductStatus status;
+
 }

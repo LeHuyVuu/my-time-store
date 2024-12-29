@@ -111,6 +111,14 @@ public class CartItemService {
         }
         return cartItemMapper.cartItemResponse(cartItems);
     }
+    public List<CartItem> getByUserId(Long userId){
+        List<CartItem> cartItemList = cartItemRepository.findByUser_UserId(userId);
+        if(!cartItemList.isEmpty()){
+            return cartItemList;
+        }else{
+            throw new AppException(ErrorCode.CART_ITEM_NOT_EXIST_BY_USERID);
+        }
+    }
 
 
 
