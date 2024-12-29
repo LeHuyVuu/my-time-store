@@ -76,6 +76,21 @@ public class CartItemService {
                 throw new AppException(ErrorCode.CART_NOT_EXIST);
             }
     }
+    public void updateCartitem(Long userId,CartItemRequest cartItemRequest){
+        try{
+            CartItem existingCartItem = findCartItemByUserIdAndProductId(userId, cartItemRequest.getProductId());
+            CartItem cartItem;
+            if (existingCartItem != null) {
+                cartItem = existingCartItem;
+                log.info("Quantity Of CartItem ; "+ cartItemRequest.getQuantity());
+                cartItem.setQuantity(cartItemRequest.getQuantity());
+                cartItemRepository.save(cartItem);
+            }
+        }catch (Exception e) {
+            log.error("Update CartItem for user ID: {}, product ID: {}", userId, cartItemRequest.getProductId(), e);
+            throw new AppException(ErrorCode.CART_NOT_EXIST);
+        }
+    }
     public void deleteCartitem(Long userId,Long productId){
         Optional<CartItem> existingCartItem = cartItemRepository.findByUser_UserIdAndProduct_ProductId(userId,productId);
         if (existingCartItem.isPresent()) {
@@ -83,6 +98,11 @@ public class CartItemService {
         } else {
             throw new AppException(ErrorCode.CART_ITEM_NOT_EXIST);
         }
+    }
+    private CartItem findCartItemByUserIdAndProductId(Long userId,Long productId){
+        CartItem existingCartItem = cartItemRepository.findByUser_UserIdAndProduct_ProductId(userId,productId).orElseThrow((() ->
+                new AppException(ErrorCode.PRODUCT_ID_NOT_EXIST)));
+        return existingCartItem;
     }
     public CartItemResponse getById(Long id){
         CartItem cartItems = cartItemRepository.findById(id).orElse(null);

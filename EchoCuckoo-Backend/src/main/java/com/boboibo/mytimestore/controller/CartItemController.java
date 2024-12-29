@@ -51,6 +51,15 @@ public class CartItemController {
             return ResponseObject.APIRepsonse(403, "Can't Delte cart item", HttpStatus.FORBIDDEN, null);
         }
     }
+    @PutMapping("/{userId}")
+    public ResponseEntity<ResponseObject> updateCartItems(@PathVariable Long userId, @RequestBody CartItemRequest cartItemRequest) {
+        try {
+            cartItemService.updateCartitem(userId, cartItemRequest);
+            return ResponseObject.APIRepsonse(200, "Update Cart item created successfully", HttpStatus.OK, null);
+        } catch (AppException e) {
+            return ResponseObject.APIRepsonse(403, "Can't Update cart item", HttpStatus.FORBIDDEN, null);
+        }
+    }
 
 
 
