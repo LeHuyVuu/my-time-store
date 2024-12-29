@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface FeedBackRepository extends JpaRepository<Feedback, Long> {
-
+Boolean existsByOrderOrderId(Long orderId);
 }
 

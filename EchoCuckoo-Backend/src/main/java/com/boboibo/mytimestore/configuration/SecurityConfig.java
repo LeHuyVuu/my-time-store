@@ -61,6 +61,10 @@ public class SecurityConfig {
                             .requestMatchers(HttpMethod.DELETE,"/api/v1/order/**").permitAll()
                             .requestMatchers(HttpMethod.GET,"/api/v1/order/**").permitAll()
 
+                            .requestMatchers(HttpMethod.POST,"/api/v1/feedbacks/**").permitAll()
+                            .requestMatchers(HttpMethod.PUT,"/api/v1/feedbacks/**").permitAll()
+                            .requestMatchers(HttpMethod.DELETE,"/api/v1/feedbacks/**").permitAll()
+                            .requestMatchers(HttpMethod.GET,"/api/v1/feedbacks/**").permitAll()
 
 
                             .requestMatchers(HttpMethod.GET, "/api/v1/news").permitAll()
