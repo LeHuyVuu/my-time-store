@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,8 +37,13 @@ public class CartItemService {
 
     public List<CartItemResponse> getAll(){
         try{
-            List<CartItem> cartItems = cartItemRepository.findAll();
-            return cartItemMapper.cartItemResponseList(cartItems);  }
+            List<CartItem> cartItemList= cartItemRepository.findAll();
+            List<CartItemResponse> cartItemResponseList = new ArrayList<>();
+            for (CartItem cartItem : cartItemList) {
+                cartItemResponseList.add(convertToCartItemResponses(cartItem));
+            }
+            return cartItemResponseList;
+        }
         catch (DataAccessException e) {
             log.error("Database error occurred while fetching active products", e);
             throw new AppException(ErrorCode.DATABASE_EXCEPTION, "Error while fetching active products");
@@ -46,6 +52,34 @@ public class CartItemService {
             throw new AppException(ErrorCode.UNCATEGORIZED_EXCEPTION);
         }
     }
+    public List<CartItemResponse> getCartItemByUserId(Long userId){
+        List<CartItemResponse> cartItemResponseList = new ArrayList<>();
+        try {
+            List<CartItem> cartItemList = cartItemRepository.findByUser_UserId(userId);
+            for (CartItem cartItem : cartItemList) {
+                cartItemResponseList.add(convertToCartItemResponses(cartItem));
+            }
+        }
+        catch (DataAccessException e) {
+            log.error("Database error occurred while fetching active products", e);
+            throw new AppException(ErrorCode.DATABASE_EXCEPTION, "Error while fetching active products");
+        } catch (Exception e) {
+            log.error("Unexpected error occurred", e);
+            throw new AppException(ErrorCode.UNCATEGORIZED_EXCEPTION);
+        }
+        return cartItemResponseList;
+    }
+ public CartItemResponse convertToCartItemResponses(CartItem cartItem){
+         Product product = productService.getProductById(cartItem.getProduct().getProductId()).orElseThrow(() -> new AppException(ErrorCode.PRODUCT_ID_NOT_EXIST));
+         CartItemResponse cartItemResponse = CartItemResponse.builder()
+                 .price(product.getPrice())
+                 .image(product.getImage())
+                 .productName(product.getProductName())
+                 .quantity(cartItem.getQuantity())
+                 .userId(cartItem.getUser().getUserId())
+                 .build();
+         return cartItemResponse;
+ }
     public void createCartItems(Long userId,CartItemRequest cartItemRequest) {
             try {
                 // Tìm CartItem với userId và productId

@@ -15,7 +15,7 @@ public class CartItemResponse {
     int quantity;
     String image;
     String productName;
-    String userId;
+    Long userId;
     Double price;
     ProductResponse productResponse;
 }
