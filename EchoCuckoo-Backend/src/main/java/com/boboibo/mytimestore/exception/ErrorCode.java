@@ -28,7 +28,8 @@ public enum ErrorCode {
     CUSTOMER_NOT_EXIST(1018, "Customer not exist", HttpStatus.NOT_FOUND),
     ORDER_NOT_EXIST(1019, "Order not exist", HttpStatus.NOT_FOUND),
     STAR_INVALID(1020,"Star must between 0 to 5 ",HttpStatus.BAD_REQUEST),
-    FEEDBACK_ALREADY_EXISTS(1021,"FeedBack Already Exits",HttpStatus.ALREADY_REPORTED)
+    FEEDBACK_ALREADY_EXISTS(1021,"FeedBack Already Exits",HttpStatus.ALREADY_REPORTED),
+    FEEDBACK_NOT_EXITS(1022,"FeedBack Not Exist",HttpStatus.NOT_FOUND),
     ;
 
     private final int code;

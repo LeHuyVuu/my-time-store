@@ -29,4 +29,13 @@ public class FeedbackController {
             return ResponseObject.APIRepsonse(403, "Can't create Feedback", HttpStatus.FORBIDDEN, null);
         }
     }
+    @DeleteMapping("/{feedbackId}")
+    public ResponseEntity<ResponseObject> createFeedBackByOrderId(@PathVariable Long feedbackId) {
+        try {
+            feedbackService.deleteFeedbackByOrder(feedbackId);
+            return ResponseObject.APIRepsonse(200, "Delete FeedBack successfully", HttpStatus.OK, null);
+        } catch (AppException e) {
+            return ResponseObject.APIRepsonse(403, "Can't delete Feedback", HttpStatus.FORBIDDEN, null);
+        }
+    }
 }

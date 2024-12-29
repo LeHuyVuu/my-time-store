@@ -49,9 +49,7 @@ public class FeedbackService {
             log.warn("Feedback already exists for orderId: {}", orderId);
             throw new AppException(ErrorCode.FEEDBACK_ALREADY_EXISTS, "Feedback for this order already exists.");
         }
-
         Order order = orderService.getOrderById(orderId);
-
         // Kiểm tra star rating
         if (feedbackRequest.getStar() < 0 || feedbackRequest.getStar() > 5) {
             throw new AppException(ErrorCode.STAR_INVALID, "Star rating must be between 0 and 5.");
@@ -64,6 +62,13 @@ public class FeedbackService {
 
         return feedBackMapper.toFeedbackResponse(feedback);
     }
-
+    public void deleteFeedbackByOrder(Long feedbackId) {
+        Feedback feedback = getFeedBackById(feedbackId);
+        feedBackRepository.delete(feedback);
+    }
+    private Feedback getFeedBackById(Long feedbackId) {
+        Feedback feedback = feedBackRepository.findById(feedbackId).orElseThrow(() -> new AppException(ErrorCode.FEEDBACK_NOT_EXITS));
+        return feedback;
+    }
 
 }
