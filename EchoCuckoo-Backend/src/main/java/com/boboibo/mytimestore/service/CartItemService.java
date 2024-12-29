@@ -4,6 +4,8 @@ import com.boboibo.mytimestore.exception.AppException;
 import com.boboibo.mytimestore.exception.ErrorCode;
 import com.boboibo.mytimestore.mapper.CartItemMapper;
 import com.boboibo.mytimestore.model.entity.CartItem;
+import com.boboibo.mytimestore.model.entity.Product;
+import com.boboibo.mytimestore.model.entity.User;
 import com.boboibo.mytimestore.model.request.CartItemRequest;
 import com.boboibo.mytimestore.model.response.cart.CartItemResponse;
 import com.boboibo.mytimestore.repository.CartItemRepository;
@@ -14,6 +16,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Service
@@ -28,6 +31,8 @@ public class CartItemService {
 
     @Autowired
     ProductService productService;
+    @Autowired
+    UserService userService;
 
     public List<CartItemResponse> getAll(){
         try{
@@ -41,12 +46,44 @@ public class CartItemService {
             throw new AppException(ErrorCode.UNCATEGORIZED_EXCEPTION);
         }
     }
-    public CartItemResponse createCartItems(Long userId,CartItemRequest cartItemRequest){
-        long productId = 1 ;
-        long userId1 = 1 ;
-        CartItem cartItem = cartItemRepository.findByProduct_ProductIdAndUser_UserId(productId,userId1);
-        return cartItemMapper.cartItemResponse(cartItem);
+    public void createCartItems(Long userId,CartItemRequest cartItemRequest) {
+            try {
+                // Tìm CartItem với userId và productId
+                Optional<CartItem> existingCartItem = cartItemRepository.findByUser_UserIdAndProduct_ProductId(userId, cartItemRequest.getProductId());
+                CartItem cartItem;
+                if (existingCartItem.isPresent()) {
+                    // Nếu tồn tại, cộng dồn số lượng
+                    cartItem = existingCartItem.get();
+                    cartItem.setQuantity(cartItem.getQuantity() + cartItemRequest.getQuantity());
+                } else {
+                    // Nếu không tồn tại, tạo mới
+                    User user = userService.getUserByUserId(userId);
+                    Optional<Product> product = productService.getProductById(cartItemRequest.getProductId());
+                    if (product.isEmpty()) {
+                        log.error("Product not found with ID: {}", cartItemRequest.getProductId());
+                        throw new AppException(ErrorCode.PRODUCT_ID_NOT_EXIST, "Product not found for the given ID");
+                    }
+                    Product productEntity = product.get();
+                    cartItem = new CartItem();
+                    cartItem.setUser(user);
+                    cartItem.setProduct(productEntity);
+                    cartItem.setQuantity(cartItemRequest.getQuantity());
+                }
+                cartItemRepository.save(cartItem);
+
+            } catch (Exception e) {
+                log.error("Can't add CartItem for user ID: {}, product ID: {}", userId, cartItemRequest.getProductId(), e);
+                throw new AppException(ErrorCode.CART_NOT_EXIST);
+            }
+    }
+    public void deleteCartitem(Long userId,Long productId){
+        Optional<CartItem> existingCartItem = cartItemRepository.findByUser_UserIdAndProduct_ProductId(userId,productId);
+        if (existingCartItem.isPresent()) {
+            cartItemRepository.delete(existingCartItem.get());
+        } else {
+            throw new AppException(ErrorCode.CART_ITEM_NOT_EXIST);
         }
+    }
     public CartItemResponse getById(Long id){
         CartItem cartItems = cartItemRepository.findById(id).orElse(null);
         if(cartItems == null){

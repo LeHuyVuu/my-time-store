@@ -1,5 +1,6 @@
 package com.boboibo.mytimestore.controller;
 
+import com.boboibo.mytimestore.exception.AppException;
 import com.boboibo.mytimestore.model.entity.CartItem;
 import com.boboibo.mytimestore.model.entity.Customer;
 import com.boboibo.mytimestore.model.entity.Product;
@@ -32,21 +33,24 @@ public class CartItemController {
             // Trả về danh sách sản phẩm nếu có
             return ResponseObject.APIRepsonse(200, "CartItems retrieved successfully", HttpStatus.OK, cartItemResponseList);
         }
-//        @PostMapping("/{userId}")
-//    public ResponseEntity<ResponseObject> addCartItems(@PathVariable Long userId, @RequestBody CartItemRequest cartItemRequest) {
-//            CartItemResponse cartItem = cartItemService.createCartItems(userId,cartItemRequest);
-//            if (cartItem == null) {
-//                return ResponseObject.APIRepsonse(403,"Can't create cart item", HttpStatus.FORBIDDEN, null);
-//            }
-//            return ResponseObject.APIRepsonse(200, "Cart item created successfully", HttpStatus.OK, cartItem);
-//        }
-//}
-
-
-
-
-
-
+    @PostMapping("/{userId}")
+    public ResponseEntity<ResponseObject> addCartItems(@PathVariable Long userId, @RequestBody CartItemRequest cartItemRequest) {
+        try {
+            cartItemService.createCartItems(userId, cartItemRequest);
+            return ResponseObject.APIRepsonse(200, "Cart item created successfully", HttpStatus.OK, null);
+        } catch (AppException e) {
+            return ResponseObject.APIRepsonse(403, "Can't create cart item", HttpStatus.FORBIDDEN, null);
+        }
+    }
+    @DeleteMapping("/{userId}")
+    public ResponseEntity<ResponseObject> deleteCartItems(@PathVariable Long userId, @RequestParam Long productId) {
+        try {
+            cartItemService.deleteCartitem(userId, productId);
+            return ResponseObject.APIRepsonse(200, "Delete Cart item created successfully", HttpStatus.OK, null);
+        } catch (AppException e) {
+            return ResponseObject.APIRepsonse(403, "Can't Delte cart item", HttpStatus.FORBIDDEN, null);
+        }
+    }
 
 
 

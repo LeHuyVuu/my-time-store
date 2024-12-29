@@ -21,7 +21,9 @@ public enum ErrorCode {
     USER_NOT_EXIST(1011, "User not existed", HttpStatus.NOT_FOUND),
     INVALID_TOKEN(1012,"Invalid token",HttpStatus.FORBIDDEN),
     CART_NOT_EXIST(1013, "Cart not exist", HttpStatus.NOT_FOUND),
-
+    CART_NOT_ADD(1014, "Cart not add", HttpStatus.NOT_FOUND),
+    PRODUCT_ID_NOT_EXIST(1015, "Product id not exist", HttpStatus.NOT_FOUND),
+    CART_ITEM_NOT_EXIST(1016, "Cart item not exist", HttpStatus.NOT_FOUND),
     ;
 
     private final int code;

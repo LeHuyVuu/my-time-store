@@ -137,7 +137,7 @@ public class UserService {
         }
     }
 
-    private User getUserByUserId(Long userId) {
+    public User getUserByUserId(Long userId) {
         User user = userRepository.findByUserId(userId);
         if (user == null) {
             throw new AppException(ErrorCode.USER_NOT_EXIST);
