@@ -38,4 +38,8 @@ public class    Product {
     Double discountPrice;
     @Enumerated(EnumType.STRING)
     ProductStatus status;
+
+    String material;               // Material of the product
+    String dimensions;             // Dimensions in format (e.g., "30cm x 20cm x 10cm")
+    String warranty;               // Warranty information (e.g., "1 Year")
 }
