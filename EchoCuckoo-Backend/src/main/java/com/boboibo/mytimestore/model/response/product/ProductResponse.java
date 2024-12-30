@@ -28,4 +28,7 @@ public class ProductResponse {
     Category category;
     Double discountPrice;
     ProductStatus status;
+    String material;               // Material of the product
+    String dimensions;             // Dimensions in format (e.g., "30cm x 20cm x 10cm")
+    String warranty;
 }

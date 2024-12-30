@@ -54,5 +54,15 @@ public class ProductRequest {
 
     @NotNull(message = "Status cannot be null")
     ProductStatus status;
+    @Size(max = 255, message = "Material must not exceed 255 characters")
+    String material; // Material of the product
+
+    @Size(max = 255, message = "Dimensions must not exceed 255 characters")
+    String dimensions; // Dimensions in format (e.g., "30cm x 20cm x 10cm")
+
+    @Size(max = 255, message = "Warranty must not exceed 255 characters")
+    String warranty; // Warranty information (e.g., "1 Year")
+
+
 
 }
