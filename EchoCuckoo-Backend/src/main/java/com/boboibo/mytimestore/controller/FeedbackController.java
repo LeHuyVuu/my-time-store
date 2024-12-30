@@ -20,31 +20,36 @@ import org.springframework.web.bind.annotation.*;
 @FieldDefaults(level = AccessLevel.PRIVATE,makeFinal = true)
 public class FeedbackController {
     FeedbackService feedbackService;
-    @PostMapping("/{orderId}")
-    public ResponseEntity<ResponseObject> createFeedBackByOrderId(@PathVariable Long orderId,@RequestBody FeedbackRequest feedbackRequest) {
+    @PostMapping("/{orderDetailId}")
+    public ResponseEntity<ResponseObject> createFeedBackByOrderId(@PathVariable Long orderDetailId,@RequestBody FeedbackRequest feedbackRequest) {
         try {
-            FeedbackResponse feedbackResponse = feedbackService.createFeedbackByOrder(orderId,feedbackRequest);
+            FeedbackResponse feedbackResponse = feedbackService.createFeedbackByOrder(orderDetailId,feedbackRequest);
             return ResponseObject.APIRepsonse(200, "FeedBack created successfully", HttpStatus.OK, feedbackResponse);
         } catch (AppException e) {
             return ResponseObject.APIRepsonse(403, "Can't create Feedback", HttpStatus.FORBIDDEN, null);
         }
     }
     @DeleteMapping("/{feedbackId}")
-    public ResponseEntity<ResponseObject> createFeedBackByOrderId(@PathVariable Long feedbackId) {
+    public ResponseEntity<ResponseObject> deleteFeedbackById(@PathVariable Long feedbackId) {
         try {
-            feedbackService.deleteFeedbackByOrder(feedbackId);
+            feedbackService.deleteFeedbackById(feedbackId);
             return ResponseObject.APIRepsonse(200, "Delete FeedBack successfully", HttpStatus.OK, null);
         } catch (AppException e) {
             return ResponseObject.APIRepsonse(403, "Can't delete Feedback", HttpStatus.FORBIDDEN, null);
         }
     }
-    @PutMapping("/{feedbackId}")
-    public ResponseEntity<ResponseObject> updateFeedBackByOrderId(@PathVariable Long feedbackId,@RequestBody FeedbackRequest feedbackRequest) {
-        try {
-            FeedbackResponse feedbackResponse = feedbackService.updateFeedbackById(feedbackId,feedbackRequest);
-            return ResponseObject.APIRepsonse(200, "FeedBack update successfully", HttpStatus.OK, feedbackResponse);
-        } catch (AppException e) {
-            return ResponseObject.APIRepsonse(403, "Can't update Feedback", HttpStatus.FORBIDDEN, null);
-        }
-    }
+//    @PutMapping("/{feedbackId}")
+//    public ResponseEntity<ResponseObject> updateFeedBackByOrderId(@PathVariable Long feedbackId,@RequestBody FeedbackRequest feedbackRequest) {
+//        try {
+//            FeedbackResponse feedbackResponse = feedbackService.updateFeedbackById(feedbackId,feedbackRequest);
+//            return ResponseObject.APIRepsonse(200, "FeedBack update successfully", HttpStatus.OK, feedbackResponse);
+//        } catch (AppException e) {
+//            return ResponseObject.APIRepsonse(403, "Can't update Feedback", HttpStatus.FORBIDDEN, null);
+//        }
+//    }
+//    @GetMapping("/{orderId}/total")
+//    public ResponseEntity<ResponseObject> getTotalByProductId(@PathVariable Long productId) {
+//        FeedbackResponse feedbackResponse = feedbackService
+//    }
+
 }

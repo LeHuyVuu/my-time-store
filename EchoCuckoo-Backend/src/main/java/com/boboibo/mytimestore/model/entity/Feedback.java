@@ -18,7 +18,18 @@ public class Feedback {
     @Lob
     @Column(name = "description")
     String description;
+//    @OneToOne
+//    @JoinColumn(name = "order_id", referencedColumnName = "order_id", nullable = true)  // Thêm nullable = true để cho phép không có Feedback cho mỗi Order
+//    Order order;
+
     @OneToOne
-    @JoinColumn(name = "order_id", referencedColumnName = "order_id", nullable = true)  // Thêm nullable = true để cho phép không có Feedback cho mỗi Order
-    Order order;
+    @JoinColumn(
+            name = "order_detail_id",
+            referencedColumnName = "orderDetailId",
+            nullable = true,
+            foreignKey = @ForeignKey(name = "fk_feedback_order_detail", value = ConstraintMode.NO_CONSTRAINT)
+    )
+    OrderDetail orderDetail;
+
+
 }

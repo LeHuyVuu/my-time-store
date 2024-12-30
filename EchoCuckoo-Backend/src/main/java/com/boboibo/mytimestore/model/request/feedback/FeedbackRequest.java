@@ -10,5 +10,5 @@ public class FeedbackRequest {
     Long feedbackId;
     int star;
     String description;
-    Long orderId;
+    Long orderDetailId;
 }

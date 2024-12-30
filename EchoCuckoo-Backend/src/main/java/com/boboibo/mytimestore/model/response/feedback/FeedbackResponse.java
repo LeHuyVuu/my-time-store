@@ -13,7 +13,7 @@ public class FeedbackResponse {
     Long feedbackId;
     int star;
     String description;
-     Long orderId; // Đảm bảo kiểu dữ liệu phù hợp
+     Long orderDetailId; // Đảm bảo kiểu dữ liệu phù hợp
     float averageStar ;
     int number ;
     UserResponse userResponse ;

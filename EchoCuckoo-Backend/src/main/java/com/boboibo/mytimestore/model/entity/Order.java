@@ -33,8 +33,11 @@
         @JoinColumn(name = "customer_id")  // Chỉ định tên cột khóa ngoại trong bảng Order
         Customer customer;
 
-        @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
-        Feedback feedback;
+//        @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+//        Feedback feedback;
+@OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+List<OrderDetail> orderDetails; // Liên kết với OrderDetail
+
 
 
     }

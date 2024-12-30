@@ -8,9 +8,12 @@ import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
 public interface FeedBackMapper {
-    @Mapping(source = "feedback.order.orderId", target = "orderId")
+    // Ánh xạ `orderDetail.orderDetailId` tới `orderDetailId` trong `FeedbackResponse`
+    @Mapping(source = "feedback.orderDetail.orderDetailId", target = "orderDetailId")
     FeedbackResponse toFeedbackResponse(Feedback feedback);
-    @Mapping(target = "order",ignore = true)
-    @Mapping(target = "feedbackId" , ignore = true)
+
+    // Bỏ qua trường `orderDetail` khi ánh xạ từ request sang entity
+    @Mapping(target = "orderDetail", ignore = true)
+    @Mapping(target = "feedbackId", ignore = true)
     Feedback toFeedback(FeedbackRequest feedbackRequest);
 }

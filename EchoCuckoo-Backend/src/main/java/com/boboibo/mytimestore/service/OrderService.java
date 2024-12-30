@@ -17,6 +17,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -30,6 +31,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 @FieldDefaults(level = AccessLevel.PRIVATE,makeFinal = true)
 public class OrderService {
     OrderRepository orderRepository;
@@ -67,5 +69,13 @@ public Order getOrderById(Long orderId){
         Order order = orderRepository.findById(orderId).orElseThrow(() -> new AppException(ErrorCode.ORDER_NOT_EXIST));
         return order;
 }
+//public List<Order> findOrderByProductId(Long productId){
+//        List<Order> orderList = orderRepository.findAllByProduct_ProductId(productId);
+//        for (Order order : orderList) {
+//            log.info("orderList"+order.);
+//
+//        }
+//        return orderList;
+//}
 }
 
