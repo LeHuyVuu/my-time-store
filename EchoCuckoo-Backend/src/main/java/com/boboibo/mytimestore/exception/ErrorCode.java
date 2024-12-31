@@ -31,6 +31,7 @@ public enum ErrorCode {
     FEEDBACK_ALREADY_EXISTS(1021,"FeedBack Already Exits",HttpStatus.ALREADY_REPORTED),
     FEEDBACK_NOT_EXITS(1022,"FeedBack Not Exist",HttpStatus.NOT_FOUND),
     ORDER_DETAIL_NOT_EXIST(1023,"Order detail not exist",HttpStatus.NOT_FOUND),
+    INVALID_LOGIN(1024,"Invalid username or password",HttpStatus.UNAUTHORIZED),
     ;
 
     private final int code;

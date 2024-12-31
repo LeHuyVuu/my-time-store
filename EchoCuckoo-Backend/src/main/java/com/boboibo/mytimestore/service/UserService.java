@@ -72,7 +72,7 @@ public class UserService {
         userRepository.save(user);
         if (user.getRole() == Role.CUSTOMER) {
             Customer customer = customerMapper.userToCustomer(user);
-            customer.setAddress(newUser.getAddress());
+//            customer.setAddress(newUser.getAddress());
             customer.setPhone(newUser.getPhone());
             customer.setUser(user);
             customerRepository.save(customer);

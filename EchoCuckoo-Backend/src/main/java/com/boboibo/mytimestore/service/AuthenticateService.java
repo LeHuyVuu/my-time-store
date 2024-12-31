@@ -1,6 +1,8 @@
 package com.boboibo.mytimestore.service;
 
 
+import com.boboibo.mytimestore.exception.AppException;
+import com.boboibo.mytimestore.exception.ErrorCode;
 import com.boboibo.mytimestore.model.entity.LoggedOutToken;
 import com.boboibo.mytimestore.model.entity.User;
 import com.boboibo.mytimestore.model.request.LoginRequest;
@@ -17,6 +19,7 @@ import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -81,6 +84,19 @@ public class AuthenticateService {
 //        JWTUtilsHelper util = new JWTUtilsHelper();
 //        return util.generateToken(refreshToken);
 //    }
+public boolean checkLogin(LoginRequest loginRequest) {
+
+    User user = userRepository.findByUsername(loginRequest.getUsername());
+    if (user == null || !user.isStatus()) {
+        throw new AppException(ErrorCode.INVALID_LOGIN);
+    }
+    boolean authenticated = passwordEncoder.matches(loginRequest.getPassword(), user.getPassword());
+
+    if (!authenticated) {
+        throw new AppException(ErrorCode.INVALID_LOGIN);
+    }
+    return true;
+}
 }
 
 
