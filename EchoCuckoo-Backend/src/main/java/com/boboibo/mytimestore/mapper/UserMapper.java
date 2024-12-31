@@ -14,6 +14,7 @@ public interface UserMapper {
     @Mapping(target = "status",ignore = true)
     @Mapping(target = "role",ignore = true)
     @Mapping(source ="fullname",target = "fullName")
+    @Mapping(target = "image",ignore = true)
     User toUser(RegisterRequest user);
 //    @Mapping(source ="image",target = "image")
 //    @Mapping(source ="fullName",target = "fullName")
