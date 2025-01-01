@@ -4,12 +4,11 @@ package com.boboibo.mytimestore.model.entity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-
 import java.util.Date;
 
 @Getter
-@Entity
 @AllArgsConstructor
+@Entity
 public class LoggedOutToken {
 
     @Id
