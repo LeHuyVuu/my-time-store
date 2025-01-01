@@ -8,6 +8,18 @@ const apiClient = axios.create({
   },
 });
 
+// Thêm Interceptor để tự động thêm token từ localStorage
+apiClient.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('token'); // Lấy token từ localStorage
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`; // Thêm token vào header
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
 
-// Xuất instance để sử dụng nếu cần thiết
 export default apiClient;

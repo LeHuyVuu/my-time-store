@@ -1,0 +1,30 @@
+.orders-container {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.orders-container h2 {
+    color: #333;
+    font-weight: bold;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f1f5ff; /* Màu nền nhạt cho hàng lẻ */
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: #ffffff; /* Màu nền trắng cho hàng chẵn */
+}
+
+.badge {
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.btn-primary {
+    font-size: 0.85rem;
+    padding: 5px 10px;
+}

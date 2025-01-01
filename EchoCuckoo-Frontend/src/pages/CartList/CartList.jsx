@@ -3,7 +3,7 @@ const CartList = () => {
    
     return (
         <div>
-            <main className="main-content py-5">
+            <main className="main-content py-5" style={{ marginTop: '50px', marginBottom: '150px' }}>
                 <div className="container">
                     <div className="row">
                         {/* Cart Items */}
@@ -42,7 +42,7 @@ const CartList = () => {
                         </div>
 
                         {/* Order Summary */}
-                        <div className="col-lg-4">
+                        <div className="col-lg-4 my-3">
                             <div className="order-summary p-4 bg-light rounded shadow">
                                 <h3 className="mb-4">Order Summary</h3>
                                 <div className="d-flex justify-content-between">

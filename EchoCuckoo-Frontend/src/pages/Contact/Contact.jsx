@@ -2,7 +2,7 @@ import './Contact.css'
 const Contact = () => {
   
     return (
-        <div>
+        <div className='contact-section'>
             <main className="container my-5">
                 <div className="row g-4">
                     <div className="col-lg-7">
@@ -67,6 +67,8 @@ const Contact = () => {
                     </div>
                 </div>
             </main>
+
+            <br /><br /><br /><br /><br />
 
         </div>
     );

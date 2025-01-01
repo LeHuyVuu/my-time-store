@@ -14,6 +14,7 @@ import CartList from './pages/CartList/CartList.jsx'
 import Register from './pages/Register/Register.jsx'
 import ProductDetail from './pages/ProductDetail/ProductDetail.jsx'
 import { ToastProvider } from './context/ToastProvider.jsx'
+import UserProfile from './pages/UserProfile/UserProfile.jsx'
 
 
 
@@ -55,13 +56,18 @@ const router = createBrowserRouter([
       {
         path: '/product-detail/:id',
         element: <ProductDetail />
+      },
+      {
+        path: '/profile',
+        element: <UserProfile />
       }
     ]
   },
   {
     path: '/register',
     element: <Register />
-  }
+  },
+
 
 ]);
 

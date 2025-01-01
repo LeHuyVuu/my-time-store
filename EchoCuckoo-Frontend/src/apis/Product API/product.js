@@ -16,9 +16,6 @@ export const getProducts = (params = {}) => {
   return apiClient.get('/products', { params: finalParams });
 };
 
-
-
-
 export const getProductById = (id) => {
   // Lấy thông tin sản phẩm theo ID
   return apiClient.get(`/products/${id}`);

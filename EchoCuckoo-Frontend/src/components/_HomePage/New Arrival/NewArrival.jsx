@@ -7,7 +7,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 const NewArrival = () => {
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1); // State quản lý số trang
-  const pageSize = 10; // Số sản phẩm trên mỗi trang
+  const pageSize = 12; // Số sản phẩm trên mỗi trang
 
   useEffect(() => {
     // Gọi API để lấy danh sách sản phẩm

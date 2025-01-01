@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Header.css';
+import { useEffect } from 'react';
 
 const Header = () => {
     return (
@@ -13,11 +14,11 @@ const Header = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav mx-auto">
-                    <li className="nav-item">
+                        <li className="nav-item">
                             <Link className="nav-link" to="/">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link shop-link" to="/shop" style={{ color:'black', position: 'relative' }}>
+                            <Link className="nav-link shop-link" to="/shop" style={{ color: 'black', position: 'relative' }}>
                                 Shop
                                 <span className="sale-badge">Sale</span>
                             </Link>
