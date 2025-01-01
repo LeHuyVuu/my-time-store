@@ -35,9 +35,10 @@ public class User {
     boolean status;
     String image;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     Customer customer;
-
+    @JsonIgnore
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     Staff staff;
 

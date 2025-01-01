@@ -18,11 +18,4 @@ public class MyTimeStoreApplication {
     public static void main(String[] args) {
         SpringApplication.run(MyTimeStoreApplication.class, args);
     }
-//    @EventListener(ApplicationReadyEvent.class)
-//    public void sendMail() {
-//        emailService.sendMailSender(
-//                "trankhang0990@gmail.com",
-//                "This is subject",
-//                "This is Body Of Email");
-//    }
 }

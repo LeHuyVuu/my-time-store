@@ -121,26 +121,29 @@ public class UserService {
         if (token != null && token.startsWith("Bearer ")) {
             token = token.substring(7);
         }
-        String username;
+        String email;
         try {
             SecretKey key = Keys.hmacShaKeyFor(Decoders.BASE64.decode(privateKey));
             Jws<Claims> jws = Jwts.parser() // Use parserBuilder() instead of parser()
                     .setSigningKey(key)
                     .build()
                     .parseClaimsJws(token);
-            username = jws.getBody().getSubject();
+            email = jws.getBody().getSubject();
         } catch (Exception e) {
             throw new AppException(ErrorCode.INVALID_TOKEN);
         }
-        return getUserByUsernameV2(username);
+        return findUserByEmail(email);
     }
-    private UserResponse getUserByUsernameV2(String username) {
-        User user = findUserByUsername(username);
+    private UserResponse findUserByEmail(String email) {
+        User user = userRepository.findByEmail(email);
         UserResponse userResponse = userMapper.toUserResponse(user);
         Customer customer = customerRepository.findByUser_UserId(user.getUserId());
         userResponse.setCustomerResponse(customerMapper.customerToCustomerResponse(customer));
        return userResponse;
     }
+
+
+
     public boolean deleteUser(Long userId) {
         try {
             User user = userRepository.findByUserId(userId);

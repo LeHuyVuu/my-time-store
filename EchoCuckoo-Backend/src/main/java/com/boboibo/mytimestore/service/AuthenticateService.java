@@ -86,7 +86,7 @@ public class AuthenticateService {
 //    }
 public boolean checkLogin(LoginRequest loginRequest) {
 
-    User user = userRepository.findByUsername(loginRequest.getUsername());
+    User user = userRepository.findByEmail(loginRequest.getEmail());
     if (user == null || !user.isStatus()) {
         throw new AppException(ErrorCode.INVALID_LOGIN);
     }

@@ -12,7 +12,7 @@ import lombok.experimental.FieldDefaults;
 @Builder
 
 public class UserResponse {
-    Long user_id;
+    Long userId;
     String username;
     String email;
     String fullName;

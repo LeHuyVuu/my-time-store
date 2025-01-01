@@ -40,7 +40,7 @@ public class AuthenticateController {
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody @Valid LoginRequest loginRequest) {
         if (authenticateService.checkLogin(loginRequest)) {
-            String token = jwtUtilsHelper.generateToken(loginRequest.getUsername());
+            String token = jwtUtilsHelper.generateToken(loginRequest.getEmail());
             return APIRepsonse(200, "Login Successfully", HttpStatus.OK, token);
         } else {
             return APIRepsonse(403, "Login Failed", HttpStatus.UNAUTHORIZED, "");

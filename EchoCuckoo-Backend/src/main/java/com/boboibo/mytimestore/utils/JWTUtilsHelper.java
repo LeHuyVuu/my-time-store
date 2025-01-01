@@ -32,7 +32,7 @@ public class JWTUtilsHelper {
 
     public String generateToken(String data){
         SecretKey key = Keys.hmacShaKeyFor(Decoders.BASE64.decode(privateKey));
-        User user = userRepository.findByUsername(data);
+        User user = userRepository.findByEmail(data);
 
         String jws = Jwts.builder().subject(data)
                 .claim("userid", user.getUserId())
