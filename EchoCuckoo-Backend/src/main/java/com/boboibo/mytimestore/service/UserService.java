@@ -67,17 +67,36 @@ public class UserService {
     public void createCustomer(RegisterRequest newUser) {
         User user = userMapper.toUser(newUser);
         user.setPassword(encoder.encode(newUser.getPassword()));
+        String uniqueUsername = generateUniqueUsername(newUser.getFullname());
+        user.setUsername(uniqueUsername);
         user.setStatus(true);
         user.setRole(Role.CUSTOMER);
         userRepository.save(user);
         if (user.getRole() == Role.CUSTOMER) {
             Customer customer = customerMapper.userToCustomer(user);
-//            customer.setAddress(newUser.getAddress());
             customer.setPhone(newUser.getPhone());
             customer.setUser(user);
             customerRepository.save(customer);
         }
     }
+
+    // Hàm tạo username duy nhất
+    private String generateUniqueUsername(String fullname) {
+
+        String baseUsername = fullname.toLowerCase().replaceAll("[^a-z0-9]+", "_");
+
+
+        String uniqueUsername = baseUsername;
+        int counter = 1;
+        while (userRepository.existsByUsername(uniqueUsername)) {
+            uniqueUsername = baseUsername + "_" + counter;
+            counter++;
+        }
+
+        // Trả về username duy nhất
+        return uniqueUsername;
+    }
+
     public UserResponse updateUser(UpdateUserRequest updateUserRequest) {
         try {
             User user = getUserByUserId(updateUserRequest.getUserId());

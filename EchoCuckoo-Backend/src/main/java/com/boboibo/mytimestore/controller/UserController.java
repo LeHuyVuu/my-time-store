@@ -35,7 +35,7 @@ public class UserController {
     @PostMapping("/register")
     public ResponseEntity<ResponseObject> register(@RequestBody RegisterRequest newUser) {
         try {
-            if (userService.getUserByUsername(newUser.getUsername()) || userService.getUserByEmail(newUser.getEmail())) {
+            if (userService.getUserByEmail(newUser.getEmail())) {
                 return ResponseObject.APIRepsonse(409, "Username or email already exists", HttpStatus.CONFLICT, "");
             }else {
                 userService.createCustomer(newUser);
