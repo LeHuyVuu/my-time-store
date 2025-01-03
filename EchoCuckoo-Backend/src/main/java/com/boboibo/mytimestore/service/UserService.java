@@ -136,9 +136,11 @@ public class UserService {
     }
     private UserResponse findUserByEmail(String email) {
         User user = userRepository.findByEmail(email);
+
         UserResponse userResponse = userMapper.toUserResponse(user);
         Customer customer = customerRepository.findByUser_UserId(user.getUserId());
         userResponse.setCustomerResponse(customerMapper.customerToCustomerResponse(customer));
+        userResponse.setUserId(user.getUserId());
        return userResponse;
     }
 
