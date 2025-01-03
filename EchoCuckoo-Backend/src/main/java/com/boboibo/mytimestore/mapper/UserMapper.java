@@ -33,7 +33,7 @@ public interface UserMapper {
     @Mapping(source = "fullName", target = "fullName")
     @Mapping(source = "email", target = "email")
     @Mapping(source = "image", target = "image")
-    @Mapping(target = "userId",ignore = true)
+//    @Mapping(target = "userId",ignore = true)
     User updateRequestToUser(UpdateUserRequest updateUserRequest);
     // Ánh xạ từ User sang UserResponse (tạo response trả về)
     UserResponse userToUserResponse(User user);

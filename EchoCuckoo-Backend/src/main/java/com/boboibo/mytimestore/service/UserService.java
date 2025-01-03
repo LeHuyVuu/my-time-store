@@ -97,14 +97,14 @@ public class UserService {
         return uniqueUsername;
     }
 
-    public UserResponse updateUser(UpdateUserRequest updateUserRequest) {
+    public UserResponse updateUser(UpdateUserRequest updateUserRequest, long userId) {
         try {
-            User user = getUserByUserId(updateUserRequest.getUserId());
+            User user = getUserByUserId(userId);
             user.setImage(updateUserRequest.getImage());
             user.setFullName(updateUserRequest.getFullName());
             user.setEmail(updateUserRequest.getEmail());
             if (user.getRole().equals(Role.CUSTOMER)) {
-                Customer customer = customerRepository.findByUser_UserId(updateUserRequest.getUserId());
+                Customer customer = customerRepository.findByUser_UserId(userId);
                 customer.setPhone(updateUserRequest.getPhoneNumber());
                 customer.setAddress(updateUserRequest.getAddress());
                 customerRepository.save(customer);
@@ -163,7 +163,7 @@ public class UserService {
 
     public User getUserByUserId(Long userId) {
         User user = userRepository.findByUserId(userId);
-        if (user == null) {
+        if (user == null || !user.isStatus()) {
             throw new AppException(ErrorCode.USER_NOT_EXIST);
         }
         return user;

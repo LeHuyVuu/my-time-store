@@ -48,7 +48,7 @@ public class CartItemController {
             cartItemService.deleteCartitem(userId, productId);
             return ResponseObject.APIRepsonse(200, "Delete Cart item created successfully", HttpStatus.OK, null);
         } catch (AppException e) {
-            return ResponseObject.APIRepsonse(403, "Can't Delte cart item", HttpStatus.FORBIDDEN, null);
+            return ResponseObject.APIRepsonse(403, "Can't delete cart item", HttpStatus.FORBIDDEN, null);
         }
     }
     @PutMapping("/{userId}")

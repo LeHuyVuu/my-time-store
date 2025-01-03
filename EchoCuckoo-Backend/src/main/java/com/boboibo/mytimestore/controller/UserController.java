@@ -45,9 +45,9 @@ public class UserController {
             return ResponseObject.APIRepsonse(500, "An error occurred: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR, "");
         }
     }
-    @PutMapping("/update")
-    public ResponseEntity<ResponseObject> update(@RequestBody UpdateUserRequest updateUserRequest){
-        UserResponse isUpdated = userService.updateUser(updateUserRequest);
+    @PutMapping("/update/{userId}")
+    public ResponseEntity<ResponseObject> update(@RequestBody UpdateUserRequest updateUserRequest, @PathVariable long userId) {
+        UserResponse isUpdated = userService.updateUser(updateUserRequest, userId);
         if(isUpdated != null){
             return ResponseObject.APIRepsonse(200, "User updated successfully!", HttpStatus.OK, isUpdated);
         }else {
