@@ -17,8 +17,9 @@ import java.util.Optional;
 public interface ProductRepository extends JpaRepository<Product,Long> {
 
     Page<Product> findByIsStatus(IsStatus isStatus, Pageable pageable);
-    Page<Product> findByProductNameContainingIgnoreCase(
+    Page<Product> findByProductNameContainingIgnoreCaseAndIsStatus(
             String productName,
+            IsStatus isStatus,
             Pageable pageable
     );
 

@@ -75,14 +75,14 @@ public class ProductController {
     }
     // PUT /api/v1/products/{id} - Cập nhật thông tin sản phẩm
     @PutMapping("/{id}")
-    public ResponseEntity<ResponseObject> updateProduct(@PathVariable Long id, @Valid @RequestBody Product product) {
-        Optional<Product> updatedProduct = productService.updateProduct(id, product);
+    public ResponseEntity<ResponseObject> updateProduct(@PathVariable Long id, @RequestBody ProductRequest productRequest) {
+        ProductResponse updatedProduct = productService.updateProduct(id, productRequest);
 
-        if (updatedProduct.isEmpty()) {
+        if (updatedProduct == null) {
             return ResponseObject.APIRepsonse(404, "Product not found", HttpStatus.NOT_FOUND, null);
         }
 
-        return ResponseObject.APIRepsonse(200, "Product updated successfully", HttpStatus.OK, updatedProduct.get());
+        return ResponseObject.APIRepsonse(200, "Product updated successfully", HttpStatus.OK, updatedProduct);
     }
 
     // DELETE /api/v1/products/{id} - Xóa sản phẩm theo ID

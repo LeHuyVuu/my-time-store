@@ -1,6 +1,7 @@
 package com.boboibo.mytimestore.model.request;
 
 
+import com.boboibo.mytimestore.model.enums.Category;
 import com.boboibo.mytimestore.model.enums.ProductStatus;
 import jakarta.validation.constraints.*;
 import lombok.AccessLevel;
@@ -19,7 +20,7 @@ import java.util.Date;
 public class ProductRequest {
 
     @NotNull(message = "Category cannot be null")
-    String category;
+    Category category;
 
     @NotNull(message = "CreatedAt cannot be null")
     LocalDateTime createdAt;
@@ -31,7 +32,7 @@ public class ProductRequest {
     Double discountPrice;
 
     @NotNull(message = "Expiry date cannot be null")
-    LocalDateTime expiryDate;
+    Date expiryDate;
 
     @Size(max = 255, message = "Image URL must not exceed 255 characters")
     String image;

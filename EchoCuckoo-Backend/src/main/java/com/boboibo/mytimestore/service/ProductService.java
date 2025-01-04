@@ -64,7 +64,7 @@ public class ProductService {
         try{
             Sort sort = Sort.by("createdAt").descending();
             Pageable pageable = PageRequest.of(page - 1 , pageSize,sort);
-            var pageData = productRepository.findByProductNameContainingIgnoreCase(productName, pageable);
+            var pageData = productRepository.findByProductNameContainingIgnoreCaseAndIsStatus(productName, IsStatus.ACTIVE, pageable);
             List<ProductResponse> productResponses = pageData.getContent().stream()
                     .map(productMapper::toProductResponse)
                     .collect(Collectors.toList());
@@ -107,8 +107,14 @@ public class ProductService {
         return result;
     }
 
-    public Optional<Product> updateProduct(Long id, @Valid Product product) {
-        return Optional.empty();
+    public ProductResponse updateProduct(Long id, ProductRequest productRequest) {
+        ProductResponse productResponse = null;
+
+        Product product = getProductById(id).get();
+        productMapper.updateProductFromRequest(productRequest, product);
+
+        Product updatedProduct = productRepository.save(product);
+        return productMapper.toProductResponse(updatedProduct);
     }
 
     public boolean deleteProduct(Long id) {
