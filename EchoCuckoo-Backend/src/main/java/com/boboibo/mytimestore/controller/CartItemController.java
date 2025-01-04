@@ -60,4 +60,14 @@ public class CartItemController {
             return ResponseObject.APIRepsonse(403, "Can't Update cart item", HttpStatus.FORBIDDEN, null);
         }
     }
+    @GetMapping("/{userId}")
+    public ResponseEntity<ResponseObject> getCartItemByUserId(@PathVariable Long userId) {
+        List<CartItemResponse> cartItemResponseList = cartItemService.getCartItemByUserId(userId);
+        // Nếu danh sách sản phẩm rỗng, trả về thông báo không có sản phẩm
+        if (cartItemResponseList.isEmpty()) {
+            return ResponseObject.APIRepsonse(404, "No cart Item found By UserID ", HttpStatus.NOT_FOUND, null);
+        }
+        // Trả về danh sách sản phẩm nếu có
+        return ResponseObject.APIRepsonse(200, "CartItems retrieved successfully", HttpStatus.OK, cartItemResponseList);
+    }
 }
